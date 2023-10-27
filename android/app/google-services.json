@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "581312900621",
+    "project_id": "paavya-payments",
+    "storage_bucket": "paavya-payments.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:581312900621:android:3c2f8283e23475a2b8ef44",
+        "android_client_info": {
+          "package_name": "com.mycompany.paavyapayments"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "581312900621-s3bm47tu1sq480ftj8agj83mpk060tv4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.paavyapayments",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "581312900621-8st6go0i4p5o3n3be3h661fb3j4na62j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD225zpkcJkn2KVUzx7wEE58KFUttHj72Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "581312900621-8st6go0i4p5o3n3be3h661fb3j4na62j.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "581312900621-tjvk0adno6j6potp8leg350t2up9mblk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.paavyapayments"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

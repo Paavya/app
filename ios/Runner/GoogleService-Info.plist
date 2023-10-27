@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>581312900621-tjvk0adno6j6potp8leg350t2up9mblk.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.581312900621-tjvk0adno6j6potp8leg350t2up9mblk</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>581312900621-s3bm47tu1sq480ftj8agj83mpk060tv4.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCt_zWQPiwVtcJXZ_jl7XguaCKRLuTRXn0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>581312900621</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.mycompany.paavyapayments</string>
+	<key>PROJECT_ID</key>
+	<string>paavya-payments</string>
+	<key>STORAGE_BUCKET</key>
+	<string>paavya-payments.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:581312900621:ios:4372e6daf4025c8fb8ef44</string>
+</dict>
+</plist>
