@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -14,62 +15,61 @@ class SignUpModel extends FlutterFlowModel<SignUpWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // State field(s) for Fullname widget.
-  FocusNode? fullnameFocusNode1;
-  TextEditingController? fullnameController1;
-  String? Function(BuildContext, String?)? fullnameController1Validator;
-  // State field(s) for Fullname widget.
-  FocusNode? fullnameFocusNode2;
-  TextEditingController? fullnameController2;
-  String? Function(BuildContext, String?)? fullnameController2Validator;
+  // State field(s) for firstname widget.
+  FocusNode? firstnameFocusNode;
+  TextEditingController? firstnameController;
+  String? Function(BuildContext, String?)? firstnameControllerValidator;
+  // State field(s) for lastname widget.
+  FocusNode? lastnameFocusNode;
+  TextEditingController? lastnameController;
+  String? Function(BuildContext, String?)? lastnameControllerValidator;
   // State field(s) for Email widget.
-  FocusNode? emailFocusNode1;
-  TextEditingController? emailController1;
-  String? Function(BuildContext, String?)? emailController1Validator;
-  // State field(s) for Email widget.
-  FocusNode? emailFocusNode2;
-  TextEditingController? emailController2;
-  String? Function(BuildContext, String?)? emailController2Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode1;
-  TextEditingController? passwordTextController;
-  late bool passwordVisibility1;
-  String? Function(BuildContext, String?)? passwordTextControllerValidator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode2;
-  TextEditingController? confirmPasswordTextController;
-  late bool passwordVisibility2;
-  String? Function(BuildContext, String?)?
-      confirmPasswordTextControllerValidator;
+  FocusNode? emailFocusNode;
+  TextEditingController? emailController;
+  String? Function(BuildContext, String?)? emailControllerValidator;
+  // State field(s) for phonenumber widget.
+  FocusNode? phonenumberFocusNode;
+  TextEditingController? phonenumberController;
+  String? Function(BuildContext, String?)? phonenumberControllerValidator;
+  // State field(s) for password1 widget.
+  FocusNode? password1FocusNode;
+  TextEditingController? password1Controller;
+  late bool password1Visibility;
+  String? Function(BuildContext, String?)? password1ControllerValidator;
+  // State field(s) for confirmpassword2 widget.
+  FocusNode? confirmpassword2FocusNode;
+  TextEditingController? confirmpassword2Controller;
+  late bool confirmpassword2Visibility;
+  String? Function(BuildContext, String?)? confirmpassword2ControllerValidator;
   // State field(s) for Checkbox widget.
   bool? checkboxValue;
 
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
-    passwordVisibility1 = false;
-    passwordVisibility2 = false;
+    password1Visibility = false;
+    confirmpassword2Visibility = false;
   }
 
   void dispose() {
     unfocusNode.dispose();
-    fullnameFocusNode1?.dispose();
-    fullnameController1?.dispose();
+    firstnameFocusNode?.dispose();
+    firstnameController?.dispose();
 
-    fullnameFocusNode2?.dispose();
-    fullnameController2?.dispose();
+    lastnameFocusNode?.dispose();
+    lastnameController?.dispose();
 
-    emailFocusNode1?.dispose();
-    emailController1?.dispose();
+    emailFocusNode?.dispose();
+    emailController?.dispose();
 
-    emailFocusNode2?.dispose();
-    emailController2?.dispose();
+    phonenumberFocusNode?.dispose();
+    phonenumberController?.dispose();
 
-    textFieldFocusNode1?.dispose();
-    passwordTextController?.dispose();
+    password1FocusNode?.dispose();
+    password1Controller?.dispose();
 
-    textFieldFocusNode2?.dispose();
-    confirmPasswordTextController?.dispose();
+    confirmpassword2FocusNode?.dispose();
+    confirmpassword2Controller?.dispose();
   }
 
   /// Action blocks are added here.

@@ -114,12 +114,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'sign_up',
           path: '/signUp',
-          builder: (context, params) => SignUpWidget(
-            firstName: params.getParam('firstName', ParamType.String),
-            lastName: params.getParam('lastName', ParamType.String),
-            phoneNumber: params.getParam('phoneNumber', ParamType.int),
-            termsAgreement: params.getParam('termsAgreement', ParamType.bool),
-          ),
+          builder: (context, params) => SignUpWidget(),
         ),
         FFRoute(
           name: 'Forgotpassword1',
@@ -149,12 +144,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'MyAccount',
           path: '/myAccount',
-          builder: (context, params) => MyAccountWidget(
-            firstandlastname:
-                params.getParam('firstandlastname', ParamType.String),
-            phonenumber: params.getParam('phonenumber', ParamType.String),
-            userimg: params.getParam('userimg', ParamType.String),
-          ),
+          builder: (context, params) => MyAccountWidget(),
         ),
         FFRoute(
           name: 'topup_success',
@@ -232,9 +222,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => TermsandconditionsWidget(),
         ),
         FFRoute(
-          name: 'Finhealth',
-          path: '/finhealth',
-          builder: (context, params) => FinhealthWidget(),
+          name: 'dashboard_empty',
+          path: '/dashboardEmpty',
+          builder: (context, params) => DashboardEmptyWidget(),
+        ),
+        FFRoute(
+          name: 'notifications',
+          path: '/notifications',
+          builder: (context, params) => NotificationsWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

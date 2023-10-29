@@ -32,8 +32,13 @@ class _TopupNewWidgetState extends State<TopupNewWidget> {
     super.initState();
     _model = createModel(context, () => TopupNewModel());
 
-    _model.textController ??= TextEditingController(text: '\$50.00');
+    _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
+          _model.textController?.text = FFLocalizations.of(context).getText(
+            '86sfr6a7' /* $50.00 */,
+          );
+        }));
   }
 
   @override
@@ -45,6 +50,8 @@ class _TopupNewWidgetState extends State<TopupNewWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Material(
       color: Colors.transparent,
       elevation: 5.0,
@@ -102,7 +109,9 @@ class _TopupNewWidgetState extends State<TopupNewWidget> {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                       child: Text(
-                        'Top Up',
+                        FFLocalizations.of(context).getText(
+                          'bn126egq' /* Top Up */,
+                        ),
                         style: FlutterFlowTheme.of(context).headlineMedium,
                       ),
                     ),
@@ -143,7 +152,9 @@ class _TopupNewWidgetState extends State<TopupNewWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Text(
-                      'Balance',
+                      FFLocalizations.of(context).getText(
+                        'sim46hj7' /* Balance */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodyLarge,
                     ),
                   ],
@@ -155,7 +166,9 @@ class _TopupNewWidgetState extends State<TopupNewWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Text(
-                      '\$413.81',
+                      FFLocalizations.of(context).getText(
+                        'hcubfs82' /* $413.81 */,
+                      ),
                       style:
                           FlutterFlowTheme.of(context).headlineLarge.override(
                                 fontFamily: 'Inter',
@@ -170,7 +183,9 @@ class _TopupNewWidgetState extends State<TopupNewWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Text(
-                      'Select bank',
+                      FFLocalizations.of(context).getText(
+                        'f6ie7gf4' /* Select bank */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodyLarge,
                     ),
                   ],
@@ -212,7 +227,9 @@ class _TopupNewWidgetState extends State<TopupNewWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   24.0, 0.0, 0.0, 0.0),
                               child: Text(
-                                'Bank of America',
+                                FFLocalizations.of(context).getText(
+                                  'e05i9yqo' /* Bank of America */,
+                                ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             ),
@@ -277,7 +294,10 @@ class _TopupNewWidgetState extends State<TopupNewWidget> {
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Text(
-                                              'Set amount',
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '244aeitl' /* Set amount */,
+                                              ),
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyLarge,
@@ -288,7 +308,10 @@ class _TopupNewWidgetState extends State<TopupNewWidget> {
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Text(
-                                              'How much would you like to top up?',
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '1tyg53xf' /* How much would you like to top... */,
+                                              ),
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .labelMedium,
@@ -442,7 +465,9 @@ class _TopupNewWidgetState extends State<TopupNewWidget> {
                           },
                         ).then((value) => safeSetState(() {}));
                       },
-                      text: 'Top Up',
+                      text: FFLocalizations.of(context).getText(
+                        '7xxhh3it' /* Top Up */,
+                      ),
                       options: FFButtonOptions(
                         width: 270.0,
                         height: 50.0,

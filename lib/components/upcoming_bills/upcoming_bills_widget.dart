@@ -39,6 +39,8 @@ class _UpcomingBillsWidgetState extends State<UpcomingBillsWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
       child: Material(
@@ -78,14 +80,18 @@ class _UpcomingBillsWidgetState extends State<UpcomingBillsWidget> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'Company',
+                            FFLocalizations.of(context).getText(
+                              'h83jg3jq' /* Company */,
+                            ),
                             style:
                                 FlutterFlowTheme.of(context).bodySmall.override(
                                       fontFamily: 'Inter',
                                     ),
                           ),
                           Text(
-                            'Due Date',
+                            FFLocalizations.of(context).getText(
+                              '1n741396' /* Due Date */,
+                            ),
                             style:
                                 FlutterFlowTheme.of(context).bodySmall.override(
                                       fontFamily: 'Readex Pro',
@@ -102,7 +108,9 @@ class _UpcomingBillsWidgetState extends State<UpcomingBillsWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            'Amount Due',
+                            FFLocalizations.of(context).getText(
+                              'uyljz5b4' /* Amount Due */,
+                            ),
                             style:
                                 FlutterFlowTheme.of(context).bodySmall.override(
                                       fontFamily: 'Inter',
@@ -182,7 +190,9 @@ class _UpcomingBillsWidgetState extends State<UpcomingBillsWidget> {
                         padding:
                             EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                         child: Text(
-                          'Due in ',
+                          FFLocalizations.of(context).getText(
+                            '0oflhao3' /* Due in  */,
+                          ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Readex Pro',
@@ -191,14 +201,18 @@ class _UpcomingBillsWidgetState extends State<UpcomingBillsWidget> {
                         ),
                       ),
                       Text(
-                        '3 ',
+                        FFLocalizations.of(context).getText(
+                          '2ymqg76s' /* 3  */,
+                        ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Readex Pro',
                               color: FlutterFlowTheme.of(context).info,
                             ),
                       ),
                       Text(
-                        'days',
+                        FFLocalizations.of(context).getText(
+                          'ooklrck5' /* days */,
+                        ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Readex Pro',
                               color: FlutterFlowTheme.of(context).info,

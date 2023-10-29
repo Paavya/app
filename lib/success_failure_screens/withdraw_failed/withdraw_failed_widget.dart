@@ -47,6 +47,8 @@ class _WithdrawFailedWidgetState extends State<WithdrawFailedWidget> {
       );
     }
 
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -132,7 +134,11 @@ class _WithdrawFailedWidgetState extends State<WithdrawFailedWidget> {
                                                                     .center,
                                                             children: [
                                                               Text(
-                                                                'Withdraw failed',
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  '8t2hhn5a' /* Withdraw failed */,
+                                                                ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .headlineMedium
@@ -161,7 +167,11 @@ class _WithdrawFailedWidgetState extends State<WithdrawFailedWidget> {
                                                                           .center,
                                                                   children: [
                                                                     Text(
-                                                                      '\$50.00',
+                                                                      FFLocalizations.of(
+                                                                              context)
+                                                                          .getText(
+                                                                        'uae1exl0' /* $50.00 */,
+                                                                      ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .displayMedium
@@ -237,7 +247,9 @@ class _WithdrawFailedWidgetState extends State<WithdrawFailedWidget> {
                           onPressed: () async {
                             context.safePop();
                           },
-                          text: 'Go back to try again',
+                          text: FFLocalizations.of(context).getText(
+                            '54ktwueo' /* Go back to try again */,
+                          ),
                           options: FFButtonOptions(
                             height: 56.0,
                             padding: EdgeInsetsDirectional.fromSTEB(

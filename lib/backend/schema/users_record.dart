@@ -56,6 +56,31 @@ class UsersRecord extends FirestoreRecord {
   String get lastName => _lastName ?? '';
   bool hasLastName() => _lastName != null;
 
+  // "address_line_1" field.
+  LatLng? _addressLine1;
+  LatLng? get addressLine1 => _addressLine1;
+  bool hasAddressLine1() => _addressLine1 != null;
+
+  // "address_line_2" field.
+  LatLng? _addressLine2;
+  LatLng? get addressLine2 => _addressLine2;
+  bool hasAddressLine2() => _addressLine2 != null;
+
+  // "city" field.
+  LatLng? _city;
+  LatLng? get city => _city;
+  bool hasCity() => _city != null;
+
+  // "state" field.
+  LatLng? _state;
+  LatLng? get state => _state;
+  bool hasState() => _state != null;
+
+  // "zip_code" field.
+  LatLng? _zipCode;
+  LatLng? get zipCode => _zipCode;
+  bool hasZipCode() => _zipCode != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -65,6 +90,11 @@ class UsersRecord extends FirestoreRecord {
     _phoneNumber = snapshotData['phone_number'] as String?;
     _firstName = snapshotData['first_name'] as String?;
     _lastName = snapshotData['last_name'] as String?;
+    _addressLine1 = snapshotData['address_line_1'] as LatLng?;
+    _addressLine2 = snapshotData['address_line_2'] as LatLng?;
+    _city = snapshotData['city'] as LatLng?;
+    _state = snapshotData['state'] as LatLng?;
+    _zipCode = snapshotData['zip_code'] as LatLng?;
   }
 
   static CollectionReference get collection =>
@@ -109,6 +139,11 @@ Map<String, dynamic> createUsersRecordData({
   String? phoneNumber,
   String? firstName,
   String? lastName,
+  LatLng? addressLine1,
+  LatLng? addressLine2,
+  LatLng? city,
+  LatLng? state,
+  LatLng? zipCode,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -120,6 +155,11 @@ Map<String, dynamic> createUsersRecordData({
       'phone_number': phoneNumber,
       'first_name': firstName,
       'last_name': lastName,
+      'address_line_1': addressLine1,
+      'address_line_2': addressLine2,
+      'city': city,
+      'state': state,
+      'zip_code': zipCode,
     }.withoutNulls,
   );
 
@@ -138,7 +178,12 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.createdTime == e2?.createdTime &&
         e1?.phoneNumber == e2?.phoneNumber &&
         e1?.firstName == e2?.firstName &&
-        e1?.lastName == e2?.lastName;
+        e1?.lastName == e2?.lastName &&
+        e1?.addressLine1 == e2?.addressLine1 &&
+        e1?.addressLine2 == e2?.addressLine2 &&
+        e1?.city == e2?.city &&
+        e1?.state == e2?.state &&
+        e1?.zipCode == e2?.zipCode;
   }
 
   @override
@@ -150,7 +195,12 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.createdTime,
         e?.phoneNumber,
         e?.firstName,
-        e?.lastName
+        e?.lastName,
+        e?.addressLine1,
+        e?.addressLine2,
+        e?.city,
+        e?.state,
+        e?.zipCode
       ]);
 
   @override

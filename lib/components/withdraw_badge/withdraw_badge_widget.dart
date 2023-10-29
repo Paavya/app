@@ -39,6 +39,8 @@ class _WithdrawBadgeWidgetState extends State<WithdrawBadgeWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 4.0, 4.0),
       child: Container(
@@ -87,7 +89,9 @@ class _WithdrawBadgeWidgetState extends State<WithdrawBadgeWidget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Text(
-                    'Paypal',
+                    FFLocalizations.of(context).getText(
+                      '1d8o13jy' /* Paypal */,
+                    ),
                     style: FlutterFlowTheme.of(context).bodySmall.override(
                           fontFamily: 'Readex Pro',
                           fontWeight: FontWeight.w300,

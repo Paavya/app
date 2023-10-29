@@ -48,6 +48,8 @@ class _MyCardMenuWidgetState extends State<MyCardMenuWidget> {
       );
     }
 
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -73,7 +75,9 @@ class _MyCardMenuWidgetState extends State<MyCardMenuWidget> {
             },
           ),
           title: Text(
-            'Card Menu',
+            FFLocalizations.of(context).getText(
+              'u5lctjqm' /* Card Menu */,
+            ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Outfit',
                   color: FlutterFlowTheme.of(context).primaryText,
@@ -126,7 +130,9 @@ class _MyCardMenuWidgetState extends State<MyCardMenuWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Text(
-                                    'Card Menu',
+                                    FFLocalizations.of(context).getText(
+                                      '9suq6297' /* Card Menu */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -177,7 +183,10 @@ class _MyCardMenuWidgetState extends State<MyCardMenuWidget> {
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(4.0, 0.0, 0.0, 0.0),
                                               child: Text(
-                                                'Top Up money',
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'a3xad9a3' /* Top Up money */,
+                                                ),
                                                 style: FlutterFlowTheme.of(
                                                         context)
                                                     .bodyMedium
@@ -262,7 +271,10 @@ class _MyCardMenuWidgetState extends State<MyCardMenuWidget> {
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(4.0, 0.0, 0.0, 0.0),
                                               child: Text(
-                                                'My budget',
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'a0nzru2c' /* My budget */,
+                                                ),
                                                 style: FlutterFlowTheme.of(
                                                         context)
                                                     .bodyMedium
@@ -347,7 +359,10 @@ class _MyCardMenuWidgetState extends State<MyCardMenuWidget> {
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(4.0, 0.0, 0.0, 0.0),
                                               child: Text(
-                                                'Set limits',
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'kwgkomfd' /* Set limits */,
+                                                ),
                                                 style: FlutterFlowTheme.of(
                                                         context)
                                                     .bodyMedium
@@ -432,7 +447,10 @@ class _MyCardMenuWidgetState extends State<MyCardMenuWidget> {
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(4.0, 0.0, 0.0, 0.0),
                                               child: Text(
-                                                'Lock card',
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'gygt8460' /* Lock card */,
+                                                ),
                                                 style: FlutterFlowTheme.of(
                                                         context)
                                                     .bodyMedium

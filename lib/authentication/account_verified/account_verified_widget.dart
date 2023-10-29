@@ -45,6 +45,8 @@ class _AccountVerifiedWidgetState extends State<AccountVerifiedWidget> {
       );
     }
 
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -102,7 +104,9 @@ class _AccountVerifiedWidgetState extends State<AccountVerifiedWidget> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    'Account Verified',
+                                    FFLocalizations.of(context).getText(
+                                      'osoew2q1' /* Account Verified */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .headlineMedium
                                         .override(
@@ -118,7 +122,9 @@ class _AccountVerifiedWidgetState extends State<AccountVerifiedWidget> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'Your account has been verified\nsuccessfully, now let\'s enjoy\nPaavya features!',
+                                  FFLocalizations.of(context).getText(
+                                    'ls0e3dyj' /* Your account has been verified... */,
+                                  ),
                                   textAlign: TextAlign.center,
                                   style: FlutterFlowTheme.of(context)
                                       .labelLarge
@@ -147,7 +153,9 @@ class _AccountVerifiedWidgetState extends State<AccountVerifiedWidget> {
                         onPressed: () {
                           print('Button pressed ...');
                         },
-                        text: 'Get Started',
+                        text: FFLocalizations.of(context).getText(
+                          '3c9s0d3v' /* Get Started */,
+                        ),
                         options: FFButtonOptions(
                           height: 56.0,
                           padding: EdgeInsetsDirectional.fromSTEB(

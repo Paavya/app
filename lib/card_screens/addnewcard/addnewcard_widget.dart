@@ -56,6 +56,8 @@ class _AddnewcardWidgetState extends State<AddnewcardWidget> {
       );
     }
 
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -81,7 +83,9 @@ class _AddnewcardWidgetState extends State<AddnewcardWidget> {
             },
           ),
           title: Text(
-            'Add New Card',
+            FFLocalizations.of(context).getText(
+              'kq48oepr' /* Add New Card */,
+            ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Outfit',
                   color: FlutterFlowTheme.of(context).primaryText,
@@ -121,7 +125,9 @@ class _AddnewcardWidgetState extends State<AddnewcardWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 8.0),
                                   child: Text(
-                                    'Cardholder Name',
+                                    FFLocalizations.of(context).getText(
+                                      'llk3iiwd' /* Cardholder Name */,
+                                    ),
                                     style:
                                         FlutterFlowTheme.of(context).bodyMedium,
                                   ),
@@ -143,7 +149,10 @@ class _AddnewcardWidgetState extends State<AddnewcardWidget> {
                                             fontFamily: 'Readex Pro',
                                             fontWeight: FontWeight.w200,
                                           ),
-                                      hintText: 'enter name',
+                                      hintText:
+                                          FFLocalizations.of(context).getText(
+                                        'qrl0nv90' /* enter name */,
+                                      ),
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .labelLarge
                                           .override(
@@ -231,7 +240,9 @@ class _AddnewcardWidgetState extends State<AddnewcardWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 8.0),
                                     child: Text(
-                                      'Expiry Date',
+                                      FFLocalizations.of(context).getText(
+                                        'xan31itz' /* Expiry Date */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium,
                                     ),
@@ -253,7 +264,10 @@ class _AddnewcardWidgetState extends State<AddnewcardWidget> {
                                               fontFamily: 'Readex Pro',
                                               fontWeight: FontWeight.w200,
                                             ),
-                                        hintText: 'enter name',
+                                        hintText:
+                                            FFLocalizations.of(context).getText(
+                                          '2k5m3cz9' /* enter name */,
+                                        ),
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .labelLarge
                                             .override(
@@ -334,7 +348,9 @@ class _AddnewcardWidgetState extends State<AddnewcardWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 8.0),
                                     child: Text(
-                                      'CVV',
+                                      FFLocalizations.of(context).getText(
+                                        's2y9t5eh' /* CVV */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium,
                                     ),
@@ -356,7 +372,10 @@ class _AddnewcardWidgetState extends State<AddnewcardWidget> {
                                               fontFamily: 'Readex Pro',
                                               fontWeight: FontWeight.w200,
                                             ),
-                                        hintText: 'enter name',
+                                        hintText:
+                                            FFLocalizations.of(context).getText(
+                                          'jfpn7gz7' /* enter name */,
+                                        ),
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .labelLarge
                                             .override(
@@ -441,7 +460,9 @@ class _AddnewcardWidgetState extends State<AddnewcardWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 8.0),
                                   child: Text(
-                                    'Card Number',
+                                    FFLocalizations.of(context).getText(
+                                      'jjsky8z9' /* Card Number */,
+                                    ),
                                     style:
                                         FlutterFlowTheme.of(context).bodyMedium,
                                   ),
@@ -464,7 +485,9 @@ class _AddnewcardWidgetState extends State<AddnewcardWidget> {
                                             fontWeight: FontWeight.w200,
                                           ),
                                       hintText:
-                                          'enter your 16 digit card number ',
+                                          FFLocalizations.of(context).getText(
+                                        'ynfua00o' /* enter your 16 digit card numbe... */,
+                                      ),
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .labelLarge
                                           .override(
@@ -566,7 +589,9 @@ class _AddnewcardWidgetState extends State<AddnewcardWidget> {
                           },
                         );
                       },
-                      text: 'Add Card',
+                      text: FFLocalizations.of(context).getText(
+                        'fmih6h0g' /* Add Card */,
+                      ),
                       options: FFButtonOptions(
                         width: 327.0,
                         height: 56.0,

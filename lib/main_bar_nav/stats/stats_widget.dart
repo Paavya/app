@@ -58,6 +58,8 @@ class _StatsWidgetState extends State<StatsWidget>
       );
     }
 
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -71,7 +73,9 @@ class _StatsWidgetState extends State<StatsWidget>
               IconThemeData(color: FlutterFlowTheme.of(context).secondaryText),
           automaticallyImplyLeading: true,
           title: Text(
-            'Statistics',
+            FFLocalizations.of(context).getText(
+              'qpvxb5cb' /* Statistics */,
+            ),
             style: FlutterFlowTheme.of(context).titleLarge,
           ),
           actions: [],
@@ -116,13 +120,19 @@ class _StatsWidgetState extends State<StatsWidget>
                                   4.0, 4.0, 4.0, 4.0),
                               tabs: [
                                 Tab(
-                                  text: 'Week',
+                                  text: FFLocalizations.of(context).getText(
+                                    'xst778f9' /* Week */,
+                                  ),
                                 ),
                                 Tab(
-                                  text: 'Month',
+                                  text: FFLocalizations.of(context).getText(
+                                    'q6s8q7jc' /* Month */,
+                                  ),
                                 ),
                                 Tab(
-                                  text: 'Year',
+                                  text: FFLocalizations.of(context).getText(
+                                    'jbg9ycnh' /* Year */,
+                                  ),
                                 ),
                               ],
                               controller: _model.tabBarController,
@@ -194,7 +204,11 @@ class _StatsWidgetState extends State<StatsWidget>
                                                                           .max,
                                                                   children: [
                                                                     Text(
-                                                                      'My Spending',
+                                                                      FFLocalizations.of(
+                                                                              context)
+                                                                          .getText(
+                                                                        '2umem4zt' /* My Spending */,
+                                                                      ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodyMedium,
@@ -214,7 +228,10 @@ class _StatsWidgetState extends State<StatsWidget>
                                                                           8.0),
                                                                       child:
                                                                           Text(
-                                                                        '\$ 1,747.00',
+                                                                        FFLocalizations.of(context)
+                                                                            .getText(
+                                                                          '2xluclyn' /* $ 1,747.00 */,
+                                                                        ),
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .headlineSmall
                                                                             .override(
@@ -258,7 +275,10 @@ class _StatsWidgetState extends State<StatsWidget>
                                                                           4.0),
                                                                       child:
                                                                           Text(
-                                                                        '-11.8%',
+                                                                        FFLocalizations.of(context)
+                                                                            .getText(
+                                                                          '7tsu3264' /* -11.8% */,
+                                                                        ),
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodySmall
                                                                             .override(
@@ -268,7 +288,11 @@ class _StatsWidgetState extends State<StatsWidget>
                                                                       ),
                                                                     ),
                                                                     Text(
-                                                                      'from last week',
+                                                                      FFLocalizations.of(
+                                                                              context)
+                                                                          .getText(
+                                                                        '3bic3o9u' /* from last week */,
+                                                                      ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodySmall,
@@ -375,8 +399,11 @@ class _StatsWidgetState extends State<StatsWidget>
                                                             ),
                                                             yAxisLabelInfo:
                                                                 AxisLabelInfo(
-                                                              title:
-                                                                  'In thousands',
+                                                              title: FFLocalizations
+                                                                      .of(context)
+                                                                  .getText(
+                                                                'a87d4r99' /* In thousands */,
+                                                              ),
                                                               titleTextStyle:
                                                                   FlutterFlowTheme.of(
                                                                           context)
@@ -422,7 +449,10 @@ class _StatsWidgetState extends State<StatsWidget>
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
                                               Text(
-                                                'Top Spending',
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'vclh3yh9' /* Top Spending */,
+                                                ),
                                                 style: FlutterFlowTheme.of(
                                                         context)
                                                     .titleMedium
@@ -440,9 +470,18 @@ class _StatsWidgetState extends State<StatsWidget>
                                                     FormFieldController<String>(
                                                         null),
                                                 options: [
-                                                  'All',
-                                                  'Brand',
-                                                  'Contact'
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'qegqq888' /* All */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '6cvqqv80' /* Brand */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'ngp1m5b3' /* Contact */,
+                                                  )
                                                 ],
                                                 onChanged: (val) => setState(
                                                     () => _model
@@ -457,7 +496,11 @@ class _StatsWidgetState extends State<StatsWidget>
                                                               'Readex Pro',
                                                           fontSize: 14.0,
                                                         ),
-                                                hintText: 'All',
+                                                hintText:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'g7c2zpnz' /* All */,
+                                                ),
                                                 icon: Icon(
                                                   Icons
                                                       .keyboard_arrow_down_rounded,
@@ -551,7 +594,11 @@ class _StatsWidgetState extends State<StatsWidget>
                                                             MainAxisSize.max,
                                                         children: [
                                                           Text(
-                                                            'McDonalds',
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              'mxpmwy8r' /* McDonalds */,
+                                                            ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyLarge,
@@ -583,7 +630,11 @@ class _StatsWidgetState extends State<StatsWidget>
                                                                         12.0,
                                                                         0.0),
                                                             child: Text(
-                                                              '-712.99',
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .getText(
+                                                                'nheh50e9' /* -712.99 */,
+                                                              ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyLarge
@@ -675,7 +726,10 @@ class _StatsWidgetState extends State<StatsWidget>
                                                                               .max,
                                                                       children: [
                                                                         Text(
-                                                                          'My Spending',
+                                                                          FFLocalizations.of(context)
+                                                                              .getText(
+                                                                            'xqib5b2x' /* My Spending */,
+                                                                          ),
                                                                           style:
                                                                               FlutterFlowTheme.of(context).bodyMedium,
                                                                         ),
@@ -694,7 +748,9 @@ class _StatsWidgetState extends State<StatsWidget>
                                                                               8.0),
                                                                           child:
                                                                               Text(
-                                                                            '\$ 35,747.00',
+                                                                            FFLocalizations.of(context).getText(
+                                                                              'uht4l99g' /* $ 35,747.00 */,
+                                                                            ),
                                                                             style: FlutterFlowTheme.of(context).headlineSmall.override(
                                                                                   fontFamily: 'Inter',
                                                                                   fontWeight: FontWeight.bold,
@@ -735,7 +791,9 @@ class _StatsWidgetState extends State<StatsWidget>
                                                                               4.0),
                                                                           child:
                                                                               Text(
-                                                                            '+10.8%',
+                                                                            FFLocalizations.of(context).getText(
+                                                                              'wzh4gvvp' /* +10.8% */,
+                                                                            ),
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Readex Pro',
                                                                                   color: FlutterFlowTheme.of(context).error,
@@ -743,7 +801,10 @@ class _StatsWidgetState extends State<StatsWidget>
                                                                           ),
                                                                         ),
                                                                         Text(
-                                                                          'from last year',
+                                                                          FFLocalizations.of(context)
+                                                                              .getText(
+                                                                            'gcxcac2u' /* from last year */,
+                                                                          ),
                                                                           style:
                                                                               FlutterFlowTheme.of(context).bodySmall,
                                                                         ),
@@ -848,8 +909,11 @@ class _StatsWidgetState extends State<StatsWidget>
                                                                 ),
                                                                 yAxisLabelInfo:
                                                                     AxisLabelInfo(
-                                                                  title:
-                                                                      'In thousands',
+                                                                  title: FFLocalizations.of(
+                                                                          context)
+                                                                      .getText(
+                                                                    'ftrt2w0l' /* In thousands */,
+                                                                  ),
                                                                   titleTextStyle:
                                                                       FlutterFlowTheme.of(
                                                                               context)
@@ -897,7 +961,10 @@ class _StatsWidgetState extends State<StatsWidget>
                                                         .spaceBetween,
                                                 children: [
                                                   Text(
-                                                    'Top Spending',
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      'kz4wd659' /* Top Spending */,
+                                                    ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .titleMedium
@@ -915,9 +982,21 @@ class _StatsWidgetState extends State<StatsWidget>
                                                         FormFieldController<
                                                             String>(null),
                                                     options: [
-                                                      'All',
-                                                      'Brand',
-                                                      'Contact'
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        '1hmvgrl1' /* All */,
+                                                      ),
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        '0v9xfpou' /* Brand */,
+                                                      ),
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'cny18nme' /* Contact */,
+                                                      )
                                                     ],
                                                     onChanged: (val) =>
                                                         setState(() => _model
@@ -934,7 +1013,12 @@ class _StatsWidgetState extends State<StatsWidget>
                                                                   'Readex Pro',
                                                               fontSize: 14.0,
                                                             ),
-                                                    hintText: 'All',
+                                                    hintText:
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                      'hojow3oq' /* All */,
+                                                    ),
                                                     icon: Icon(
                                                       Icons
                                                           .keyboard_arrow_down_rounded,
@@ -1034,7 +1118,11 @@ class _StatsWidgetState extends State<StatsWidget>
                                                                     .max,
                                                             children: [
                                                               Text(
-                                                                'Grocery store',
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  'l133habz' /* Grocery store */,
+                                                                ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyLarge,
@@ -1068,7 +1156,11 @@ class _StatsWidgetState extends State<StatsWidget>
                                                                             12.0,
                                                                             0.0),
                                                                 child: Text(
-                                                                  '-712.99',
+                                                                  FFLocalizations.of(
+                                                                          context)
+                                                                      .getText(
+                                                                    'fl686svi' /* -712.99 */,
+                                                                  ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyLarge
@@ -1168,7 +1260,9 @@ class _StatsWidgetState extends State<StatsWidget>
                                                                               MainAxisSize.max,
                                                                           children: [
                                                                             Text(
-                                                                              'My Spending',
+                                                                              FFLocalizations.of(context).getText(
+                                                                                '8o3yw9k8' /* My Spending */,
+                                                                              ),
                                                                               style: FlutterFlowTheme.of(context).bodyMedium,
                                                                             ),
                                                                           ],
@@ -1180,7 +1274,9 @@ class _StatsWidgetState extends State<StatsWidget>
                                                                             Padding(
                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                                                                               child: Text(
-                                                                                '\$ 48,327.00',
+                                                                                FFLocalizations.of(context).getText(
+                                                                                  'x2ixjpuh' /* $ 48,327.00 */,
+                                                                                ),
                                                                                 style: FlutterFlowTheme.of(context).headlineSmall.override(
                                                                                       fontFamily: 'Inter',
                                                                                       fontWeight: FontWeight.bold,
@@ -1208,7 +1304,9 @@ class _StatsWidgetState extends State<StatsWidget>
                                                                             Padding(
                                                                               padding: EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 4.0, 4.0),
                                                                               child: Text(
-                                                                                '+4.8%',
+                                                                                FFLocalizations.of(context).getText(
+                                                                                  '7hny9lln' /* +4.8% */,
+                                                                                ),
                                                                                 style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                       fontFamily: 'Readex Pro',
                                                                                       color: FlutterFlowTheme.of(context).error,
@@ -1216,7 +1314,9 @@ class _StatsWidgetState extends State<StatsWidget>
                                                                               ),
                                                                             ),
                                                                             Text(
-                                                                              'from last two years',
+                                                                              FFLocalizations.of(context).getText(
+                                                                                '3crarklp' /* from last two years */,
+                                                                              ),
                                                                               style: FlutterFlowTheme.of(context).bodySmall,
                                                                             ),
                                                                           ],
@@ -1315,8 +1415,11 @@ class _StatsWidgetState extends State<StatsWidget>
                                                                     ),
                                                                     yAxisLabelInfo:
                                                                         AxisLabelInfo(
-                                                                      title:
-                                                                          'In thousands',
+                                                                      title: FFLocalizations.of(
+                                                                              context)
+                                                                          .getText(
+                                                                        'aumny49y' /* In thousands */,
+                                                                      ),
                                                                       titleTextStyle:
                                                                           FlutterFlowTheme.of(context)
                                                                               .labelSmall,
@@ -1362,7 +1465,11 @@ class _StatsWidgetState extends State<StatsWidget>
                                                             .spaceBetween,
                                                     children: [
                                                       Text(
-                                                        'Top Spending',
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'hqvkxkbc' /* Top Spending */,
+                                                        ),
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -1382,9 +1489,21 @@ class _StatsWidgetState extends State<StatsWidget>
                                                             FormFieldController<
                                                                 String>(null),
                                                         options: [
-                                                          'All',
-                                                          'Brand',
-                                                          'Contact'
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            '08i19ccj' /* All */,
+                                                          ),
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'p3jwjw8s' /* Brand */,
+                                                          ),
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'y540lvup' /* Contact */,
+                                                          )
                                                         ],
                                                         onChanged: (val) =>
                                                             setState(() => _model
@@ -1402,7 +1521,12 @@ class _StatsWidgetState extends State<StatsWidget>
                                                                   fontSize:
                                                                       14.0,
                                                                 ),
-                                                        hintText: 'All',
+                                                        hintText:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          '4lfiyb6b' /* All */,
+                                                        ),
                                                         icon: Icon(
                                                           Icons
                                                               .keyboard_arrow_down_rounded,
@@ -1506,7 +1630,11 @@ class _StatsWidgetState extends State<StatsWidget>
                                                                         .max,
                                                                 children: [
                                                                   Text(
-                                                                    'Grocery store',
+                                                                    FFLocalizations.of(
+                                                                            context)
+                                                                        .getText(
+                                                                      '5qjcy29p' /* Grocery store */,
+                                                                    ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodyLarge,
@@ -1539,7 +1667,11 @@ class _StatsWidgetState extends State<StatsWidget>
                                                                             12.0,
                                                                             0.0),
                                                                     child: Text(
-                                                                      '-712.99',
+                                                                      FFLocalizations.of(
+                                                                              context)
+                                                                          .getText(
+                                                                        '69n1d1pa' /* -712.99 */,
+                                                                      ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodyLarge
@@ -1581,7 +1713,7 @@ class _StatsWidgetState extends State<StatsWidget>
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(0.00, 1.02),
+              alignment: AlignmentDirectional(0.00, 1.00),
               child: wrapWithModel(
                 model: _model.navBar1Model,
                 updateCallback: () => setState(() {}),

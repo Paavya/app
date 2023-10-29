@@ -47,6 +47,8 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
       );
     }
 
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -135,7 +137,9 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    'Before you start',
+                                    FFLocalizations.of(context).getText(
+                                      '19ffw4rw' /* Before you start */,
+                                    ),
                                     textAlign: TextAlign.center,
                                     style: FlutterFlowTheme.of(context)
                                         .titleLarge
@@ -154,7 +158,9 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 8.0, 0.0, 0.0),
                                     child: Text(
-                                      'Each section will need to be filled, it \nonly takes a couple of minutes!.',
+                                      FFLocalizations.of(context).getText(
+                                        'fw7otecr' /* Each section will need to be f... */,
+                                      ),
                                       textAlign: TextAlign.center,
                                       style: FlutterFlowTheme.of(context)
                                           .labelLarge
@@ -271,7 +277,11 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
                                                                           .max,
                                                                   children: [
                                                                     Text(
-                                                                      'About you',
+                                                                      FFLocalizations.of(
+                                                                              context)
+                                                                          .getText(
+                                                                        'jdhhz1g8' /* About you */,
+                                                                      ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .labelLarge
@@ -292,7 +302,13 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
                                                                           .max,
                                                                   children: [
                                                                     Text(
-                                                                      'Your citizenship and \nemployment status.',
+                                                                      FFLocalizations.of(
+                                                                              context)
+                                                                          .getText(
+                                                                        'espg4gam' /* Your citizenship and 
+employme... */
+                                                                        ,
+                                                                      ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodySmall
@@ -405,7 +421,11 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
                                                                           .max,
                                                                   children: [
                                                                     Text(
-                                                                      'Your finances',
+                                                                      FFLocalizations.of(
+                                                                              context)
+                                                                          .getText(
+                                                                        'rr92v233' /* Your finances */,
+                                                                      ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .labelLarge
@@ -426,7 +446,13 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
                                                                           .max,
                                                                   children: [
                                                                     Text(
-                                                                      'Your income and committed \nspending.',
+                                                                      FFLocalizations.of(
+                                                                              context)
+                                                                          .getText(
+                                                                        'z91evdmq' /* Your income and committed 
+spe... */
+                                                                        ,
+                                                                      ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodySmall
@@ -539,7 +565,11 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
                                                                           .max,
                                                                   children: [
                                                                     Text(
-                                                                      'Your account',
+                                                                      FFLocalizations.of(
+                                                                              context)
+                                                                          .getText(
+                                                                        'ieehe48i' /* Your account */,
+                                                                      ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .labelLarge
@@ -560,7 +590,13 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
                                                                           .max,
                                                                   children: [
                                                                     Text(
-                                                                      'How you’ll plan your Paavya \naccount.',
+                                                                      FFLocalizations.of(
+                                                                              context)
+                                                                          .getText(
+                                                                        'l83kgssx' /* How you’ll plan your Paavya 
+a... */
+                                                                        ,
+                                                                      ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodySmall
@@ -673,7 +709,11 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
                                                                           .max,
                                                                   children: [
                                                                     Text(
-                                                                      'Your identity',
+                                                                      FFLocalizations.of(
+                                                                              context)
+                                                                          .getText(
+                                                                        '071d24o1' /* Your identity */,
+                                                                      ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .labelLarge
@@ -694,7 +734,13 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
                                                                           .max,
                                                                   children: [
                                                                     Text(
-                                                                      'Checking to make sure your \nID and you match.',
+                                                                      FFLocalizations.of(
+                                                                              context)
+                                                                          .getText(
+                                                                        '4bygnrc2' /* Checking to make sure your 
+ID... */
+                                                                        ,
+                                                                      ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodySmall
@@ -765,7 +811,10 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
                                                     .fromSTEB(
                                                         8.0, 0.0, 0.0, 0.0),
                                                 child: Text(
-                                                  'We\'ll always keep information \nsecure and confidential.',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'sgy566k9' /* We'll always keep information ... */,
+                                                  ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodySmall
@@ -797,10 +846,24 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 20.0, 0.0, 0.0),
                                       child: FFButtonWidget(
-                                        onPressed: () {
-                                          print('Button pressed ...');
+                                        onPressed: () async {
+                                          context.pushNamed(
+                                            'sign_up',
+                                            extra: <String, dynamic>{
+                                              kTransitionInfoKey:
+                                                  TransitionInfo(
+                                                hasTransition: true,
+                                                transitionType:
+                                                    PageTransitionType
+                                                        .rightToLeft,
+                                              ),
+                                            },
+                                          );
                                         },
-                                        text: 'Get Started',
+                                        text:
+                                            FFLocalizations.of(context).getText(
+                                          'dv068xu9' /* Get Started */,
+                                        ),
                                         options: FFButtonOptions(
                                           height: 56.0,
                                           padding:

@@ -59,6 +59,7 @@ abstract class FlutterFlowTheme {
   late Color tabtext;
   late Color chartBg;
   late Color verifyscreens;
+  late Color background;
 
   @Deprecated('Use displaySmallFamily instead')
   String get title1Family => displaySmallFamily;
@@ -153,6 +154,7 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color tabtext = Color(0xFFF9FAFB);
   late Color chartBg = Color(0xFFF9FAFB);
   late Color verifyscreens = Color(0xFF7D5DF6);
+  late Color background = Color(0xFF1A1F24);
 }
 
 abstract class Typography {
@@ -330,6 +332,7 @@ class DarkModeTheme extends FlutterFlowTheme {
   late Color tabtext = Color(0xFF7D5DF6);
   late Color chartBg = Color(0xFF374151);
   late Color verifyscreens = Color(0xFF111827);
+  late Color background = Color(0xFF1A1F24);
 }
 
 extension TextStyleHelper on TextStyle {

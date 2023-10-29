@@ -28,10 +28,10 @@ class _LoginWidgetState extends State<LoginWidget> {
     super.initState();
     _model = createModel(context, () => LoginModel());
 
-    _model.emailTextController ??= TextEditingController();
-    _model.textFieldFocusNode1 ??= FocusNode();
-    _model.passwordTextController ??= TextEditingController();
-    _model.textFieldFocusNode2 ??= FocusNode();
+    _model.emailController ??= TextEditingController();
+    _model.emailFocusNode ??= FocusNode();
+    _model.passwordController ??= TextEditingController();
+    _model.passwordFocusNode ??= FocusNode();
   }
 
   @override
@@ -51,6 +51,8 @@ class _LoginWidgetState extends State<LoginWidget> {
         ),
       );
     }
+
+    context.watch<FFAppState>();
 
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
@@ -104,7 +106,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                'Welcome Back!',
+                                FFLocalizations.of(context).getText(
+                                  'qo1m9x1x' /* Welcome Back! */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .headlineMedium
                                     .override(
@@ -121,7 +125,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Text(
-                                  'Sign in to your account',
+                                  FFLocalizations.of(context).getText(
+                                    '9k8dbvh0' /* Sign in to your account */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .labelLarge
                                       .override(
@@ -162,7 +168,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 8.0),
                                   child: Text(
-                                    'Email',
+                                    FFLocalizations.of(context).getText(
+                                      '4vgn6y62' /* Email */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -179,8 +187,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                               children: [
                                 Expanded(
                                   child: TextFormField(
-                                    controller: _model.emailTextController,
-                                    focusNode: _model.textFieldFocusNode1,
+                                    controller: _model.emailController,
+                                    focusNode: _model.emailFocusNode,
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       labelStyle: FlutterFlowTheme.of(context)
@@ -191,7 +199,10 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 .chartBg,
                                             fontWeight: FontWeight.w200,
                                           ),
-                                      hintText: 'enter your email address',
+                                      hintText:
+                                          FFLocalizations.of(context).getText(
+                                        'bitk1j1w' /* enter your email address */,
+                                      ),
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .labelLarge
                                           .override(
@@ -250,8 +261,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                         ),
                                     cursorColor:
                                         FlutterFlowTheme.of(context).chartBg,
-                                    validator: _model
-                                        .emailTextControllerValidator
+                                    validator: _model.emailControllerValidator
                                         .asValidator(context),
                                   ),
                                 ),
@@ -287,7 +297,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Text(
-                                    'Password',
+                                    FFLocalizations.of(context).getText(
+                                      '95uyfwoz' /* Password */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -304,8 +316,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                               children: [
                                 Expanded(
                                   child: TextFormField(
-                                    controller: _model.passwordTextController,
-                                    focusNode: _model.textFieldFocusNode2,
+                                    controller: _model.passwordController,
+                                    focusNode: _model.passwordFocusNode,
                                     obscureText: !_model.passwordVisibility,
                                     decoration: InputDecoration(
                                       labelStyle: FlutterFlowTheme.of(context)
@@ -316,7 +328,10 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 .chartBg,
                                             fontWeight: FontWeight.w200,
                                           ),
-                                      hintText: 'enter your password',
+                                      hintText:
+                                          FFLocalizations.of(context).getText(
+                                        'zg9pub7j' /* enter your password */,
+                                      ),
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .labelLarge
                                           .override(
@@ -392,7 +407,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                     cursorColor:
                                         FlutterFlowTheme.of(context).chartBg,
                                     validator: _model
-                                        .passwordTextControllerValidator
+                                        .passwordControllerValidator
                                         .asValidator(context),
                                   ),
                                 ),
@@ -429,7 +444,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                         );
                       },
                       child: Text(
-                        'Forgot Password?',
+                        FFLocalizations.of(context).getText(
+                          'na7qdwnl' /* Forgot Password? */,
+                        ),
                         textAlign: TextAlign.end,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Readex Pro',
@@ -452,8 +469,8 @@ class _LoginWidgetState extends State<LoginWidget> {
 
                           final user = await authManager.signInWithEmail(
                             context,
-                            _model.emailTextController.text,
-                            _model.passwordTextController.text,
+                            _model.emailController.text,
+                            _model.passwordController.text,
                           );
                           if (user == null) {
                             return;
@@ -461,7 +478,9 @@ class _LoginWidgetState extends State<LoginWidget> {
 
                           context.pushNamedAuth('dashboard', context.mounted);
                         },
-                        text: 'Login',
+                        text: FFLocalizations.of(context).getText(
+                          '0bpebj2i' /* Login */,
+                        ),
                         options: FFButtonOptions(
                           height: 56.0,
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -494,7 +513,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Don\'t have an account?',
+                      FFLocalizations.of(context).getText(
+                        'f7pr1b1r' /* Don't have an account? */,
+                      ),
                       style: FlutterFlowTheme.of(context).labelLarge.override(
                             fontFamily: 'Readex Pro',
                             color: FlutterFlowTheme.of(context).chartBg,
@@ -508,24 +529,6 @@ class _LoginWidgetState extends State<LoginWidget> {
                       onTap: () async {
                         context.pushNamed(
                           'sign_up',
-                          queryParameters: {
-                            'firstName': serializeParam(
-                              '',
-                              ParamType.String,
-                            ),
-                            'lastName': serializeParam(
-                              '',
-                              ParamType.String,
-                            ),
-                            'phoneNumber': serializeParam(
-                              0,
-                              ParamType.int,
-                            ),
-                            'termsAgreement': serializeParam(
-                              false,
-                              ParamType.bool,
-                            ),
-                          }.withoutNulls,
                           extra: <String, dynamic>{
                             kTransitionInfoKey: TransitionInfo(
                               hasTransition: true,
@@ -536,7 +539,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                         );
                       },
                       child: Text(
-                        ' Sign Up',
+                        FFLocalizations.of(context).getText(
+                          'up1en9u0' /*  Sign Up */,
+                        ),
                         style: FlutterFlowTheme.of(context).labelLarge.override(
                               fontFamily: 'Readex Pro',
                               color: FlutterFlowTheme.of(context).secondary,

@@ -39,6 +39,8 @@ class _SavingsButtonsWidgetState extends State<SavingsButtonsWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(4.0, 8.0, 4.0, 8.0),
       child: Material(
@@ -85,7 +87,9 @@ class _SavingsButtonsWidgetState extends State<SavingsButtonsWidget> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Down payment',
+                      FFLocalizations.of(context).getText(
+                        '0uuzmnsx' /* Down payment */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodySmall.override(
                             fontFamily: 'Readex Pro',
                             fontSize: 8.0,
@@ -101,7 +105,9 @@ class _SavingsButtonsWidgetState extends State<SavingsButtonsWidget> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      '\$21,600.00',
+                      FFLocalizations.of(context).getText(
+                        '0tfme3kf' /* $21,600.00 */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodySmall.override(
                             fontFamily: 'Readex Pro',
                             fontWeight: FontWeight.w300,
@@ -115,14 +121,18 @@ class _SavingsButtonsWidgetState extends State<SavingsButtonsWidget> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Goal at ',
+                    FFLocalizations.of(context).getText(
+                      'v1t20djv' /* Goal at  */,
+                    ),
                     style: FlutterFlowTheme.of(context).bodySmall.override(
                           fontFamily: 'Readex Pro',
                           fontWeight: FontWeight.w300,
                         ),
                   ),
                   Text(
-                    '87%',
+                    FFLocalizations.of(context).getText(
+                      'rrssukq2' /* 87% */,
+                    ),
                     style: FlutterFlowTheme.of(context).bodySmall.override(
                           fontFamily: 'Readex Pro',
                           color: FlutterFlowTheme.of(context).primary,

@@ -56,6 +56,8 @@ class _AllTransactionsWidgetState extends State<AllTransactionsWidget>
       );
     }
 
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -81,7 +83,9 @@ class _AllTransactionsWidgetState extends State<AllTransactionsWidget>
             },
           ),
           title: Text(
-            'All Transactions',
+            FFLocalizations.of(context).getText(
+              'o879nw18' /* All Transactions */,
+            ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Outfit',
                   color: FlutterFlowTheme.of(context).primaryText,
@@ -154,21 +158,48 @@ class _AllTransactionsWidgetState extends State<AllTransactionsWidget>
                                     controller:
                                         _model.dropDownValueController ??=
                                             FormFieldController<String>(
-                                      _model.dropDownValue ??= 'Jun',
+                                      _model.dropDownValue ??=
+                                          FFLocalizations.of(context).getText(
+                                        'k78a7s93' /* Jun */,
+                                      ),
                                     ),
                                     options: [
-                                      'Jan',
-                                      'Feb',
-                                      'Mar',
-                                      'Apr',
-                                      'May',
-                                      'Jun',
-                                      'Jul',
-                                      'Aug',
-                                      'Sept',
-                                      'Oct',
-                                      'Nov',
-                                      'Dec'
+                                      FFLocalizations.of(context).getText(
+                                        '1yjdglqf' /* Jan */,
+                                      ),
+                                      FFLocalizations.of(context).getText(
+                                        '15iv6edu' /* Feb */,
+                                      ),
+                                      FFLocalizations.of(context).getText(
+                                        'g4ekr9m6' /* Mar */,
+                                      ),
+                                      FFLocalizations.of(context).getText(
+                                        '2k1vwamn' /* Apr */,
+                                      ),
+                                      FFLocalizations.of(context).getText(
+                                        '8npkk9j1' /* May */,
+                                      ),
+                                      FFLocalizations.of(context).getText(
+                                        '4mwoth38' /* Jun */,
+                                      ),
+                                      FFLocalizations.of(context).getText(
+                                        'lp7goyon' /* Jul */,
+                                      ),
+                                      FFLocalizations.of(context).getText(
+                                        'kdvyey56' /* Aug */,
+                                      ),
+                                      FFLocalizations.of(context).getText(
+                                        'g9z8kmh8' /* Sept */,
+                                      ),
+                                      FFLocalizations.of(context).getText(
+                                        'ea7qc7nz' /* Oct */,
+                                      ),
+                                      FFLocalizations.of(context).getText(
+                                        'p3npioxu' /* Nov */,
+                                      ),
+                                      FFLocalizations.of(context).getText(
+                                        '6nd2rqht' /* Dec */,
+                                      )
                                     ],
                                     onChanged: (val) => setState(
                                         () => _model.dropDownValue = val),
@@ -182,7 +213,10 @@ class _AllTransactionsWidgetState extends State<AllTransactionsWidget>
                                               .secondaryBackground,
                                           fontSize: 14.0,
                                         ),
-                                    hintText: 'Please select...',
+                                    hintText:
+                                        FFLocalizations.of(context).getText(
+                                      '0sou7gg6' /* Please select... */,
+                                    ),
                                     icon: Icon(
                                       Icons.keyboard_arrow_down_rounded,
                                       color: FlutterFlowTheme.of(context)
@@ -227,7 +261,9 @@ class _AllTransactionsWidgetState extends State<AllTransactionsWidget>
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 16.0, 0.0),
                                           child: Text(
-                                            '\$8,220.00',
+                                            FFLocalizations.of(context).getText(
+                                              'qjqagdo1' /* $8,220.00 */,
+                                            ),
                                             style: FlutterFlowTheme.of(context)
                                                 .titleLarge
                                                 .override(
@@ -239,7 +275,9 @@ class _AllTransactionsWidgetState extends State<AllTransactionsWidget>
                                           ),
                                         ),
                                         Text(
-                                          'Total Spending',
+                                          FFLocalizations.of(context).getText(
+                                            'qmiv1akr' /* Total Spending */,
+                                          ),
                                           textAlign: TextAlign.start,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
@@ -292,13 +330,19 @@ class _AllTransactionsWidgetState extends State<AllTransactionsWidget>
                               4.0, 4.0, 4.0, 4.0),
                           tabs: [
                             Tab(
-                              text: 'Latest',
+                              text: FFLocalizations.of(context).getText(
+                                'ukh92d0b' /* Latest */,
+                              ),
                             ),
                             Tab(
-                              text: 'Categories',
+                              text: FFLocalizations.of(context).getText(
+                                'paoie7zu' /* Categories */,
+                              ),
                             ),
                             Tab(
-                              text: 'Merchants',
+                              text: FFLocalizations.of(context).getText(
+                                'mwl6hxbl' /* Merchants */,
+                              ),
                             ),
                           ],
                           controller: _model.tabBarController,
@@ -369,7 +413,11 @@ class _AllTransactionsWidgetState extends State<AllTransactionsWidget>
                                                                           .max,
                                                                   children: [
                                                                     Text(
-                                                                      'Today',
+                                                                      FFLocalizations.of(
+                                                                              context)
+                                                                          .getText(
+                                                                        'mb7i9gfq' /* Today */,
+                                                                      ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodyMedium,
@@ -456,7 +504,9 @@ class _AllTransactionsWidgetState extends State<AllTransactionsWidget>
                                                                                                     mainAxisSize: MainAxisSize.max,
                                                                                                     children: [
                                                                                                       Text(
-                                                                                                        'McDonalds',
+                                                                                                        FFLocalizations.of(context).getText(
+                                                                                                          'jjyrfpqn' /* McDonalds */,
+                                                                                                        ),
                                                                                                         style: FlutterFlowTheme.of(context).bodyMedium,
                                                                                                       ),
                                                                                                     ],
@@ -465,18 +515,24 @@ class _AllTransactionsWidgetState extends State<AllTransactionsWidget>
                                                                                                     mainAxisSize: MainAxisSize.max,
                                                                                                     children: [
                                                                                                       Text(
-                                                                                                        '3:02pm',
+                                                                                                        FFLocalizations.of(context).getText(
+                                                                                                          'jp35duqz' /* 3:02pm */,
+                                                                                                        ),
                                                                                                         style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                                               fontFamily: 'Readex Pro',
                                                                                                               fontWeight: FontWeight.w300,
                                                                                                             ),
                                                                                                       ),
                                                                                                       Text(
-                                                                                                        ':',
+                                                                                                        FFLocalizations.of(context).getText(
+                                                                                                          'zqke0roz' /* : */,
+                                                                                                        ),
                                                                                                         style: FlutterFlowTheme.of(context).bodyMedium,
                                                                                                       ),
                                                                                                       Text(
-                                                                                                        'Aug 28, 2023',
+                                                                                                        FFLocalizations.of(context).getText(
+                                                                                                          'jlu089cn' /* Aug 28, 2023 */,
+                                                                                                        ),
                                                                                                         style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                                               fontFamily: 'Readex Pro',
                                                                                                               fontWeight: FontWeight.w300,
@@ -504,7 +560,9 @@ class _AllTransactionsWidgetState extends State<AllTransactionsWidget>
                                                                                                     Padding(
                                                                                                       padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
                                                                                                       child: Text(
-                                                                                                        '-12.45',
+                                                                                                        FFLocalizations.of(context).getText(
+                                                                                                          '8xlhakkn' /* -12.45 */,
+                                                                                                        ),
                                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                               fontFamily: 'Readex Pro',
                                                                                                               color: FlutterFlowTheme.of(context).error,

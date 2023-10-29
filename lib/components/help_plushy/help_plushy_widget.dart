@@ -39,6 +39,8 @@ class _HelpPlushyWidgetState extends State<HelpPlushyWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Container(
       width: 500.0,
       constraints: BoxConstraints(

@@ -48,6 +48,8 @@ class _TopupSuccessWidgetState extends State<TopupSuccessWidget> {
       );
     }
 
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -144,7 +146,11 @@ class _TopupSuccessWidgetState extends State<TopupSuccessWidget> {
                                                                     .center,
                                                             children: [
                                                               Text(
-                                                                'Top Up Successsful',
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  'ntw8vlln' /* Top Up Successsful */,
+                                                                ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .headlineMedium
@@ -173,7 +179,11 @@ class _TopupSuccessWidgetState extends State<TopupSuccessWidget> {
                                                                           .center,
                                                                   children: [
                                                                     Text(
-                                                                      '\$50.00',
+                                                                      FFLocalizations.of(
+                                                                              context)
+                                                                          .getText(
+                                                                        'u4ckk9hs' /* $50.00 */,
+                                                                      ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .displayMedium
@@ -234,7 +244,11 @@ class _TopupSuccessWidgetState extends State<TopupSuccessWidget> {
                                                                     .max,
                                                             children: [
                                                               Text(
-                                                                'Transction ID:',
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  'xnnaye1z' /* Transction ID: */,
+                                                                ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -247,7 +261,11 @@ class _TopupSuccessWidgetState extends State<TopupSuccessWidget> {
                                                                     ),
                                                               ),
                                                               Text(
-                                                                'AO2512273019231221662',
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  'f4iwdaqo' /* AO2512273019231221662 */,
+                                                                ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -293,7 +311,9 @@ class _TopupSuccessWidgetState extends State<TopupSuccessWidget> {
                           onPressed: () async {
                             context.pushNamed('dashboard');
                           },
-                          text: 'Back to home',
+                          text: FFLocalizations.of(context).getText(
+                            'jty5z5db' /* Back to home */,
+                          ),
                           options: FFButtonOptions(
                             height: 56.0,
                             padding: EdgeInsetsDirectional.fromSTEB(

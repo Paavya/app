@@ -48,6 +48,8 @@ class _WithdrawSuccessWidgetState extends State<WithdrawSuccessWidget> {
       );
     }
 
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -144,7 +146,11 @@ class _WithdrawSuccessWidgetState extends State<WithdrawSuccessWidget> {
                                                                     .center,
                                                             children: [
                                                               Text(
-                                                                'Withdraw Successsful',
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  'kxca5dh7' /* Withdraw Successsful */,
+                                                                ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .headlineMedium
@@ -173,7 +179,11 @@ class _WithdrawSuccessWidgetState extends State<WithdrawSuccessWidget> {
                                                                           .center,
                                                                   children: [
                                                                     Text(
-                                                                      '\$50.00',
+                                                                      FFLocalizations.of(
+                                                                              context)
+                                                                          .getText(
+                                                                        'aaad7jst' /* $50.00 */,
+                                                                      ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .displayMedium
@@ -234,7 +244,11 @@ class _WithdrawSuccessWidgetState extends State<WithdrawSuccessWidget> {
                                                                     .max,
                                                             children: [
                                                               Text(
-                                                                'Transction ID:',
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  'l13ebq63' /* Transction ID: */,
+                                                                ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -247,7 +261,11 @@ class _WithdrawSuccessWidgetState extends State<WithdrawSuccessWidget> {
                                                                     ),
                                                               ),
                                                               Text(
-                                                                'AO2512273019231221662',
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  'ibqvfcx8' /* AO2512273019231221662 */,
+                                                                ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -293,7 +311,9 @@ class _WithdrawSuccessWidgetState extends State<WithdrawSuccessWidget> {
                           onPressed: () async {
                             context.pushNamed('dashboard');
                           },
-                          text: 'Back to home',
+                          text: FFLocalizations.of(context).getText(
+                            'f53lgry0' /* Back to home */,
+                          ),
                           options: FFButtonOptions(
                             height: 56.0,
                             padding: EdgeInsetsDirectional.fromSTEB(

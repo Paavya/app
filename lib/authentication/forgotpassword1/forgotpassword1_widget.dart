@@ -49,6 +49,8 @@ class _Forgotpassword1WidgetState extends State<Forgotpassword1Widget> {
       );
     }
 
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -106,7 +108,9 @@ class _Forgotpassword1WidgetState extends State<Forgotpassword1Widget> {
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Text(
-                                      'Forgot password',
+                                      FFLocalizations.of(context).getText(
+                                        'i14kjulb' /* Forgot password */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .headlineMedium,
                                     ),
@@ -116,7 +120,9 @@ class _Forgotpassword1WidgetState extends State<Forgotpassword1Widget> {
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     AutoSizeText(
-                                      'Select verification method and we will\nsend a verification code',
+                                      FFLocalizations.of(context).getText(
+                                        'gzzk7d5o' /* Select verification method and... */,
+                                      ),
                                       maxLines: 2,
                                       style: FlutterFlowTheme.of(context)
                                           .labelLarge
@@ -157,8 +163,12 @@ class _Forgotpassword1WidgetState extends State<Forgotpassword1Widget> {
                             alignment: AlignmentDirectional(0.00, 0.00),
                             child: FlutterFlowChoiceChips(
                               options: [
-                                ChipData('Send to email '),
-                                ChipData('Send to SMS   ')
+                                ChipData(FFLocalizations.of(context).getText(
+                                  'd2zwc682' /* Send to email  */,
+                                )),
+                                ChipData(FFLocalizations.of(context).getText(
+                                  'v870cbe0' /* Send to SMS    */,
+                                ))
                               ],
                               onChanged: (val) => setState(
                                   () => _model.choiceChipsValue = val?.first),
@@ -232,7 +242,9 @@ class _Forgotpassword1WidgetState extends State<Forgotpassword1Widget> {
                         onPressed: () {
                           print('Button pressed ...');
                         },
-                        text: 'Continue',
+                        text: FFLocalizations.of(context).getText(
+                          '1t5t7pf2' /* Continue */,
+                        ),
                         options: FFButtonOptions(
                           height: 56.0,
                           padding: EdgeInsetsDirectional.fromSTEB(

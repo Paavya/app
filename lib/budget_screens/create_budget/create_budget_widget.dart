@@ -56,6 +56,8 @@ class _CreateBudgetWidgetState extends State<CreateBudgetWidget> {
       );
     }
 
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -81,7 +83,9 @@ class _CreateBudgetWidgetState extends State<CreateBudgetWidget> {
             },
           ),
           title: Text(
-            'Create Budget',
+            FFLocalizations.of(context).getText(
+              'tiuaukv7' /* Create Budget */,
+            ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Outfit',
                   color: FlutterFlowTheme.of(context).primaryText,
@@ -120,7 +124,9 @@ class _CreateBudgetWidgetState extends State<CreateBudgetWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 8.0),
                                   child: Text(
-                                    'Name',
+                                    FFLocalizations.of(context).getText(
+                                      'ebv6spsf' /* Name */,
+                                    ),
                                     style:
                                         FlutterFlowTheme.of(context).bodyMedium,
                                   ),
@@ -142,7 +148,10 @@ class _CreateBudgetWidgetState extends State<CreateBudgetWidget> {
                                             fontFamily: 'Readex Pro',
                                             fontWeight: FontWeight.w200,
                                           ),
-                                      hintText: 'Item title you want to budget',
+                                      hintText:
+                                          FFLocalizations.of(context).getText(
+                                        'l8y6fl99' /* Item title you want to budget */,
+                                      ),
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .labelLarge
                                           .override(
@@ -217,14 +226,39 @@ class _CreateBudgetWidgetState extends State<CreateBudgetWidget> {
                         ),
                         child: FlutterFlowChoiceChips(
                           options: [
-                            ChipData('Fast Food', FontAwesomeIcons.hamburger),
-                            ChipData('Restaurant', FontAwesomeIcons.utensils),
-                            ChipData('Utility Bill', FontAwesomeIcons.bolt),
                             ChipData(
-                                'Groceries', FontAwesomeIcons.shoppingBasket),
-                            ChipData('Retail', FontAwesomeIcons.tshirt),
-                            ChipData('Rent/Mortgage', FontAwesomeIcons.home),
-                            ChipData('other')
+                                FFLocalizations.of(context).getText(
+                                  'kvkwid8r' /* Fast Food */,
+                                ),
+                                FontAwesomeIcons.hamburger),
+                            ChipData(
+                                FFLocalizations.of(context).getText(
+                                  '58k9raqr' /* Restaurant */,
+                                ),
+                                FontAwesomeIcons.utensils),
+                            ChipData(
+                                FFLocalizations.of(context).getText(
+                                  'op57dir0' /* Utility Bill */,
+                                ),
+                                FontAwesomeIcons.bolt),
+                            ChipData(
+                                FFLocalizations.of(context).getText(
+                                  'vg83u7gm' /* Groceries */,
+                                ),
+                                FontAwesomeIcons.shoppingBasket),
+                            ChipData(
+                                FFLocalizations.of(context).getText(
+                                  'wjj2xp7p' /* Retail */,
+                                ),
+                                FontAwesomeIcons.tshirt),
+                            ChipData(
+                                FFLocalizations.of(context).getText(
+                                  '1ex5jytb' /* Rent/Mortgage */,
+                                ),
+                                FontAwesomeIcons.home),
+                            ChipData(FFLocalizations.of(context).getText(
+                              'rctgj75w' /* other */,
+                            ))
                           ],
                           onChanged: (val) => setState(
                               () => _model.choiceChipsValue = val?.first),
@@ -302,7 +336,9 @@ class _CreateBudgetWidgetState extends State<CreateBudgetWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 8.0),
                                   child: Text(
-                                    'Budget',
+                                    FFLocalizations.of(context).getText(
+                                      'ahy4c3wk' /* Budget */,
+                                    ),
                                     style:
                                         FlutterFlowTheme.of(context).bodyMedium,
                                   ),
@@ -347,7 +383,11 @@ class _CreateBudgetWidgetState extends State<CreateBudgetWidget> {
                                                         .primaryText,
                                                     fontWeight: FontWeight.w300,
                                                   ),
-                                              hintText: 'ex. 1450.00',
+                                              hintText:
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                'yritc6xs' /* ex. 1450.00 */,
+                                              ),
                                               hintStyle: FlutterFlowTheme.of(
                                                       context)
                                                   .labelLarge
@@ -415,7 +455,9 @@ class _CreateBudgetWidgetState extends State<CreateBudgetWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 8.0),
                                   child: Text(
-                                    'Details',
+                                    FFLocalizations.of(context).getText(
+                                      'eystmejx' /* Details */,
+                                    ),
                                     style:
                                         FlutterFlowTheme.of(context).bodyMedium,
                                   ),
@@ -461,7 +503,10 @@ class _CreateBudgetWidgetState extends State<CreateBudgetWidget> {
                                                     fontWeight: FontWeight.w300,
                                                   ),
                                               hintText:
-                                                  'add any details to this budget item',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                'zto7mttc' /* add any details to this budget... */,
+                                              ),
                                               hintStyle: FlutterFlowTheme.of(
                                                       context)
                                                   .labelLarge
@@ -516,7 +561,9 @@ class _CreateBudgetWidgetState extends State<CreateBudgetWidget> {
                         onPressed: () {
                           print('Button pressed ...');
                         },
-                        text: 'Save',
+                        text: FFLocalizations.of(context).getText(
+                          'zcm9witv' /* Save */,
+                        ),
                         options: FFButtonOptions(
                           height: 56.0,
                           padding: EdgeInsetsDirectional.fromSTEB(

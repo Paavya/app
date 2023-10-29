@@ -47,6 +47,8 @@ class _TransferFailedWidgetState extends State<TransferFailedWidget> {
       );
     }
 
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -132,7 +134,11 @@ class _TransferFailedWidgetState extends State<TransferFailedWidget> {
                                                                     .center,
                                                             children: [
                                                               Text(
-                                                                'Transfer failed',
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  'bvsotzlu' /* Transfer failed */,
+                                                                ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .headlineMedium
@@ -161,7 +167,11 @@ class _TransferFailedWidgetState extends State<TransferFailedWidget> {
                                                                           .center,
                                                                   children: [
                                                                     Text(
-                                                                      '\$50.00',
+                                                                      FFLocalizations.of(
+                                                                              context)
+                                                                          .getText(
+                                                                        'rdfl1xge' /* $50.00 */,
+                                                                      ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .displayMedium
@@ -237,7 +247,9 @@ class _TransferFailedWidgetState extends State<TransferFailedWidget> {
                           onPressed: () async {
                             context.safePop();
                           },
-                          text: 'Go back to try again',
+                          text: FFLocalizations.of(context).getText(
+                            '5l2i76ci' /* Go back to try again */,
+                          ),
                           options: FFButtonOptions(
                             height: 56.0,
                             padding: EdgeInsetsDirectional.fromSTEB(

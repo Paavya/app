@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -27,6 +28,15 @@ class _EditMyAccountWidgetState extends State<EditMyAccountWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => EditMyAccountModel());
+
+    _model.textController1 ??= TextEditingController();
+    _model.textFieldFocusNode1 ??= FocusNode();
+    _model.textController2 ??= TextEditingController();
+    _model.textFieldFocusNode2 ??= FocusNode();
+    _model.textController3 ??= TextEditingController();
+    _model.textFieldFocusNode3 ??= FocusNode();
+    _model.textController4 ??= TextEditingController();
+    _model.textFieldFocusNode4 ??= FocusNode();
   }
 
   @override
@@ -46,6 +56,8 @@ class _EditMyAccountWidgetState extends State<EditMyAccountWidget> {
         ),
       );
     }
+
+    context.watch<FFAppState>();
 
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
@@ -68,11 +80,13 @@ class _EditMyAccountWidgetState extends State<EditMyAccountWidget> {
               size: 30.0,
             ),
             onPressed: () async {
-              context.pushNamed('profile');
+              context.safePop();
             },
           ),
           title: Text(
-            'My Account',
+            FFLocalizations.of(context).getText(
+              '88vfnuus' /* My Account */,
+            ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Outfit',
                   color: FlutterFlowTheme.of(context).primaryText,
@@ -97,17 +111,9 @@ class _EditMyAccountWidgetState extends State<EditMyAccountWidget> {
                           24.0, 24.0, 24.0, 24.0),
                       child: Container(
                         width: 100.0,
-                        height: 196.0,
+                        height: 170.0,
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).primaryBackground,
-                          boxShadow: [
-                            BoxShadow(
-                              blurRadius: 12.0,
-                              color: Color(0x33C1C1C1),
-                              offset: Offset(0.0, 7.0),
-                              spreadRadius: 6.0,
-                            )
-                          ],
                           borderRadius: BorderRadius.circular(12.0),
                           border: Border.all(
                             color:
@@ -131,41 +137,46 @@ class _EditMyAccountWidgetState extends State<EditMyAccountWidget> {
                                         .secondaryBackground,
                                     shape: BoxShape.circle,
                                   ),
-                                  child: Container(
-                                    width: 120.0,
-                                    height: 120.0,
-                                    clipBehavior: Clip.antiAlias,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: Image.asset(
-                                      'assets/images/Screenshot_2023-10-04_at_2.48.41_PM.png',
-                                      fit: BoxFit.cover,
-                                    ),
+                                  child: Stack(
+                                    children: [
+                                      Container(
+                                        width: 120.0,
+                                        height: 120.0,
+                                        clipBehavior: Clip.antiAlias,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                        ),
+                                        child: Image.asset(
+                                          'assets/images/Screenshot_2023-10-04_at_2.48.41_PM.png',
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(1.07, 1.13),
+                                        child: Container(
+                                          width: 43.0,
+                                          height: 43.0,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            shape: BoxShape.circle,
+                                            border: Border.all(
+                                              color: Colors.white,
+                                              width: 3.0,
+                                            ),
+                                          ),
+                                          child: Icon(
+                                            FFIcons.kcamera,
+                                            color: Colors.white,
+                                            size: 24.0,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ],
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 16.0, 0.0, 0.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'Change Picture',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyLarge
-                                        .override(
-                                          fontFamily: 'Readex Pro',
-                                          color: FlutterFlowTheme.of(context)
-                                              .tabBgs,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                ],
-                              ),
                             ),
                           ],
                         ),
@@ -176,14 +187,14 @@ class _EditMyAccountWidgetState extends State<EditMyAccountWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Expanded(
                     child: Container(
                       width: 100.0,
-                      height: 78.0,
+                      height: 85.0,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).primaryBackground,
                       ),
@@ -198,7 +209,9 @@ class _EditMyAccountWidgetState extends State<EditMyAccountWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 8.0),
                                 child: Text(
-                                  'Email',
+                                  FFLocalizations.of(context).getText(
+                                    'o2rvdm8o' /* Email */,
+                                  ),
                                   style:
                                       FlutterFlowTheme.of(context).bodyMedium,
                                 ),
@@ -211,7 +224,7 @@ class _EditMyAccountWidgetState extends State<EditMyAccountWidget> {
                               Expanded(
                                 child: Container(
                                   width: 100.0,
-                                  height: 48.0,
+                                  height: 56.0,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
@@ -235,17 +248,38 @@ class _EditMyAccountWidgetState extends State<EditMyAccountWidget> {
                                           size: 24.0,
                                         ),
                                       ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 0.0, 0.0, 0.0),
-                                        child: Text(
-                                          'trey@paavya.com',
-                                          style: FlutterFlowTheme.of(context)
-                                              .labelMedium
-                                              .override(
-                                                fontFamily: 'Readex Pro',
-                                                fontSize: 16.0,
-                                              ),
+                                      Expanded(
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  8.0, 0.0, 8.0, 0.0),
+                                          child: TextFormField(
+                                            controller: _model.textController1,
+                                            focusNode:
+                                                _model.textFieldFocusNode1,
+                                            obscureText: false,
+                                            decoration: InputDecoration(
+                                              labelText: currentUserEmail,
+                                              labelStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMedium,
+                                              hintStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMedium,
+                                              enabledBorder: InputBorder.none,
+                                              focusedBorder: InputBorder.none,
+                                              errorBorder: InputBorder.none,
+                                              focusedErrorBorder:
+                                                  InputBorder.none,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
+                                            keyboardType:
+                                                TextInputType.emailAddress,
+                                            validator: _model
+                                                .textController1Validator
+                                                .asValidator(context),
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -269,7 +303,7 @@ class _EditMyAccountWidgetState extends State<EditMyAccountWidget> {
                   Expanded(
                     child: Container(
                       width: 100.0,
-                      height: 78.0,
+                      height: 86.0,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).primaryBackground,
                       ),
@@ -284,7 +318,9 @@ class _EditMyAccountWidgetState extends State<EditMyAccountWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 8.0),
                                 child: Text(
-                                  'Legal Name',
+                                  FFLocalizations.of(context).getText(
+                                    's8yhoul6' /* First Name */,
+                                  ),
                                   style:
                                       FlutterFlowTheme.of(context).bodyMedium,
                                 ),
@@ -297,7 +333,7 @@ class _EditMyAccountWidgetState extends State<EditMyAccountWidget> {
                               Expanded(
                                 child: Container(
                                   width: 100.0,
-                                  height: 48.0,
+                                  height: 56.0,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
@@ -321,17 +357,44 @@ class _EditMyAccountWidgetState extends State<EditMyAccountWidget> {
                                           size: 24.0,
                                         ),
                                       ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 0.0, 0.0, 0.0),
-                                        child: Text(
-                                          'Trey Banks',
-                                          style: FlutterFlowTheme.of(context)
-                                              .labelMedium
-                                              .override(
-                                                fontFamily: 'Readex Pro',
-                                                fontSize: 16.0,
+                                      Expanded(
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  8.0, 0.0, 8.0, 0.0),
+                                          child: AuthUserStreamWidget(
+                                            builder: (context) => TextFormField(
+                                              controller:
+                                                  _model.textController2,
+                                              focusNode:
+                                                  _model.textFieldFocusNode2,
+                                              obscureText: false,
+                                              decoration: InputDecoration(
+                                                labelText: valueOrDefault(
+                                                    currentUserDocument
+                                                        ?.firstName,
+                                                    ''),
+                                                labelStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium,
+                                                hintStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium,
+                                                enabledBorder: InputBorder.none,
+                                                focusedBorder: InputBorder.none,
+                                                errorBorder: InputBorder.none,
+                                                focusedErrorBorder:
+                                                    InputBorder.none,
                                               ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                              keyboardType: TextInputType.name,
+                                              validator: _model
+                                                  .textController2Validator
+                                                  .asValidator(context),
+                                            ),
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -355,7 +418,7 @@ class _EditMyAccountWidgetState extends State<EditMyAccountWidget> {
                   Expanded(
                     child: Container(
                       width: 100.0,
-                      height: 78.0,
+                      height: 87.0,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).primaryBackground,
                       ),
@@ -370,7 +433,9 @@ class _EditMyAccountWidgetState extends State<EditMyAccountWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 8.0),
                                 child: Text(
-                                  'Phone Number',
+                                  FFLocalizations.of(context).getText(
+                                    '0eqs2gpc' /* Last Name */,
+                                  ),
                                   style:
                                       FlutterFlowTheme.of(context).bodyMedium,
                                 ),
@@ -383,7 +448,122 @@ class _EditMyAccountWidgetState extends State<EditMyAccountWidget> {
                               Expanded(
                                 child: Container(
                                   width: 100.0,
-                                  height: 48.0,
+                                  height: 56.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                    borderRadius: BorderRadius.circular(12.0),
+                                    border: Border.all(
+                                      color: FlutterFlowTheme.of(context)
+                                          .alternate,
+                                      width: 2.0,
+                                    ),
+                                  ),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 0.0, 0.0, 0.0),
+                                        child: Icon(
+                                          FFIcons.kuser,
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                          size: 24.0,
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  8.0, 0.0, 8.0, 0.0),
+                                          child: AuthUserStreamWidget(
+                                            builder: (context) => TextFormField(
+                                              controller:
+                                                  _model.textController3,
+                                              focusNode:
+                                                  _model.textFieldFocusNode3,
+                                              obscureText: false,
+                                              decoration: InputDecoration(
+                                                labelText: valueOrDefault(
+                                                    currentUserDocument
+                                                        ?.lastName,
+                                                    ''),
+                                                labelStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium,
+                                                hintStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium,
+                                                enabledBorder: InputBorder.none,
+                                                focusedBorder: InputBorder.none,
+                                                errorBorder: InputBorder.none,
+                                                focusedErrorBorder:
+                                                    InputBorder.none,
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                              keyboardType: TextInputType.name,
+                                              validator: _model
+                                                  .textController3Validator
+                                                  .asValidator(context),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 0.0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Expanded(
+                    child: Container(
+                      width: 100.0,
+                      height: 88.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).primaryBackground,
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 8.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'b21qggzp' /* Phone Number */,
+                                  ),
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Expanded(
+                                child: Container(
+                                  width: 100.0,
+                                  height: 56.0,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
@@ -407,17 +587,41 @@ class _EditMyAccountWidgetState extends State<EditMyAccountWidget> {
                                           size: 24.0,
                                         ),
                                       ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 0.0, 0.0, 0.0),
-                                        child: Text(
-                                          '7703512516',
-                                          style: FlutterFlowTheme.of(context)
-                                              .labelMedium
-                                              .override(
-                                                fontFamily: 'Readex Pro',
-                                                fontSize: 16.0,
+                                      Expanded(
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  8.0, 0.0, 8.0, 0.0),
+                                          child: AuthUserStreamWidget(
+                                            builder: (context) => TextFormField(
+                                              controller:
+                                                  _model.textController4,
+                                              focusNode:
+                                                  _model.textFieldFocusNode4,
+                                              obscureText: false,
+                                              decoration: InputDecoration(
+                                                labelText: currentPhoneNumber,
+                                                labelStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium,
+                                                hintStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium,
+                                                enabledBorder: InputBorder.none,
+                                                focusedBorder: InputBorder.none,
+                                                errorBorder: InputBorder.none,
+                                                focusedErrorBorder:
+                                                    InputBorder.none,
                                               ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                              keyboardType: TextInputType.phone,
+                                              validator: _model
+                                                  .textController4Validator
+                                                  .asValidator(context),
+                                            ),
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -464,7 +668,7 @@ class _EditMyAccountWidgetState extends State<EditMyAccountWidget> {
                   return FFButtonWidget(
                     onPressed: () async {
                       context.goNamed(
-                        'AccountVerified',
+                        'MyAccount',
                         extra: <String, dynamic>{
                           kTransitionInfoKey: TransitionInfo(
                             hasTransition: true,
@@ -474,7 +678,9 @@ class _EditMyAccountWidgetState extends State<EditMyAccountWidget> {
                         },
                       );
                     },
-                    text: 'Confirm Changes',
+                    text: FFLocalizations.of(context).getText(
+                      'gafaelwz' /* Confirm Changes */,
+                    ),
                     options: FFButtonOptions(
                       width: 327.0,
                       height: 56.0,

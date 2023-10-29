@@ -151,6 +151,8 @@ class _NavBar1WidgetState extends State<NavBar1Widget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Container(
       width: double.infinity,
       height: 90.0,
@@ -163,38 +165,35 @@ class _NavBar1WidgetState extends State<NavBar1Widget>
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 2.0, 0.0),
-                child: Material(
-                  color: Colors.transparent,
-                  elevation: 0.0,
-                  shape: RoundedRectangleBorder(
+              Material(
+                color: Colors.transparent,
+                elevation: 0.0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(0.0),
+                    bottomRight: Radius.circular(0.0),
+                    topLeft: Radius.circular(20.0),
+                    topRight: Radius.circular(20.0),
+                  ),
+                ),
+                child: Container(
+                  width: double.infinity,
+                  height: 80.0,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).primaryBackground,
+                    boxShadow: [
+                      BoxShadow(
+                        blurRadius: 10.0,
+                        color: Color(0x1A57636C),
+                        offset: Offset(0.0, -10.0),
+                        spreadRadius: 0.1,
+                      )
+                    ],
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(0.0),
                       bottomRight: Radius.circular(0.0),
                       topLeft: Radius.circular(20.0),
                       topRight: Radius.circular(20.0),
-                    ),
-                  ),
-                  child: Container(
-                    width: double.infinity,
-                    height: 80.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).primaryBackground,
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 10.0,
-                          color: Color(0x1A57636C),
-                          offset: Offset(0.0, -10.0),
-                          spreadRadius: 0.1,
-                        )
-                      ],
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(0.0),
-                        bottomRight: Radius.circular(0.0),
-                        topLeft: Radius.circular(20.0),
-                        topRight: Radius.circular(20.0),
-                      ),
                     ),
                   ),
                 ),
@@ -241,7 +240,7 @@ class _NavBar1WidgetState extends State<NavBar1Widget>
                   borderWidth: 1.0,
                   buttonSize: 50.0,
                   icon: Icon(
-                    FFIcons.kchart1,
+                    FFIcons.kgraph,
                     color: FlutterFlowTheme.of(context).secondaryText,
                     size: 24.0,
                   ),

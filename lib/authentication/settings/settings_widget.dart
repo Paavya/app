@@ -1,4 +1,3 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -47,6 +46,8 @@ class _SettingsWidgetState extends State<SettingsWidget> {
       );
     }
 
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -72,7 +73,9 @@ class _SettingsWidgetState extends State<SettingsWidget> {
             },
           ),
           title: Text(
-            'Settings',
+            FFLocalizations.of(context).getText(
+              'zg3po1kn' /* Settings */,
+            ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Outfit',
                   color: FlutterFlowTheme.of(context).primaryText,
@@ -110,7 +113,9 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       24.0, 0.0, 0.0, 0.0),
                                   child: Text(
-                                    'General',
+                                    FFLocalizations.of(context).getText(
+                                      '8orzrhw3' /* General */,
+                                    ),
                                     style:
                                         FlutterFlowTheme.of(context).labelLarge,
                                   ),
@@ -140,7 +145,10 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                               MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text(
-                                              'Language',
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'ds8ypecm' /* Language */,
+                                              ),
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .labelLarge,
@@ -153,7 +161,10 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                       .fromSTEB(
                                                           0.0, 0.0, 8.0, 0.0),
                                                   child: Text(
-                                                    'English',
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      'k7vg9fai' /* English */,
+                                                    ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .labelMedium,
@@ -196,7 +207,9 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Text(
-                                            'Contact us',
+                                            FFLocalizations.of(context).getText(
+                                              '3mcwx0yd' /* Reset Password */,
+                                            ),
                                             style: FlutterFlowTheme.of(context)
                                                 .labelLarge,
                                           ),
@@ -234,7 +247,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                     Expanded(
                       child: Container(
                         width: 100.0,
-                        height: 212.0,
+                        height: 155.0,
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).primaryBackground,
                         ),
@@ -248,7 +261,9 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       24.0, 0.0, 0.0, 0.0),
                                   child: Text(
-                                    'Security',
+                                    FFLocalizations.of(context).getText(
+                                      'yu034x4u' /* Security */,
+                                    ),
                                     style:
                                         FlutterFlowTheme.of(context).labelLarge,
                                   ),
@@ -262,40 +277,53 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Expanded(
-                                    child: Container(
-                                      width: 100.0,
-                                      height: 56.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 16.0, 24.0, 16.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Text(
-                                              'Change Wallet Pin',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelLarge,
-                                            ),
-                                            Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Icon(
-                                                  Icons.chevron_right,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryText,
-                                                  size: 20.0,
+                                    child: InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        context.pushNamed('notifications');
+                                      },
+                                      child: Container(
+                                        width: 100.0,
+                                        height: 56.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                        ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  24.0, 16.0, 24.0, 16.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'z9f7tfj5' /* Notifications */,
                                                 ),
-                                              ],
-                                            ),
-                                          ],
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelLarge,
+                                              ),
+                                              Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Icon(
+                                                    Icons.chevron_right,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryText,
+                                                    size: 20.0,
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -314,20 +342,100 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
                                     ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          8.0, 0.0, 0.0, 0.0),
+                                      child: SwitchListTile.adaptive(
+                                        value: _model.switchListTileValue1 ??=
+                                            false,
+                                        onChanged: (newValue) async {
+                                          setState(() =>
+                                              _model.switchListTileValue1 =
+                                                  newValue!);
+                                        },
+                                        title: Text(
+                                          FFLocalizations.of(context).getText(
+                                            '4eak0bff' /* Biometric */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .labelLarge,
+                                        ),
+                                        subtitle: Text(
+                                          FFLocalizations.of(context).getText(
+                                            'r5qnllxo' /* Enable finderprint scan and Fa... */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .labelMedium,
+                                        ),
+                                        tileColor: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        activeColor:
+                                            FlutterFlowTheme.of(context)
+                                                .primary,
+                                        activeTrackColor:
+                                            FlutterFlowTheme.of(context)
+                                                .primary,
+                                        dense: true,
+                                        controlAffinity:
+                                            ListTileControlAffinity.trailing,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Expanded(
+                    child: Container(
+                      width: 100.0,
+                      height: 212.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).primaryBackground,
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Expanded(
+                                child: Container(
+                                  width: 100.0,
+                                  height: 68.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        8.0, 0.0, 0.0, 0.0),
                                     child: SwitchListTile.adaptive(
-                                      value: _model.switchListTileValue ??=
+                                      value: _model.switchListTileValue2 ??=
                                           false,
                                       onChanged: (newValue) async {
                                         setState(() => _model
-                                            .switchListTileValue = newValue!);
+                                            .switchListTileValue2 = newValue!);
                                       },
                                       title: Text(
-                                        'Biometric',
+                                        FFLocalizations.of(context).getText(
+                                          'p5lwokcz' /* Dark Mode */,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .labelLarge,
                                       ),
                                       subtitle: Text(
-                                        'Enable finderprint scan and Face ID',
+                                        FFLocalizations.of(context).getText(
+                                          'blu2rw4e' /* Switch between light & dark mo... */,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .labelMedium,
                                       ),
@@ -343,12 +451,21 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                     ),
                                   ),
                                 ),
-                              ],
-                            ),
-                            Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Expanded(
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Expanded(
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('PrivacyPolicy');
+                                  },
                                   child: Container(
                                     width: 100.0,
                                     height: 56.0,
@@ -365,7 +482,9 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Text(
-                                            'Privacy Policy',
+                                            FFLocalizations.of(context).getText(
+                                              'm8mvbcxg' /* Privacy Policy */,
+                                            ),
                                             style: FlutterFlowTheme.of(context)
                                                 .labelLarge,
                                           ),
@@ -386,60 +505,10 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                     ),
                                   ),
                                 ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Expanded(
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 0.0),
-                      child: FFButtonWidget(
-                        onPressed: () async {
-                          GoRouter.of(context).prepareAuthEvent();
-                          await authManager.signOut();
-                          GoRouter.of(context).clearRedirectLocation();
-
-                          context.goNamedAuth(
-                            'login',
-                            context.mounted,
-                            extra: <String, dynamic>{
-                              kTransitionInfoKey: TransitionInfo(
-                                hasTransition: true,
-                                transitionType: PageTransitionType.fade,
-                                duration: Duration(milliseconds: 0),
                               ),
-                            },
-                          );
-                        },
-                        text: 'Log Out',
-                        options: FFButtonOptions(
-                          height: 56.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              24.0, 0.0, 24.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).primaryBackground,
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Readex Pro',
-                                    color: FlutterFlowTheme.of(context).error,
-                                  ),
-                          elevation: 0.0,
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                            width: 1.0,
+                            ],
                           ),
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
+                        ],
                       ),
                     ),
                   ),

@@ -40,6 +40,8 @@ class _SmallCreditCardWidgetState extends State<SmallCreditCardWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Container(
       width: 180.0,
       height: 200.0,
@@ -82,7 +84,9 @@ class _SmallCreditCardWidgetState extends State<SmallCreditCardWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Text(
-                  '5229-9012-3245-6789',
+                  FFLocalizations.of(context).getText(
+                    'pd0zujvg' /* 5229-9012-3245-6789 */,
+                  ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Inter',
                         color: FlutterFlowTheme.of(context).primaryBackground,
@@ -98,7 +102,9 @@ class _SmallCreditCardWidgetState extends State<SmallCreditCardWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Text(
-                  'Trey Banks',
+                  FFLocalizations.of(context).getText(
+                    'hr66oq0e' /* Trey Banks */,
+                  ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Readex Pro',
                         color: FlutterFlowTheme.of(context).primaryBackground,
@@ -114,7 +120,9 @@ class _SmallCreditCardWidgetState extends State<SmallCreditCardWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Text(
-                  'Exp ',
+                  FFLocalizations.of(context).getText(
+                    '9ti5igsu' /* Exp  */,
+                  ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Readex Pro',
                         color: FlutterFlowTheme.of(context).primaryBackground,
@@ -122,7 +130,9 @@ class _SmallCreditCardWidgetState extends State<SmallCreditCardWidget> {
                       ),
                 ),
                 Text(
-                  '11/25',
+                  FFLocalizations.of(context).getText(
+                    'znd5pypt' /* 11/25 */,
+                  ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Readex Pro',
                         color: FlutterFlowTheme.of(context).primaryBackground,

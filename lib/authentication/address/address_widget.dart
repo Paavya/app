@@ -47,6 +47,8 @@ class _AddressWidgetState extends State<AddressWidget> {
       );
     }
 
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -72,7 +74,9 @@ class _AddressWidgetState extends State<AddressWidget> {
             },
           ),
           title: Text(
-            'Settings',
+            FFLocalizations.of(context).getText(
+              '9i4945fy' /* Settings */,
+            ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Outfit',
                   color: FlutterFlowTheme.of(context).primaryText,
@@ -110,7 +114,9 @@ class _AddressWidgetState extends State<AddressWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       24.0, 0.0, 0.0, 0.0),
                                   child: Text(
-                                    'Your Location',
+                                    FFLocalizations.of(context).getText(
+                                      'vvre487w' /* Your Location */,
+                                    ),
                                     style:
                                         FlutterFlowTheme.of(context).labelLarge,
                                   ),
@@ -149,7 +155,11 @@ class _AddressWidgetState extends State<AddressWidget> {
                                                       MainAxisSize.max,
                                                   children: [
                                                     Text(
-                                                      'Current Location',
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        '0v87oghw' /* Current Location */,
+                                                      ),
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -179,7 +189,11 @@ class _AddressWidgetState extends State<AddressWidget> {
                                                       clipBehavior: Clip.none,
                                                       children: [
                                                         AutoSizeText(
-                                                          '3328 Lake Heights Ct.',
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            '81o4wphq' /* 3328 Lake Heights Ct. */,
+                                                          ),
                                                           maxLines: 3,
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -212,7 +226,11 @@ class _AddressWidgetState extends State<AddressWidget> {
                                                       clipBehavior: Clip.none,
                                                       children: [
                                                         AutoSizeText(
-                                                          'Dacula, GA 30019',
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'h9tym5kv' /* Dacula, GA 30019 */,
+                                                          ),
                                                           maxLines: 3,
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -229,7 +247,10 @@ class _AddressWidgetState extends State<AddressWidget> {
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Text(
-                                                  'Change',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'p30nxu6y' /* Change */,
+                                                  ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .labelMedium

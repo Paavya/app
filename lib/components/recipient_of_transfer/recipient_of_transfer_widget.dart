@@ -40,6 +40,8 @@ class _RecipientOfTransferWidgetState extends State<RecipientOfTransferWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),
       child: Row(
@@ -95,7 +97,9 @@ class _RecipientOfTransferWidgetState extends State<RecipientOfTransferWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            'Paavya Card',
+                            FFLocalizations.of(context).getText(
+                              'c4vcnwyz' /* Paavya Card */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .titleMedium
                                 .override(
@@ -110,7 +114,9 @@ class _RecipientOfTransferWidgetState extends State<RecipientOfTransferWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            '1234-5678-9012-3141',
+                            FFLocalizations.of(context).getText(
+                              'hvkz2upr' /* 1234-5678-9012-3141 */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(

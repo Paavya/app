@@ -48,6 +48,8 @@ class _OnboardingFlowWidgetState extends State<OnboardingFlowWidget> {
       );
     }
 
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -129,7 +131,13 @@ class _OnboardingFlowWidgetState extends State<OnboardingFlowWidget> {
                                                       MainAxisSize.max,
                                                   children: [
                                                     Text(
-                                                      'Mobile banking \nyou\'ll need',
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        '6nx06l2j' /* Mobile banking 
+you'll need */
+                                                        ,
+                                                      ),
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -150,7 +158,11 @@ class _OnboardingFlowWidgetState extends State<OnboardingFlowWidget> {
                                                                   0.0,
                                                                   0.0),
                                                       child: Text(
-                                                        'A wallet in your pocket to spend\nyour money way smarter.',
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'kgpvxh45' /* A wallet in your pocket to spe... */,
+                                                        ),
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -216,7 +228,11 @@ class _OnboardingFlowWidgetState extends State<OnboardingFlowWidget> {
                                                                   Curves.ease,
                                                             );
                                                           },
-                                                          text: 'Next',
+                                                          text: FFLocalizations
+                                                                  .of(context)
+                                                              .getText(
+                                                            'arrj80k3' /* Next */,
+                                                          ),
                                                           options:
                                                               FFButtonOptions(
                                                             height: 56.0,
@@ -304,7 +320,13 @@ class _OnboardingFlowWidgetState extends State<OnboardingFlowWidget> {
                                                       MainAxisAlignment.center,
                                                   children: [
                                                     Text(
-                                                      'Manage your money \nwisely',
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        '8l2h91sf' /* Manage your money 
+wisely */
+                                                        ,
+                                                      ),
                                                       textAlign:
                                                           TextAlign.center,
                                                       style:
@@ -329,7 +351,11 @@ class _OnboardingFlowWidgetState extends State<OnboardingFlowWidget> {
                                                                   0.0,
                                                                   0.0),
                                                       child: Text(
-                                                        'Track your money flows, balance, and\n everyday transactions on the go.',
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'gvmlz8kh' /* Track your money flows, balanc... */,
+                                                        ),
                                                         textAlign:
                                                             TextAlign.center,
                                                         style:
@@ -372,7 +398,11 @@ class _OnboardingFlowWidgetState extends State<OnboardingFlowWidget> {
                                                                   Curves.ease,
                                                             );
                                                           },
-                                                          text: 'Next',
+                                                          text: FFLocalizations
+                                                                  .of(context)
+                                                              .getText(
+                                                            'ftd5kuov' /* Next */,
+                                                          ),
                                                           options:
                                                               FFButtonOptions(
                                                             height: 56.0,
@@ -460,7 +490,13 @@ class _OnboardingFlowWidgetState extends State<OnboardingFlowWidget> {
                                                       MainAxisAlignment.center,
                                                   children: [
                                                     Text(
-                                                      'Send money with \nno problem',
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        '6qz2vu89' /* Send money with 
+no problem */
+                                                        ,
+                                                      ),
                                                       textAlign:
                                                           TextAlign.center,
                                                       style:
@@ -485,7 +521,11 @@ class _OnboardingFlowWidgetState extends State<OnboardingFlowWidget> {
                                                                   0.0,
                                                                   0.0),
                                                       child: Text(
-                                                        'Send money to your friends and families \nwith no worries.',
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'sek7m4lt' /* Send money to your friends and... */,
+                                                        ),
                                                         textAlign:
                                                             TextAlign.center,
                                                         style:
@@ -528,7 +568,11 @@ class _OnboardingFlowWidgetState extends State<OnboardingFlowWidget> {
                                                                   Curves.ease,
                                                             );
                                                           },
-                                                          text: 'Next',
+                                                          text: FFLocalizations
+                                                                  .of(context)
+                                                              .getText(
+                                                            '31eff7sr' /* Next */,
+                                                          ),
                                                           options:
                                                               FFButtonOptions(
                                                             height: 56.0,
@@ -616,7 +660,13 @@ class _OnboardingFlowWidgetState extends State<OnboardingFlowWidget> {
                                                       MainAxisAlignment.center,
                                                   children: [
                                                     Text(
-                                                      'Multiple cards in one\napplication',
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'ytee8a2a' /* Multiple cards in one
+applicat... */
+                                                        ,
+                                                      ),
                                                       textAlign:
                                                           TextAlign.center,
                                                       style:
@@ -641,7 +691,11 @@ class _OnboardingFlowWidgetState extends State<OnboardingFlowWidget> {
                                                                   0.0,
                                                                   0.0),
                                                       child: Text(
-                                                        'Manage your cards so you can use \nthem without switching apps.',
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'nzubaare' /* Manage your cards so you can u... */,
+                                                        ),
                                                         textAlign:
                                                             TextAlign.center,
                                                         style:
@@ -692,7 +746,11 @@ class _OnboardingFlowWidgetState extends State<OnboardingFlowWidget> {
                                                               },
                                                             );
                                                           },
-                                                          text: 'Next',
+                                                          text: FFLocalizations
+                                                                  .of(context)
+                                                              .getText(
+                                                            'stte8foi' /* Next */,
+                                                          ),
                                                           options:
                                                               FFButtonOptions(
                                                             height: 56.0,

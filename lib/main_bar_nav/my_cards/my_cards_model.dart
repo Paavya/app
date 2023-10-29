@@ -1,5 +1,4 @@
 import '/components/nav_bar1/nav_bar1_widget.dart';
-import '/components/small_credit_card/small_credit_card_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -14,21 +13,17 @@ class MyCardsModel extends FlutterFlowModel<MyCardsWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // Model for small_credit_card component.
-  late SmallCreditCardModel smallCreditCardModel;
   // Model for NavBar1 component.
   late NavBar1Model navBar1Model;
 
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
-    smallCreditCardModel = createModel(context, () => SmallCreditCardModel());
     navBar1Model = createModel(context, () => NavBar1Model());
   }
 
   void dispose() {
     unfocusNode.dispose();
-    smallCreditCardModel.dispose();
     navBar1Model.dispose();
   }
 

@@ -48,6 +48,8 @@ class _TransferSuccessWidgetState extends State<TransferSuccessWidget> {
       );
     }
 
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -144,7 +146,11 @@ class _TransferSuccessWidgetState extends State<TransferSuccessWidget> {
                                                                     .center,
                                                             children: [
                                                               Text(
-                                                                'Transfer Successsful',
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  'gk34cuar' /* Transfer Successsful */,
+                                                                ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .headlineMedium
@@ -173,7 +179,11 @@ class _TransferSuccessWidgetState extends State<TransferSuccessWidget> {
                                                                           .center,
                                                                   children: [
                                                                     Text(
-                                                                      '\$50.00',
+                                                                      FFLocalizations.of(
+                                                                              context)
+                                                                          .getText(
+                                                                        '806qdwc7' /* $50.00 */,
+                                                                      ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .displayMedium
@@ -234,7 +244,11 @@ class _TransferSuccessWidgetState extends State<TransferSuccessWidget> {
                                                                     .max,
                                                             children: [
                                                               Text(
-                                                                'Transction ID:',
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  'iife5pl4' /* Transction ID: */,
+                                                                ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -247,7 +261,11 @@ class _TransferSuccessWidgetState extends State<TransferSuccessWidget> {
                                                                     ),
                                                               ),
                                                               Text(
-                                                                'AO2512273019231221662',
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  'hi75in3w' /* AO2512273019231221662 */,
+                                                                ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -293,7 +311,9 @@ class _TransferSuccessWidgetState extends State<TransferSuccessWidget> {
                           onPressed: () async {
                             context.pushNamed('dashboard');
                           },
-                          text: 'Back to home',
+                          text: FFLocalizations.of(context).getText(
+                            'rao4dqh1' /* Back to home */,
+                          ),
                           options: FFButtonOptions(
                             height: 56.0,
                             padding: EdgeInsetsDirectional.fromSTEB(

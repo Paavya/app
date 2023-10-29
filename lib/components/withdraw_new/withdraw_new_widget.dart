@@ -35,8 +35,13 @@ class _WithdrawNewWidgetState extends State<WithdrawNewWidget> {
     super.initState();
     _model = createModel(context, () => WithdrawNewModel());
 
-    _model.textController ??= TextEditingController(text: '\$10.00');
+    _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
+          _model.textController?.text = FFLocalizations.of(context).getText(
+            '132ejwya' /* $10.00 */,
+          );
+        }));
   }
 
   @override
@@ -48,6 +53,8 @@ class _WithdrawNewWidgetState extends State<WithdrawNewWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Material(
       color: Colors.transparent,
       elevation: 5.0,
@@ -105,7 +112,9 @@ class _WithdrawNewWidgetState extends State<WithdrawNewWidget> {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                       child: Text(
-                        'Withdraw',
+                        FFLocalizations.of(context).getText(
+                          '22gpdha9' /* Withdraw */,
+                        ),
                         style: FlutterFlowTheme.of(context).headlineMedium,
                       ),
                     ),
@@ -153,7 +162,9 @@ class _WithdrawNewWidgetState extends State<WithdrawNewWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Text(
-                      'Balance',
+                      FFLocalizations.of(context).getText(
+                        'jr8yed7c' /* Balance */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodyLarge,
                     ),
                   ],
@@ -165,7 +176,9 @@ class _WithdrawNewWidgetState extends State<WithdrawNewWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Text(
-                      '\$413.81',
+                      FFLocalizations.of(context).getText(
+                        '3vvo72p9' /* $413.81 */,
+                      ),
                       style:
                           FlutterFlowTheme.of(context).headlineLarge.override(
                                 fontFamily: 'Inter',
@@ -180,7 +193,9 @@ class _WithdrawNewWidgetState extends State<WithdrawNewWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Text(
-                      'Set Amount',
+                      FFLocalizations.of(context).getText(
+                        'uq8nd60l' /* Set Amount */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodyLarge,
                     ),
                   ],
@@ -313,9 +328,24 @@ class _WithdrawNewWidgetState extends State<WithdrawNewWidget> {
                                                           0.00, 0.00),
                                                   child: FlutterFlowChoiceChips(
                                                     options: [
-                                                      ChipData('\$10.00'),
-                                                      ChipData('\$50.00'),
-                                                      ChipData('\$100.00')
+                                                      ChipData(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                        'uplf9zfy' /* $10.00 */,
+                                                      )),
+                                                      ChipData(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                        'qx9fe09h' /* $50.00 */,
+                                                      )),
+                                                      ChipData(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                        'gbyyhpo9' /* $100.00 */,
+                                                      ))
                                                     ],
                                                     onChanged: (val) =>
                                                         setState(() => _model
@@ -448,7 +478,9 @@ class _WithdrawNewWidgetState extends State<WithdrawNewWidget> {
                           },
                         ).then((value) => safeSetState(() {}));
                       },
-                      text: 'Withdraw',
+                      text: FFLocalizations.of(context).getText(
+                        'b2wynkg8' /* Withdraw */,
+                      ),
                       options: FFButtonOptions(
                         width: 270.0,
                         height: 50.0,

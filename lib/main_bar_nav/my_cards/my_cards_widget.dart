@@ -1,5 +1,4 @@
 import '/components/nav_bar1/nav_bar1_widget.dart';
-import '/components/small_credit_card/small_credit_card_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -47,6 +46,8 @@ class _MyCardsWidgetState extends State<MyCardsWidget> {
       );
     }
 
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -58,7 +59,9 @@ class _MyCardsWidgetState extends State<MyCardsWidget> {
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
           automaticallyImplyLeading: false,
           title: Text(
-            'My Card',
+            FFLocalizations.of(context).getText(
+              '9hclvfip' /* My Cards */,
+            ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Outfit',
                   color: FlutterFlowTheme.of(context).primaryText,
@@ -76,60 +79,39 @@ class _MyCardsWidgetState extends State<MyCardsWidget> {
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        width: 270.0,
-                        height: 250.0,
-                        decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).primaryBackground,
-                        ),
-                        child: SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 0.0, 0.0, 0.0),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    context.pushNamed(
-                                      'myCardMenu',
-                                      extra: <String, dynamic>{
-                                        kTransitionInfoKey: TransitionInfo(
-                                          hasTransition: true,
-                                          transitionType:
-                                              PageTransitionType.fade,
-                                          duration: Duration(milliseconds: 0),
-                                        ),
-                                      },
-                                    );
-                                  },
-                                  child: wrapWithModel(
-                                    model: _model.smallCreditCardModel,
-                                    updateCallback: () => setState(() {}),
-                                    child: SmallCreditCardWidget(),
-                                  ),
-                                ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              4.0, 4.0, 4.0, 4.0),
+                          child: Container(
+                            width: 338.0,
+                            height: 190.0,
+                            decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  blurRadius: 6.0,
+                                  color: Color(0x4B1A1F24),
+                                  offset: Offset(0.0, 2.0),
+                                )
+                              ],
+                              gradient: LinearGradient(
+                                colors: [
+                                  FlutterFlowTheme.of(context).secondary,
+                                  FlutterFlowTheme.of(context).primary
+                                ],
+                                stops: [0.0, 1.0],
+                                begin: AlignmentDirectional(0.94, -1.0),
+                                end: AlignmentDirectional(-0.94, 1.0),
                               ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 16.0, 16.0, 16.0),
                               child: InkWell(
@@ -138,53 +120,83 @@ class _MyCardsWidgetState extends State<MyCardsWidget> {
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  context.pushNamed(
-                                    'Addnewcard',
-                                    extra: <String, dynamic>{
-                                      kTransitionInfoKey: TransitionInfo(
-                                        hasTransition: true,
-                                        transitionType: PageTransitionType.fade,
-                                        duration: Duration(milliseconds: 0),
-                                      ),
-                                    },
-                                  );
+                                  context.pushNamed('myCardMenu');
                                 },
-                                child: Container(
-                                  width: 55.0,
-                                  height: 176.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                    borderRadius: BorderRadius.circular(16.0),
-                                    border: Border.all(
-                                      color: FlutterFlowTheme.of(context)
-                                          .alternate,
-                                      width: 2.0,
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Image.network(
+                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/default-project-widgets-xzsp5v/assets/ddr0sc80h0hs/@3xlogoMark_outline.png',
+                                      width: 44.0,
+                                      height: 44.0,
+                                      fit: BoxFit.cover,
                                     ),
-                                  ),
-                                  child: Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
-                                    child: Icon(
-                                      FFIcons.kcardAdd,
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
-                                      size: 24.0,
+                                    Text(
+                                      FFLocalizations.of(context).getText(
+                                        '8h87p7rh' /* Balance */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Readex Pro',
+                                            color: Colors.white,
+                                          ),
                                     ),
-                                  ),
+                                    Text(
+                                      FFLocalizations.of(context).getText(
+                                        '7yoko9q6' /* $7,630 */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .displaySmall
+                                          .override(
+                                            fontFamily: 'Outfit',
+                                            color: Colors.white,
+                                            fontSize: 32.0,
+                                          ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 12.0, 0.0, 4.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            FFLocalizations.of(context).getText(
+                                              'xwwijz8c' /* **** 0149 */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Roboto Mono',
+                                                  color: Colors.white,
+                                                ),
+                                          ),
+                                          Text(
+                                            FFLocalizations.of(context).getText(
+                                              'u7finife' /* 05/25 */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Roboto Mono',
+                                                  color: Colors.white,
+                                                ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
-                          ],
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [],
+                      ],
                     ),
                   ),
                 ],

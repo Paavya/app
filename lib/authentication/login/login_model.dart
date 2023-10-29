@@ -14,15 +14,15 @@ class LoginModel extends FlutterFlowModel<LoginWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode1;
-  TextEditingController? emailTextController;
-  String? Function(BuildContext, String?)? emailTextControllerValidator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode2;
-  TextEditingController? passwordTextController;
+  // State field(s) for Email widget.
+  FocusNode? emailFocusNode;
+  TextEditingController? emailController;
+  String? Function(BuildContext, String?)? emailControllerValidator;
+  // State field(s) for Password widget.
+  FocusNode? passwordFocusNode;
+  TextEditingController? passwordController;
   late bool passwordVisibility;
-  String? Function(BuildContext, String?)? passwordTextControllerValidator;
+  String? Function(BuildContext, String?)? passwordControllerValidator;
 
   /// Initialization and disposal methods.
 
@@ -32,11 +32,11 @@ class LoginModel extends FlutterFlowModel<LoginWidget> {
 
   void dispose() {
     unfocusNode.dispose();
-    textFieldFocusNode1?.dispose();
-    emailTextController?.dispose();
+    emailFocusNode?.dispose();
+    emailController?.dispose();
 
-    textFieldFocusNode2?.dispose();
-    passwordTextController?.dispose();
+    passwordFocusNode?.dispose();
+    passwordController?.dispose();
   }
 
   /// Action blocks are added here.

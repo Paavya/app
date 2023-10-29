@@ -41,6 +41,8 @@ class _ConfirmWithdrawWidgetState extends State<ConfirmWithdrawWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Container(
       width: 500.0,
       constraints: BoxConstraints(
@@ -103,7 +105,9 @@ class _ConfirmWithdrawWidgetState extends State<ConfirmWithdrawWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Text(
-                          'Verification',
+                          FFLocalizations.of(context).getText(
+                            '1wu0yg16' /* Verification */,
+                          ),
                           style:
                               FlutterFlowTheme.of(context).labelLarge.override(
                                     fontFamily: 'Readex Pro',
@@ -115,7 +119,9 @@ class _ConfirmWithdrawWidgetState extends State<ConfirmWithdrawWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),
                           child: Text(
-                            'Enter the 4-digits code to process your withdraw',
+                            FFLocalizations.of(context).getText(
+                              'ev7o12lc' /* Enter the 4-digits code to pro... */,
+                            ),
                             textAlign: TextAlign.start,
                             style: FlutterFlowTheme.of(context).labelSmall,
                           ),
@@ -173,7 +179,9 @@ class _ConfirmWithdrawWidgetState extends State<ConfirmWithdrawWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),
                           child: Text(
-                            'Didn\'t receive a code?',
+                            FFLocalizations.of(context).getText(
+                              'wkbj5xfr' /* Didn't receive a code? */,
+                            ),
                             textAlign: TextAlign.start,
                             style: FlutterFlowTheme.of(context)
                                 .labelSmall
@@ -197,7 +205,9 @@ class _ConfirmWithdrawWidgetState extends State<ConfirmWithdrawWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),
                           child: Text(
-                            'Resend Code',
+                            FFLocalizations.of(context).getText(
+                              '7rxa9jnk' /* Resend Code */,
+                            ),
                             textAlign: TextAlign.start,
                             style: FlutterFlowTheme.of(context)
                                 .labelSmall
@@ -223,7 +233,9 @@ class _ConfirmWithdrawWidgetState extends State<ConfirmWithdrawWidget> {
                             onPressed: () {
                               print('Button pressed ...');
                             },
-                            text: 'Verify Withdraw',
+                            text: FFLocalizations.of(context).getText(
+                              'kk0pg92t' /* Verify Withdraw */,
+                            ),
                             options: FFButtonOptions(
                               height: 56.0,
                               padding: EdgeInsetsDirectional.fromSTEB(

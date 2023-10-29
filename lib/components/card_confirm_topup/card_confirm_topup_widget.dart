@@ -40,6 +40,8 @@ class _CardConfirmTopupWidgetState extends State<CardConfirmTopupWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Container(
       width: 500.0,
       constraints: BoxConstraints(
@@ -99,11 +101,15 @@ class _CardConfirmTopupWidgetState extends State<CardConfirmTopupWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Text(
-                        'You are sending',
+                        FFLocalizations.of(context).getText(
+                          '1cic2wcp' /* You are sending */,
+                        ),
                         style: FlutterFlowTheme.of(context).labelLarge,
                       ),
                       Text(
-                        '\$50.00',
+                        FFLocalizations.of(context).getText(
+                          '2irmiph6' /* $50.00 */,
+                        ),
                         textAlign: TextAlign.end,
                         style: FlutterFlowTheme.of(context).displaySmall,
                       ),
@@ -207,11 +213,15 @@ class _CardConfirmTopupWidgetState extends State<CardConfirmTopupWidget> {
                   ),
                 ),
                 Text(
-                  'To',
+                  FFLocalizations.of(context).getText(
+                    'wisj86p7' /* To */,
+                  ),
                   style: FlutterFlowTheme.of(context).labelMedium,
                 ),
                 Text(
-                  'Paavya Card',
+                  FFLocalizations.of(context).getText(
+                    'jixgvs9y' /* Paavya Card */,
+                  ),
                   textAlign: TextAlign.end,
                   style: FlutterFlowTheme.of(context).headlineSmall,
                 ),
@@ -225,7 +235,9 @@ class _CardConfirmTopupWidgetState extends State<CardConfirmTopupWidget> {
                         onPressed: () async {
                           context.safePop();
                         },
-                        text: 'Go Back',
+                        text: FFLocalizations.of(context).getText(
+                          'h88z4kcs' /* Go Back */,
+                        ),
                         options: FFButtonOptions(
                           height: 50.0,
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -256,7 +268,9 @@ class _CardConfirmTopupWidgetState extends State<CardConfirmTopupWidget> {
                             },
                           );
                         },
-                        text: 'Confirm Top Up',
+                        text: FFLocalizations.of(context).getText(
+                          'to69ahdo' /* Confirm Top Up */,
+                        ),
                         options: FFButtonOptions(
                           height: 50.0,
                           padding: EdgeInsetsDirectional.fromSTEB(

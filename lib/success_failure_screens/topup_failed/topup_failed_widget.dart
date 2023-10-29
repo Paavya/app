@@ -47,6 +47,8 @@ class _TopupFailedWidgetState extends State<TopupFailedWidget> {
       );
     }
 
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -132,7 +134,11 @@ class _TopupFailedWidgetState extends State<TopupFailedWidget> {
                                                                     .center,
                                                             children: [
                                                               Text(
-                                                                'Top Up failed',
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  'rnwxtq6r' /* Top Up failed */,
+                                                                ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .headlineMedium
@@ -161,7 +167,11 @@ class _TopupFailedWidgetState extends State<TopupFailedWidget> {
                                                                           .center,
                                                                   children: [
                                                                     Text(
-                                                                      '\$50.00',
+                                                                      FFLocalizations.of(
+                                                                              context)
+                                                                          .getText(
+                                                                        'xqy55kql' /* $50.00 */,
+                                                                      ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .displayMedium
@@ -237,7 +247,9 @@ class _TopupFailedWidgetState extends State<TopupFailedWidget> {
                           onPressed: () async {
                             context.safePop();
                           },
-                          text: 'Go back to try again',
+                          text: FFLocalizations.of(context).getText(
+                            '9v25ozyp' /* Go back to try again */,
+                          ),
                           options: FFButtonOptions(
                             height: 56.0,
                             padding: EdgeInsetsDirectional.fromSTEB(
