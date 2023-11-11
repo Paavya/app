@@ -28,6 +28,8 @@ class _WithdrawBadgeWidgetState extends State<WithdrawBadgeWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => WithdrawBadgeModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -73,7 +75,9 @@ class _WithdrawBadgeWidgetState extends State<WithdrawBadgeWidget> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
                       child: Image.network(
-                        'https://picsum.photos/seed/399/600',
+                        getCORSProxyUrl(
+                          'https://picsum.photos/seed/399/600',
+                        ),
                         width: 300.0,
                         height: 200.0,
                         fit: BoxFit.cover,

@@ -1,6 +1,5 @@
 // Export pages
-export '/authentication/login/login_widget.dart' show LoginWidget;
-export '/main_bar_nav/stats/stats_widget.dart' show StatsWidget;
+export '/main_bar_nav/insights/insights_widget.dart' show InsightsWidget;
 export '/main_bar_nav/profile/profile_widget.dart' show ProfileWidget;
 export '/authentication/edit_my_account/edit_my_account_widget.dart'
     show EditMyAccountWidget;
@@ -11,20 +10,21 @@ export '/authentication/account_verified/account_verified_widget.dart'
     show AccountVerifiedWidget;
 export '/authentication/settings/settings_widget.dart' show SettingsWidget;
 export '/authentication/address/address_widget.dart' show AddressWidget;
-export '/main_bar_nav/my_cards/my_cards_widget.dart' show MyCardsWidget;
-export '/authentication/my_account/my_account_widget.dart' show MyAccountWidget;
+export '/main_bar_nav/my_accounts/my_accounts_widget.dart'
+    show MyAccountsWidget;
+export '/authentication/profile_details/profile_details_widget.dart'
+    show ProfileDetailsWidget;
 export '/success_failure_screens/topup_success/topup_success_widget.dart'
     show TopupSuccessWidget;
 export '/budget_screens/create_budget/create_budget_widget.dart'
     show CreateBudgetWidget;
-export '/card_screens/my_card_menu/my_card_menu_widget.dart'
-    show MyCardMenuWidget;
-export '/card_screens/addnewcard/addnewcard_widget.dart' show AddnewcardWidget;
+export '/accounts/card_details/card_details_widget.dart' show CardDetailsWidget;
+export '/accounts/add_newcard/add_newcard_widget.dart' show AddNewcardWidget;
 export '/onboarding/onboarding_flow/onboarding_flow_widget.dart'
     show OnboardingFlowWidget;
 export '/onboarding/onboarding2/onboarding2_widget.dart' show Onboarding2Widget;
 export '/main_bar_nav/dashboard/dashboard_widget.dart' show DashboardWidget;
-export '/transactionsscreens/all_transactions/all_transactions_widget.dart'
+export '/main_bar_nav/all_transactions/all_transactions_widget.dart'
     show AllTransactionsWidget;
 export '/success_failure_screens/topup_failed/topup_failed_widget.dart'
     show TopupFailedWidget;
@@ -42,4 +42,12 @@ export '/documentation/termsandconditions/termsandconditions_widget.dart'
     show TermsandconditionsWidget;
 export '/main_bar_nav/dashboard_empty/dashboard_empty_widget.dart'
     show DashboardEmptyWidget;
-export '/notifications/notifications_widget.dart' show NotificationsWidget;
+export '/profile_internal_screens/notifications/notifications_widget.dart'
+    show NotificationsWidget;
+export '/authentication/login/login_widget.dart' show LoginWidget;
+export '/transactionsscreens/topup/topup_widget.dart' show TopupWidget;
+export '/accounts/bank_details/bank_details_widget.dart' show BankDetailsWidget;
+export '/create_goal/create_goal_widget.dart' show CreateGoalWidget;
+export '/main_bar_nav/monthly_budgets/monthly_budgets_widget.dart'
+    show MonthlyBudgetsWidget;
+export '/aii_ayva/aii_ayva_widget.dart' show AiiAyvaWidget;

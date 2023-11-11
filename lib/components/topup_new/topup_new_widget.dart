@@ -34,6 +34,7 @@ class _TopupNewWidgetState extends State<TopupNewWidget> {
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
           _model.textController?.text = FFLocalizations.of(context).getText(
             '86sfr6a7' /* $50.00 */,
@@ -469,7 +470,7 @@ class _TopupNewWidgetState extends State<TopupNewWidget> {
                         '7xxhh3it' /* Top Up */,
                       ),
                       options: FFButtonOptions(
-                        width: 270.0,
+                        width: 180.0,
                         height: 50.0,
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),

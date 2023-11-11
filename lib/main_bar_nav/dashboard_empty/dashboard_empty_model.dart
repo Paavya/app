@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -12,6 +13,8 @@ class DashboardEmptyModel extends FlutterFlowModel<DashboardEmptyWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // Stores action output result for [Backend Call - API (authGet)] action in Button widget.
+  ApiCallResponse? apiResultsup;
 
   /// Initialization and disposal methods.
 

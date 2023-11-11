@@ -27,6 +27,8 @@ class _AddressWidgetState extends State<AddressWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => AddressModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -27,6 +27,8 @@ class _WithdrawFailedWidgetState extends State<WithdrawFailedWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => WithdrawFailedModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -238,38 +240,37 @@ class _WithdrawFailedWidgetState extends State<WithdrawFailedWidget> {
                 ),
                 Row(
                   mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Expanded(
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            25.0, 0.0, 25.0, 0.0),
-                        child: FFButtonWidget(
-                          onPressed: () async {
-                            context.safePop();
-                          },
-                          text: FFLocalizations.of(context).getText(
-                            '54ktwueo' /* Go back to try again */,
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 25.0, 0.0),
+                      child: FFButtonWidget(
+                        onPressed: () async {
+                          context.safePop();
+                        },
+                        text: FFLocalizations.of(context).getText(
+                          '54ktwueo' /* Go back to try again */,
+                        ),
+                        options: FFButtonOptions(
+                          width: 180.0,
+                          height: 56.0,
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              24.0, 0.0, 24.0, 0.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: FlutterFlowTheme.of(context).tabtext,
+                          textStyle:
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    fontFamily: 'Readex Pro',
+                                    color: FlutterFlowTheme.of(context).tabBgs,
+                                  ),
+                          elevation: 0.0,
+                          borderSide: BorderSide(
+                            color: Colors.transparent,
+                            width: 1.0,
                           ),
-                          options: FFButtonOptions(
-                            height: 56.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                24.0, 0.0, 24.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).tabtext,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: 'Readex Pro',
-                                  color: FlutterFlowTheme.of(context).tabBgs,
-                                ),
-                            elevation: 0.0,
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(12.0),
-                          ),
+                          borderRadius: BorderRadius.circular(8.0),
                         ),
                       ),
                     ),

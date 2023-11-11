@@ -29,6 +29,8 @@ class _RecipientOfTransferWidgetState extends State<RecipientOfTransferWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => RecipientOfTransferModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -80,7 +82,9 @@ class _RecipientOfTransferWidgetState extends State<RecipientOfTransferWidget> {
                               shape: BoxShape.circle,
                             ),
                             child: Image.network(
-                              'https://picsum.photos/seed/394/600',
+                              getCORSProxyUrl(
+                                'https://picsum.photos/seed/394/600',
+                              ),
                               fit: BoxFit.cover,
                             ),
                           ),

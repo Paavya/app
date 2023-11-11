@@ -29,6 +29,8 @@ class _Forgotpassword1WidgetState extends State<Forgotpassword1Widget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => Forgotpassword1Model());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -57,9 +59,9 @@ class _Forgotpassword1WidgetState extends State<Forgotpassword1Widget> {
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
@@ -81,195 +83,218 @@ class _Forgotpassword1WidgetState extends State<Forgotpassword1Widget> {
         ),
         body: SafeArea(
           top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 0.0),
-                    child: Row(
+          child: Align(
+            alignment: AlignmentDirectional(0.00, 0.00),
+            child: Container(
+              width: 410.0,
+              height: 583.0,
+              decoration: BoxDecoration(
+                color: FlutterFlowTheme.of(context).secondaryBackground,
+              ),
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Expanded(
-                          child: Container(
-                            width: 100.0,
-                            height: 88.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .primaryBackground,
-                            ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Text(
-                                      FFLocalizations.of(context).getText(
-                                        'i14kjulb' /* Forgot password */,
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              24.0, 16.0, 24.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Expanded(
+                                child: Container(
+                                  width: 100.0,
+                                  height: 88.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Text(
+                                            FFLocalizations.of(context).getText(
+                                              'i14kjulb' /* Forgot password */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .headlineMedium,
+                                          ),
+                                        ],
                                       ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .headlineMedium,
-                                    ),
-                                  ],
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          AutoSizeText(
+                                            FFLocalizations.of(context).getText(
+                                              'gzzk7d5o' /* Select verification method and... */,
+                                            ),
+                                            maxLines: 2,
+                                            style: FlutterFlowTheme.of(context)
+                                                .labelLarge
+                                                .override(
+                                                  fontFamily: 'Readex Pro',
+                                                  fontWeight: FontWeight.w200,
+                                                ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    AutoSizeText(
-                                      FFLocalizations.of(context).getText(
-                                        'gzzk7d5o' /* Select verification method and... */,
-                                      ),
-                                      maxLines: 2,
-                                      style: FlutterFlowTheme.of(context)
-                                          .labelLarge
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: Align(
+                              alignment: AlignmentDirectional(0.00, 0.00),
+                              child: Container(
+                                width: 348.0,
+                                height: 244.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                ),
+                                alignment: AlignmentDirectional(0.00, 0.00),
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  child: FlutterFlowChoiceChips(
+                                    options: [
+                                      ChipData(
+                                          FFLocalizations.of(context).getText(
+                                        'd2zwc682' /* Send to email  */,
+                                      )),
+                                      ChipData(
+                                          FFLocalizations.of(context).getText(
+                                        'v870cbe0' /* Send to SMS    */,
+                                      ))
+                                    ],
+                                    onChanged: (val) => setState(() =>
+                                        _model.choiceChipsValue = val?.first),
+                                    selectedChipStyle: ChipStyle(
+                                      backgroundColor:
+                                          FlutterFlowTheme.of(context)
+                                              .verifyscreens,
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
                                           .override(
                                             fontFamily: 'Readex Pro',
-                                            fontWeight: FontWeight.w200,
+                                            color: FlutterFlowTheme.of(context)
+                                                .tabtext,
+                                            fontSize: 16.0,
+                                            fontWeight: FontWeight.w600,
                                           ),
+                                      iconColor: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      iconSize: 12.0,
+                                      labelPadding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              100.0, 30.0, 100.0, 30.0),
+                                      elevation: 0.0,
+                                      borderColor:
+                                          FlutterFlowTheme.of(context).primary,
+                                      borderWidth: 2.0,
+                                      borderRadius: BorderRadius.circular(12.0),
                                     ),
-                                  ],
+                                    unselectedChipStyle: ChipStyle(
+                                      backgroundColor:
+                                          FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Readex Pro',
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                            fontSize: 16.0,
+                                          ),
+                                      iconColor: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      iconSize: 30.0,
+                                      labelPadding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              100.0, 30.0, 100.0, 30.0),
+                                      elevation: 0.0,
+                                      borderColor: Color(0xFF95A1AC),
+                                      borderWidth: 1.0,
+                                      borderRadius: BorderRadius.circular(12.0),
+                                    ),
+                                    chipSpacing: 0.0,
+                                    rowSpacing: 24.0,
+                                    multiselect: false,
+                                    alignment: WrapAlignment.center,
+                                    controller:
+                                        _model.choiceChipsValueController ??=
+                                            FormFieldController<List<String>>(
+                                      [],
+                                    ),
+                                    wrapped: true,
+                                  ),
                                 ),
-                              ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              24.0, 100.0, 24.0, 0.0),
+                          child: FFButtonWidget(
+                            onPressed: () {
+                              print('Button pressed ...');
+                            },
+                            text: FFLocalizations.of(context).getText(
+                              '1t5t7pf2' /* Continue */,
+                            ),
+                            options: FFButtonOptions(
+                              width: 180.0,
+                              height: 56.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  24.0, 0.0, 24.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: FlutterFlowTheme.of(context).primary,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: Colors.white,
+                                  ),
+                              elevation: 0.0,
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
                           ),
                         ),
                       ],
                     ),
-                  ),
-                ],
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 0.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: Align(
-                        alignment: AlignmentDirectional(0.00, 0.00),
-                        child: Container(
-                          width: 348.0,
-                          height: 244.0,
-                          decoration: BoxDecoration(
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                          ),
-                          alignment: AlignmentDirectional(0.00, 0.00),
-                          child: Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
-                            child: FlutterFlowChoiceChips(
-                              options: [
-                                ChipData(FFLocalizations.of(context).getText(
-                                  'd2zwc682' /* Send to email  */,
-                                )),
-                                ChipData(FFLocalizations.of(context).getText(
-                                  'v870cbe0' /* Send to SMS    */,
-                                ))
-                              ],
-                              onChanged: (val) => setState(
-                                  () => _model.choiceChipsValue = val?.first),
-                              selectedChipStyle: ChipStyle(
-                                backgroundColor:
-                                    FlutterFlowTheme.of(context).verifyscreens,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Readex Pro',
-                                      color:
-                                          FlutterFlowTheme.of(context).tabtext,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                iconColor:
-                                    FlutterFlowTheme.of(context).primaryText,
-                                iconSize: 12.0,
-                                labelPadding: EdgeInsetsDirectional.fromSTEB(
-                                    100.0, 30.0, 100.0, 30.0),
-                                elevation: 0.0,
-                                borderColor:
-                                    FlutterFlowTheme.of(context).primary,
-                                borderWidth: 2.0,
-                                borderRadius: BorderRadius.circular(12.0),
-                              ),
-                              unselectedChipStyle: ChipStyle(
-                                backgroundColor: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Readex Pro',
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                    ),
-                                iconColor:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                iconSize: 30.0,
-                                labelPadding: EdgeInsetsDirectional.fromSTEB(
-                                    100.0, 30.0, 100.0, 30.0),
-                                elevation: 0.0,
-                                borderColor: Color(0xFF95A1AC),
-                                borderWidth: 1.0,
-                                borderRadius: BorderRadius.circular(12.0),
-                              ),
-                              chipSpacing: 0.0,
-                              rowSpacing: 24.0,
-                              multiselect: false,
-                              alignment: WrapAlignment.center,
-                              controller: _model.choiceChipsValueController ??=
-                                  FormFieldController<List<String>>(
-                                [],
-                              ),
-                              wrapped: true,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
                   ],
                 ),
               ),
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Expanded(
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          24.0, 100.0, 24.0, 0.0),
-                      child: FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
-                        },
-                        text: FFLocalizations.of(context).getText(
-                          '1t5t7pf2' /* Continue */,
-                        ),
-                        options: FFButtonOptions(
-                          height: 56.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              24.0, 0.0, 24.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).primary,
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Readex Pro',
-                                    color: Colors.white,
-                                  ),
-                          elevation: 0.0,
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                            width: 1.0,
-                          ),
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ],
+            ),
           ),
         ),
       ),

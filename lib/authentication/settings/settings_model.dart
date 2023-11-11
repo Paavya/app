@@ -14,9 +14,9 @@ class SettingsModel extends FlutterFlowModel<SettingsWidget> {
 
   final unfocusNode = FocusNode();
   // State field(s) for SwitchListTile widget.
-  bool? switchListTileValue1;
-  // State field(s) for SwitchListTile widget.
-  bool? switchListTileValue2;
+  bool? switchListTileValue;
+  // State field(s) for darkmodetiler widget.
+  bool? darkmodetilerValue;
 
   /// Initialization and disposal methods.
 

@@ -80,36 +80,36 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => appStateNotifier.loggedIn
-          ? DashboardWidget()
-          : OnboardingFlowWidget(),
+      errorBuilder: (context, state) =>
+          appStateNotifier.loggedIn ? DashboardWidget() : LoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => appStateNotifier.loggedIn
-              ? DashboardWidget()
-              : OnboardingFlowWidget(),
+          builder: (context, _) =>
+              appStateNotifier.loggedIn ? DashboardWidget() : LoginWidget(),
         ),
         FFRoute(
-          name: 'login',
-          path: '/login',
-          builder: (context, params) => LoginWidget(),
-        ),
-        FFRoute(
-          name: 'stats',
-          path: '/stats',
-          builder: (context, params) => StatsWidget(),
+          name: 'insights',
+          path: '/insights',
+          builder: (context, params) => InsightsWidget(),
         ),
         FFRoute(
           name: 'profile',
           path: '/profile',
+          requireAuth: true,
           builder: (context, params) => ProfileWidget(),
         ),
         FFRoute(
           name: 'editMyAccount',
           path: '/editMyAccount',
-          builder: (context, params) => EditMyAccountWidget(),
+          builder: (context, params) => EditMyAccountWidget(
+            emailAddress: params.getParam('emailAddress', ParamType.String),
+            firstName: params.getParam('firstName', ParamType.String),
+            lastName: params.getParam('lastName', ParamType.String),
+            phoneNumber: params.getParam('phoneNumber', ParamType.String),
+            image: params.getParam('image', ParamType.String),
+          ),
         ),
         FFRoute(
           name: 'sign_up',
@@ -137,14 +137,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => AddressWidget(),
         ),
         FFRoute(
-          name: 'myCards',
-          path: '/myCards',
-          builder: (context, params) => MyCardsWidget(),
+          name: 'myAccounts',
+          path: '/myAccounts',
+          builder: (context, params) => MyAccountsWidget(),
         ),
         FFRoute(
-          name: 'MyAccount',
-          path: '/myAccount',
-          builder: (context, params) => MyAccountWidget(),
+          name: 'profileDetails',
+          path: '/profileDetails',
+          builder: (context, params) => ProfileDetailsWidget(
+            emailAddress: params.getParam('emailAddress', ParamType.String),
+            firstName: params.getParam('firstName', ParamType.String),
+            lastName: params.getParam('lastName', ParamType.String),
+            phoneNumber: params.getParam('phoneNumber', ParamType.String),
+            proImage: params.getParam('proImage', ParamType.String),
+          ),
         ),
         FFRoute(
           name: 'topup_success',
@@ -157,14 +163,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => CreateBudgetWidget(),
         ),
         FFRoute(
-          name: 'myCardMenu',
-          path: '/myCardMenu',
-          builder: (context, params) => MyCardMenuWidget(),
+          name: 'cardDetails',
+          path: '/cardDetails',
+          builder: (context, params) => CardDetailsWidget(),
         ),
         FFRoute(
-          name: 'Addnewcard',
-          path: '/addnewcard',
-          builder: (context, params) => AddnewcardWidget(),
+          name: 'addNewcard',
+          path: '/addNewcard',
+          builder: (context, params) => AddNewcardWidget(),
         ),
         FFRoute(
           name: 'onboarding_flow',
@@ -182,7 +188,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => DashboardWidget(),
         ),
         FFRoute(
-          name: 'all_transactions',
+          name: 'allTransactions',
           path: '/allTransactions',
           builder: (context, params) => AllTransactionsWidget(),
         ),
@@ -230,6 +236,36 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'notifications',
           path: '/notifications',
           builder: (context, params) => NotificationsWidget(),
+        ),
+        FFRoute(
+          name: 'login',
+          path: '/login',
+          builder: (context, params) => LoginWidget(),
+        ),
+        FFRoute(
+          name: 'topup',
+          path: '/topup',
+          builder: (context, params) => TopupWidget(),
+        ),
+        FFRoute(
+          name: 'bankDetails',
+          path: '/bankDetails',
+          builder: (context, params) => BankDetailsWidget(),
+        ),
+        FFRoute(
+          name: 'createGoal',
+          path: '/createGoal',
+          builder: (context, params) => CreateGoalWidget(),
+        ),
+        FFRoute(
+          name: 'monthlyBudgets',
+          path: '/monthlyBudgets',
+          builder: (context, params) => MonthlyBudgetsWidget(),
+        ),
+        FFRoute(
+          name: 'aiiAyva',
+          path: '/aiiAyva',
+          builder: (context, params) => AiiAyvaWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -396,7 +432,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/onboardingFlow';
+            return '/login';
           }
           return null;
         },

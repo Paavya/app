@@ -60,6 +60,14 @@ abstract class FlutterFlowTheme {
   late Color chartBg;
   late Color verifyscreens;
   late Color background;
+  late Color cardShadow;
+  late Color cardbgcolor;
+  late Color fastfood;
+  late Color retailShopping;
+  late Color groceries;
+  late Color restaurants;
+  late Color gasoline;
+  late Color other;
 
   @Deprecated('Use displaySmallFamily instead')
   String get title1Family => displaySmallFamily;
@@ -155,6 +163,14 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color chartBg = Color(0xFFF9FAFB);
   late Color verifyscreens = Color(0xFF7D5DF6);
   late Color background = Color(0xFF1A1F24);
+  late Color cardShadow = Color(0x33979797);
+  late Color cardbgcolor = Color(0xFFFFFFFF);
+  late Color fastfood = Color(0xFF1DDDB3);
+  late Color retailShopping = Color(0xFFE79229);
+  late Color groceries = Color(0xFFEEE004);
+  late Color restaurants = Color(0xFF569EFF);
+  late Color gasoline = Color(0xFFC21BFF);
+  late Color other = Color(0xFF07EB35);
 }
 
 abstract class Typography {
@@ -333,6 +349,14 @@ class DarkModeTheme extends FlutterFlowTheme {
   late Color chartBg = Color(0xFF374151);
   late Color verifyscreens = Color(0xFF111827);
   late Color background = Color(0xFF1A1F24);
+  late Color cardShadow = Color(0xFF0D1623);
+  late Color cardbgcolor = Color(0xFF262D34);
+  late Color fastfood = Color(0xFF1DDDB3);
+  late Color retailShopping = Color(0xFFE79229);
+  late Color groceries = Color(0xFFEEE004);
+  late Color restaurants = Color(0xFF569EFF);
+  late Color gasoline = Color(0xFFC21BFF);
+  late Color other = Color(0xFF07EB35);
 }
 
 extension TextStyleHelper on TextStyle {

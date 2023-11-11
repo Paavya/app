@@ -140,6 +140,8 @@ class _NavBar1WidgetState extends State<NavBar1Widget>
   void initState() {
     super.initState();
     _model = createModel(context, () => NavBar1Model());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -180,7 +182,7 @@ class _NavBar1WidgetState extends State<NavBar1Widget>
                   width: double.infinity,
                   height: 80.0,
                   decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).primaryBackground,
+                    color: Colors.white,
                     boxShadow: [
                       BoxShadow(
                         blurRadius: 10.0,
@@ -217,17 +219,8 @@ class _NavBar1WidgetState extends State<NavBar1Widget>
                     color: FlutterFlowTheme.of(context).secondaryText,
                     size: 24.0,
                   ),
-                  onPressed: () async {
-                    context.goNamed(
-                      'dashboard',
-                      extra: <String, dynamic>{
-                        kTransitionInfoKey: TransitionInfo(
-                          hasTransition: true,
-                          transitionType: PageTransitionType.fade,
-                          duration: Duration(milliseconds: 0),
-                        ),
-                      },
-                    );
+                  onPressed: () {
+                    print('Dashboard pressed ...');
                   },
                 ).animateOnPageLoad(
                     animationsMap['iconButtonOnPageLoadAnimation1']!),
@@ -246,7 +239,7 @@ class _NavBar1WidgetState extends State<NavBar1Widget>
                   ),
                   onPressed: () async {
                     context.goNamed(
-                      'stats',
+                      'insights',
                       extra: <String, dynamic>{
                         kTransitionInfoKey: TransitionInfo(
                           hasTransition: true,
@@ -273,7 +266,7 @@ class _NavBar1WidgetState extends State<NavBar1Widget>
                       buttonSize: 60.0,
                       fillColor: FlutterFlowTheme.of(context).primary,
                       icon: Icon(
-                        Icons.keyboard_voice_sharp,
+                        FFIcons.kmoneySend,
                         color: Colors.white,
                         size: 30.0,
                       ),
@@ -299,7 +292,7 @@ class _NavBar1WidgetState extends State<NavBar1Widget>
                   ),
                   onPressed: () async {
                     context.goNamed(
-                      'myCards',
+                      'myAccounts',
                       extra: <String, dynamic>{
                         kTransitionInfoKey: TransitionInfo(
                           hasTransition: true,

@@ -29,6 +29,8 @@ class _LargeCardWidgetState extends State<LargeCardWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => LargeCardModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -49,9 +51,10 @@ class _LargeCardWidgetState extends State<LargeCardWidget> {
       front: Padding(
         padding: EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 4.0, 4.0),
         child: Container(
-          width: 370.0,
+          width: 280.0,
           height: 190.0,
           decoration: BoxDecoration(
+            color: FlutterFlowTheme.of(context).background,
             boxShadow: [
               BoxShadow(
                 blurRadius: 6.0,
@@ -59,15 +62,6 @@ class _LargeCardWidgetState extends State<LargeCardWidget> {
                 offset: Offset(0.0, 2.0),
               )
             ],
-            gradient: LinearGradient(
-              colors: [
-                FlutterFlowTheme.of(context).secondary,
-                FlutterFlowTheme.of(context).primary
-              ],
-              stops: [0.0, 1.0],
-              begin: AlignmentDirectional(0.94, -1.0),
-              end: AlignmentDirectional(-0.94, 1.0),
-            ),
             borderRadius: BorderRadius.circular(8.0),
           ),
           child: Padding(
@@ -78,7 +72,9 @@ class _LargeCardWidgetState extends State<LargeCardWidget> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Image.network(
-                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/default-project-widgets-xzsp5v/assets/ddr0sc80h0hs/@3xlogoMark_outline.png',
+                  getCORSProxyUrl(
+                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/default-project-widgets-xzsp5v/assets/ddr0sc80h0hs/@3xlogoMark_outline.png',
+                  ),
                   width: 44.0,
                   height: 44.0,
                   fit: BoxFit.cover,
@@ -135,10 +131,10 @@ class _LargeCardWidgetState extends State<LargeCardWidget> {
         ),
       ),
       back: Container(
-        width: 327.0,
-        height: 204.0,
+        width: 280.0,
+        height: 190.0,
         decoration: BoxDecoration(
-          color: FlutterFlowTheme.of(context).primary,
+          color: FlutterFlowTheme.of(context).background,
           borderRadius: BorderRadius.circular(12.0),
         ),
         child: Column(

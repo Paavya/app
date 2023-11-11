@@ -16,25 +16,13 @@ class BudgetRecord extends FirestoreRecord {
     _initializeFields();
   }
 
-  // "goal_name" field.
-  String? _goalName;
-  String get goalName => _goalName ?? '';
-  bool hasGoalName() => _goalName != null;
-
-  // "start_date" field.
-  DateTime? _startDate;
-  DateTime? get startDate => _startDate;
-  bool hasStartDate() => _startDate != null;
-
-  // "amount" field.
-  int? _amount;
-  int get amount => _amount ?? 0;
-  bool hasAmount() => _amount != null;
+  // "budgetGoals" field.
+  List<DocumentReference>? _budgetGoals;
+  List<DocumentReference> get budgetGoals => _budgetGoals ?? const [];
+  bool hasBudgetGoals() => _budgetGoals != null;
 
   void _initializeFields() {
-    _goalName = snapshotData['goal_name'] as String?;
-    _startDate = snapshotData['start_date'] as DateTime?;
-    _amount = castToType<int>(snapshotData['amount']);
+    _budgetGoals = getDataList(snapshotData['budgetGoals']);
   }
 
   static CollectionReference get collection =>
@@ -70,17 +58,9 @@ class BudgetRecord extends FirestoreRecord {
       reference.path.hashCode == other.reference.path.hashCode;
 }
 
-Map<String, dynamic> createBudgetRecordData({
-  String? goalName,
-  DateTime? startDate,
-  int? amount,
-}) {
+Map<String, dynamic> createBudgetRecordData() {
   final firestoreData = mapToFirestore(
-    <String, dynamic>{
-      'goal_name': goalName,
-      'start_date': startDate,
-      'amount': amount,
-    }.withoutNulls,
+    <String, dynamic>{}.withoutNulls,
   );
 
   return firestoreData;
@@ -91,14 +71,12 @@ class BudgetRecordDocumentEquality implements Equality<BudgetRecord> {
 
   @override
   bool equals(BudgetRecord? e1, BudgetRecord? e2) {
-    return e1?.goalName == e2?.goalName &&
-        e1?.startDate == e2?.startDate &&
-        e1?.amount == e2?.amount;
+    const listEquality = ListEquality();
+    return listEquality.equals(e1?.budgetGoals, e2?.budgetGoals);
   }
 
   @override
-  int hash(BudgetRecord? e) =>
-      const ListEquality().hash([e?.goalName, e?.startDate, e?.amount]);
+  int hash(BudgetRecord? e) => const ListEquality().hash([e?.budgetGoals]);
 
   @override
   bool isValidKey(Object? o) => o is BudgetRecord;

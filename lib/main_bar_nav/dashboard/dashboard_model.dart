@@ -1,4 +1,4 @@
-import '/components/nav_bar1/nav_bar1_widget.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/components/topup_new/topup_new_widget.dart';
 import '/components/withdraw_new/withdraw_new_widget.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
@@ -8,7 +8,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'dashboard_widget.dart' show DashboardWidget;
-import 'package:badges/badges.dart' as badges;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
@@ -38,14 +37,10 @@ class DashboardModel extends FlutterFlowModel<DashboardWidget> {
   // State field(s) for ChoiceChips widget.
   String? choiceChipsValue;
   FormFieldController<List<String>>? choiceChipsValueController;
-  // Model for NavBar1 component.
-  late NavBar1Model navBar1Model;
 
   /// Initialization and disposal methods.
 
-  void initState(BuildContext context) {
-    navBar1Model = createModel(context, () => NavBar1Model());
-  }
+  void initState(BuildContext context) {}
 
   void dispose() {
     unfocusNode.dispose();
@@ -53,7 +48,6 @@ class DashboardModel extends FlutterFlowModel<DashboardWidget> {
     expandableController2.dispose();
     expandableController3.dispose();
     expandableController4.dispose();
-    navBar1Model.dispose();
   }
 
   /// Action blocks are added here.

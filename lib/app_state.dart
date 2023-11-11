@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '/backend/backend.dart';
+import 'backend/api_requests/api_manager.dart';
 import 'backend/supabase/supabase.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:csv/csv.dart';
@@ -25,6 +26,9 @@ class FFAppState extends ChangeNotifier {
       _profileimg =
           await secureStorage.getString('ff_profileimg') ?? _profileimg;
     });
+    await _safeInitAsync(() async {
+      _apiKey = await secureStorage.getString('ff_apiKey') ?? _apiKey;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -44,6 +48,29 @@ class FFAppState extends ChangeNotifier {
 
   void deleteProfileimg() {
     secureStorage.delete(key: 'ff_profileimg');
+  }
+
+  String _speechToTextResponse = '';
+  String get speechToTextResponse => _speechToTextResponse;
+  set speechToTextResponse(String _value) {
+    _speechToTextResponse = _value;
+  }
+
+  String _apiKey = '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';
+  String get apiKey => _apiKey;
+  set apiKey(String _value) {
+    _apiKey = _value;
+    secureStorage.setString('ff_apiKey', _value);
+  }
+
+  void deleteApiKey() {
+    secureStorage.delete(key: 'ff_apiKey');
+  }
+
+  int _timerValue = 0;
+  int get timerValue => _timerValue;
+  set timerValue(int _value) {
+    _timerValue = _value;
   }
 }
 

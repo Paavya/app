@@ -1,4 +1,3 @@
-import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -26,6 +25,8 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => PrivacyPolicyModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -121,73 +122,37 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         24.0, 0.0, 24.0, 50.0),
-                                    child: StreamBuilder<List<UsersRecord>>(
-                                      stream: queryUsersRecord(
-                                        singleRecord: true,
-                                      ),
-                                      builder: (context, snapshot) {
-                                        // Customize what your widget looks like when it's loading.
-                                        if (!snapshot.hasData) {
-                                          return Center(
-                                            child: SizedBox(
-                                              width: 50.0,
-                                              height: 50.0,
-                                              child: SpinKitRipple(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                size: 50.0,
-                                              ),
-                                            ),
-                                          );
-                                        }
-                                        List<UsersRecord>
-                                            buttonUsersRecordList =
-                                            snapshot.data!;
-                                        // Return an empty Container when the item does not exist.
-                                        if (snapshot.data!.isEmpty) {
-                                          return Container();
-                                        }
-                                        final buttonUsersRecord =
-                                            buttonUsersRecordList.isNotEmpty
-                                                ? buttonUsersRecordList.first
-                                                : null;
-                                        return FFButtonWidget(
-                                          onPressed: () async {
-                                            context.safePop();
-                                          },
-                                          text: FFLocalizations.of(context)
-                                              .getText(
-                                            'xnimucz1' /* Exit */,
-                                          ),
-                                          options: FFButtonOptions(
-                                            width: 327.0,
-                                            height: 56.0,
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    24.0, 0.0, 24.0, 0.0),
-                                            iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            textStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmall
-                                                    .override(
-                                                      fontFamily: 'Readex Pro',
-                                                      color: Colors.white,
-                                                    ),
-                                            elevation: 3.0,
-                                            borderSide: BorderSide(
-                                              color: Colors.transparent,
-                                              width: 1.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(16.0),
-                                          ),
-                                        );
+                                    child: FFButtonWidget(
+                                      onPressed: () async {
+                                        context.safePop();
                                       },
+                                      text: FFLocalizations.of(context).getText(
+                                        'xnimucz1' /* Exit */,
+                                      ),
+                                      options: FFButtonOptions(
+                                        width: 180.0,
+                                        height: 56.0,
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            24.0, 0.0, 24.0, 0.0),
+                                        iconPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              color: Colors.white,
+                                            ),
+                                        elevation: 3.0,
+                                        borderSide: BorderSide(
+                                          color: Colors.transparent,
+                                          width: 1.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
                                     ),
                                   ),
                                 ],

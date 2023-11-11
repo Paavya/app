@@ -37,6 +37,7 @@ class _WithdrawNewWidgetState extends State<WithdrawNewWidget> {
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
           _model.textController?.text = FFLocalizations.of(context).getText(
             '132ejwya' /* $10.00 */,
@@ -482,7 +483,7 @@ class _WithdrawNewWidgetState extends State<WithdrawNewWidget> {
                         'b2wynkg8' /* Withdraw */,
                       ),
                       options: FFButtonOptions(
-                        width: 270.0,
+                        width: 180.0,
                         height: 50.0,
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),

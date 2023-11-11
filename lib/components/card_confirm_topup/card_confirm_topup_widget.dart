@@ -29,6 +29,8 @@ class _CardConfirmTopupWidgetState extends State<CardConfirmTopupWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => CardConfirmTopupModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -146,7 +148,9 @@ class _CardConfirmTopupWidgetState extends State<CardConfirmTopupWidget> {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(40.0),
                             child: Image.network(
-                              'https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60',
+                              getCORSProxyUrl(
+                                'https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60',
+                              ),
                               width: 60.0,
                               height: 60.0,
                               fit: BoxFit.cover,
@@ -201,7 +205,9 @@ class _CardConfirmTopupWidgetState extends State<CardConfirmTopupWidget> {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(40.0),
                             child: Image.network(
-                              'https://images.unsplash.com/photo-1505033575518-a36ea2ef75ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZmlsZSUyMHVzZXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=900&q=60',
+                              getCORSProxyUrl(
+                                'https://images.unsplash.com/photo-1505033575518-a36ea2ef75ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZmlsZSUyMHVzZXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=900&q=60',
+                              ),
                               width: 60.0,
                               height: 60.0,
                               fit: BoxFit.cover,
@@ -252,7 +258,7 @@ class _CardConfirmTopupWidgetState extends State<CardConfirmTopupWidget> {
                             color: FlutterFlowTheme.of(context).alternate,
                             width: 2.0,
                           ),
-                          borderRadius: BorderRadius.circular(12.0),
+                          borderRadius: BorderRadius.circular(8.0),
                         ),
                       ),
                       FFButtonWidget(
@@ -284,7 +290,7 @@ class _CardConfirmTopupWidgetState extends State<CardConfirmTopupWidget> {
                             color: Colors.transparent,
                             width: 1.0,
                           ),
-                          borderRadius: BorderRadius.circular(12.0),
+                          borderRadius: BorderRadius.circular(8.0),
                         ),
                       ),
                     ].divide(SizedBox(width: 16.0)),

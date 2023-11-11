@@ -231,6 +231,9 @@ extension FFTextEditingControllerExt on TextEditingController? {
 }
 
 extension IterableExt<T> on Iterable<T> {
+  List<T> sortedList<S extends Comparable>([S Function(T)? keyOf]) => toList()
+    ..sort(keyOf == null ? null : ((a, b) => keyOf(a).compareTo(keyOf(b))));
+
   List<S> mapIndexed<S>(S Function(int, T) func) => toList()
       .asMap()
       .map((index, value) => MapEntry(index, func(index, value)))
@@ -318,4 +321,17 @@ extension StatefulWidgetExtensions on State<StatefulWidget> {
       setState(fn);
     }
   }
+}
+
+String getCORSProxyUrl(String path) {
+  if (!kIsWeb) {
+    return path;
+  }
+  // No need to use proxy for images that come from Firebase Storage.
+  if (path.contains('paavya-payments.appspot.com')) {
+    return path;
+  }
+  const proxyUrl =
+      'https://us-central1-paavya-payments.cloudfunctions.net/corsProxy?url=';
+  return '$proxyUrl$path';
 }
