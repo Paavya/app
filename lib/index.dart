@@ -47,7 +47,8 @@ export '/profile_internal_screens/notifications/notifications_widget.dart'
 export '/authentication/login/login_widget.dart' show LoginWidget;
 export '/transactionsscreens/topup/topup_widget.dart' show TopupWidget;
 export '/accounts/bank_details/bank_details_widget.dart' show BankDetailsWidget;
-export '/create_goal/create_goal_widget.dart' show CreateGoalWidget;
+export '/goals_screens/create_goal/create_goal_widget.dart'
+    show CreateGoalWidget;
 export '/main_bar_nav/monthly_budgets/monthly_budgets_widget.dart'
     show MonthlyBudgetsWidget;
-export '/aii_ayva/aii_ayva_widget.dart' show AiiAyvaWidget;
+export '/main_bar_nav/aii_ayva/aii_ayva_widget.dart' show AiiAyvaWidget;

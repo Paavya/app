@@ -28,6 +28,7 @@ export 'package:cloud_firestore/cloud_firestore.dart'
 export 'package:page_transition/page_transition.dart';
 export 'custom_icons.dart' show FFIcons;
 export 'internationalization.dart' show FFLocalizations;
+export '/backend/firebase_analytics/analytics.dart';
 export 'nav/nav.dart';
 
 T valueOrDefault<T>(T? value, T defaultValue) =>

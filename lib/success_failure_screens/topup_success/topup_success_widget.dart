@@ -29,6 +29,8 @@ class _TopupSuccessWidgetState extends State<TopupSuccessWidget> {
     super.initState();
     _model = createModel(context, () => TopupSuccessModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'topup_success'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -310,8 +312,21 @@ class _TopupSuccessWidgetState extends State<TopupSuccessWidget> {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 25.0, 0.0),
                       child: FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
+                        onPressed: () async {
+                          logFirebaseEvent(
+                              'TOPUP_SUCCESS_BACK_TO_HOME_BTN_ON_TAP');
+                          logFirebaseEvent('Button_navigate_to');
+
+                          context.goNamed(
+                            'dashboard',
+                            extra: <String, dynamic>{
+                              kTransitionInfoKey: TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.fade,
+                                duration: Duration(milliseconds: 300),
+                              ),
+                            },
+                          );
                         },
                         text: FFLocalizations.of(context).getText(
                           'jty5z5db' /* Back to home */,

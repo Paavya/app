@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/components/nav_bar1/nav_bar1_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -30,6 +31,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
     super.initState();
     _model = createModel(context, () => ProfileModel());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'profile'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -122,8 +124,11 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                       child: Container(
                         width: double.infinity,
                         decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).primaryBackground,
+                          color: FlutterFlowTheme.of(context).info,
                           borderRadius: BorderRadius.circular(8.0),
+                          border: Border.all(
+                            color: FlutterFlowTheme.of(context).alternate,
+                          ),
                         ),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -163,8 +168,13 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
+                          logFirebaseEvent('PROFILE_PAGE_bg_color_ON_TAP');
+                          logFirebaseEvent('bg_color_navigate_to');
+
                           context.goNamed('dashboard');
 
+                          logFirebaseEvent(
+                              'bg_color_close_dialog,_drawer,_etc');
                           Navigator.pop(context);
                         },
                         child: Container(
@@ -194,8 +204,13 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                     FFLocalizations.of(context).getText(
                                       'loqcsgqa' /* Dashboard */,
                                     ),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyLarge,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyLarge
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                        ),
                                   ),
                                 ),
                               ],
@@ -213,8 +228,13 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
+                          logFirebaseEvent('PROFILE_PAGE_bg_color_ON_TAP');
+                          logFirebaseEvent('bg_color_navigate_to');
+
                           context.goNamed('allTransactions');
 
+                          logFirebaseEvent(
+                              'bg_color_close_dialog,_drawer,_etc');
                           Navigator.pop(context);
                         },
                         child: Container(
@@ -263,8 +283,13 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
+                          logFirebaseEvent('PROFILE_PAGE_bg_color_ON_TAP');
+                          logFirebaseEvent('bg_color_navigate_to');
+
                           context.goNamed('myAccounts');
 
+                          logFirebaseEvent(
+                              'bg_color_close_dialog,_drawer,_etc');
                           Navigator.pop(context);
                         },
                         child: Container(
@@ -313,8 +338,13 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
+                          logFirebaseEvent('PROFILE_PAGE_bg_color_ON_TAP');
+                          logFirebaseEvent('bg_color_navigate_to');
+
                           context.goNamed('insights');
 
+                          logFirebaseEvent(
+                              'bg_color_close_dialog,_drawer,_etc');
                           Navigator.pop(context);
                         },
                         child: Container(
@@ -363,8 +393,13 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
+                          logFirebaseEvent('PROFILE_PAGE_bg_color_ON_TAP');
+                          logFirebaseEvent('bg_color_navigate_to');
+
                           context.goNamed('monthlyBudgets');
 
+                          logFirebaseEvent(
+                              'bg_color_close_dialog,_drawer,_etc');
                           Navigator.pop(context);
                         },
                         child: Container(
@@ -413,6 +448,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
+                          logFirebaseEvent('PROFILE_PAGE_bg_color_ON_TAP');
+                          logFirebaseEvent('bg_color_navigate_to');
+
                           context.goNamed(
                             'aiiAyva',
                             extra: <String, dynamic>{
@@ -424,6 +462,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                             },
                           );
 
+                          logFirebaseEvent(
+                              'bg_color_close_dialog,_drawer,_etc');
                           Navigator.pop(context);
                         },
                         child: Container(
@@ -560,6 +600,11 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
+                                                logFirebaseEvent(
+                                                    'PROFILE_PAGE_Text_ghvmzkre_ON_TAP');
+                                                logFirebaseEvent(
+                                                    'Text_navigate_to');
+
                                                 context.goNamed(
                                                   'profile',
                                                   extra: <String, dynamic>{
@@ -661,6 +706,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                       size: 24.0,
                     ),
                     onPressed: () async {
+                      logFirebaseEvent('PROFILE_PAGE_menu_sharp_ICN_ON_TAP');
+                      logFirebaseEvent('IconButton_drawer');
                       scaffoldKey.currentState!.openDrawer();
                     },
                   ),
@@ -756,6 +803,11 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                   highlightColor:
                                                       Colors.transparent,
                                                   onTap: () async {
+                                                    logFirebaseEvent(
+                                                        'PROFILE_PAGE_editprofileCTA_ON_TAP');
+                                                    logFirebaseEvent(
+                                                        'editprofileCTA_navigate_to');
+
                                                     context.pushNamed(
                                                       'editMyAccount',
                                                       queryParameters: {
@@ -893,7 +945,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                             maxWidth: double.infinity,
                           ),
                           decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context).alternate,
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
                             borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(0.0),
                               bottomRight: Radius.circular(0.0),
@@ -936,7 +989,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                         height: 72.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
-                                              .alternate,
+                                              .secondaryBackground,
                                           borderRadius: BorderRadius.only(
                                             bottomLeft: Radius.circular(0.0),
                                             bottomRight: Radius.circular(0.0),
@@ -945,7 +998,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                           ),
                                           border: Border.all(
                                             color: FlutterFlowTheme.of(context)
-                                                .alternate,
+                                                .secondaryBackground,
                                           ),
                                         ),
                                         child: InkWell(
@@ -954,6 +1007,11 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
+                                            logFirebaseEvent(
+                                                'PROFILE_PAGE_myaccountlink_ON_TAP');
+                                            logFirebaseEvent(
+                                                'myaccountlink_navigate_to');
+
                                             context.pushNamed(
                                               'profileDetails',
                                               queryParameters: {
@@ -989,9 +1047,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                     TransitionInfo(
                                                   hasTransition: true,
                                                   transitionType:
-                                                      PageTransitionType.fade,
-                                                  duration:
-                                                      Duration(milliseconds: 0),
+                                                      PageTransitionType
+                                                          .rightToLeft,
                                                 ),
                                               },
                                             );
@@ -1004,11 +1061,14 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                     .fromSTEB(
                                                         24.0, 16.0, 0.0, 16.0),
                                                 child: Container(
-                                                  width: 40.0,
-                                                  height: 40.0,
+                                                  width: 50.0,
+                                                  height: 50.0,
                                                   decoration: BoxDecoration(
                                                     color: Color(0x154B39EF),
-                                                    shape: BoxShape.circle,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                    shape: BoxShape.rectangle,
                                                   ),
                                                   child: Icon(
                                                     FFIcons.kuser,
@@ -1050,17 +1110,17 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                         MainAxisAlignment.end,
                                                     children: [
                                                       Container(
-                                                        width: 24.0,
-                                                        height: 24.0,
+                                                        width: 30.0,
+                                                        height: 30.0,
                                                         decoration:
                                                             BoxDecoration(
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .alternate,
+                                                              .secondaryBackground,
                                                           border: Border.all(
                                                             color: FlutterFlowTheme
                                                                     .of(context)
-                                                                .alternate,
+                                                                .secondaryBackground,
                                                           ),
                                                         ),
                                                         child: Icon(
@@ -1068,7 +1128,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondaryText,
-                                                          size: 24.0,
+                                                          size: 30.0,
                                                         ),
                                                       ),
                                                     ],
@@ -1092,10 +1152,10 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                       height: 72.0,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
-                                            .alternate,
+                                            .secondaryBackground,
                                         border: Border.all(
                                           color: FlutterFlowTheme.of(context)
-                                              .alternate,
+                                              .secondaryBackground,
                                         ),
                                       ),
                                       child: Row(
@@ -1106,11 +1166,13 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 16.0, 0.0, 16.0),
                                             child: Container(
-                                              width: 40.0,
-                                              height: 40.0,
+                                              width: 50.0,
+                                              height: 50.0,
                                               decoration: BoxDecoration(
                                                 color: Color(0x154B39EF),
-                                                shape: BoxShape.circle,
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                                shape: BoxShape.rectangle,
                                               ),
                                               child: Icon(
                                                 Icons.qr_code_2,
@@ -1151,18 +1213,16 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                     MainAxisAlignment.end,
                                                 children: [
                                                   Container(
-                                                    width: 24.0,
-                                                    height: 24.0,
+                                                    width: 30.0,
+                                                    height: 30.0,
                                                     decoration: BoxDecoration(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .alternate,
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
                                                       border: Border.all(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .alternate,
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
                                                       ),
                                                     ),
                                                     child: Icon(
@@ -1171,7 +1231,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .secondaryText,
-                                                      size: 24.0,
+                                                      size: 30.0,
                                                     ),
                                                   ),
                                                 ],
@@ -1193,10 +1253,10 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                       height: 72.0,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
-                                            .alternate,
+                                            .secondaryBackground,
                                         border: Border.all(
                                           color: FlutterFlowTheme.of(context)
-                                              .alternate,
+                                              .secondaryBackground,
                                         ),
                                       ),
                                       child: InkWell(
@@ -1205,6 +1265,11 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
+                                          logFirebaseEvent(
+                                              'PROFILE_PAGE_addresslink_ON_TAP');
+                                          logFirebaseEvent(
+                                              'addresslink_navigate_to');
+
                                           context.pushNamed(
                                             'Address',
                                             extra: <String, dynamic>{
@@ -1226,11 +1291,14 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                   .fromSTEB(
                                                       24.0, 16.0, 0.0, 16.0),
                                               child: Container(
-                                                width: 40.0,
-                                                height: 40.0,
+                                                width: 50.0,
+                                                height: 50.0,
                                                 decoration: BoxDecoration(
                                                   color: Color(0x154B39EF),
-                                                  shape: BoxShape.circle,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                  shape: BoxShape.rectangle,
                                                 ),
                                                 child: Icon(
                                                   FFIcons.klocation,
@@ -1272,17 +1340,16 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                       MainAxisAlignment.end,
                                                   children: [
                                                     Container(
-                                                      width: 24.0,
-                                                      height: 24.0,
+                                                      width: 30.0,
+                                                      height: 30.0,
                                                       decoration: BoxDecoration(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .alternate,
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
                                                         border: Border.all(
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .alternate,
+                                                              .secondaryBackground,
                                                         ),
                                                       ),
                                                       child: Icon(
@@ -1291,7 +1358,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .secondaryText,
-                                                        size: 24.0,
+                                                        size: 30.0,
                                                       ),
                                                     ),
                                                   ],
@@ -1314,10 +1381,10 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                       height: 72.0,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
-                                            .alternate,
+                                            .secondaryBackground,
                                         border: Border.all(
                                           color: FlutterFlowTheme.of(context)
-                                              .alternate,
+                                              .secondaryBackground,
                                         ),
                                       ),
                                       child: InkWell(
@@ -1326,6 +1393,11 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
+                                          logFirebaseEvent(
+                                              'PROFILE_PAGE_settingslink_ON_TAP');
+                                          logFirebaseEvent(
+                                              'settingslink_navigate_to');
+
                                           context.pushNamed(
                                             'Settings',
                                             extra: <String, dynamic>{
@@ -1347,11 +1419,14 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                   .fromSTEB(
                                                       24.0, 16.0, 0.0, 16.0),
                                               child: Container(
-                                                width: 40.0,
-                                                height: 40.0,
+                                                width: 50.0,
+                                                height: 50.0,
                                                 decoration: BoxDecoration(
                                                   color: Color(0x154B39EF),
-                                                  shape: BoxShape.circle,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                  shape: BoxShape.rectangle,
                                                 ),
                                                 child: Icon(
                                                   FFIcons.ksetting2,
@@ -1393,17 +1468,16 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                       MainAxisAlignment.end,
                                                   children: [
                                                     Container(
-                                                      width: 24.0,
-                                                      height: 24.0,
+                                                      width: 30.0,
+                                                      height: 30.0,
                                                       decoration: BoxDecoration(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .alternate,
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
                                                         border: Border.all(
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .alternate,
+                                                              .secondaryBackground,
                                                         ),
                                                       ),
                                                       child: Icon(
@@ -1412,7 +1486,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .secondaryText,
-                                                        size: 24.0,
+                                                        size: 30.0,
                                                       ),
                                                     ),
                                                   ],
@@ -1435,10 +1509,10 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                       height: 72.0,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
-                                            .alternate,
+                                            .secondaryBackground,
                                         border: Border.all(
                                           color: FlutterFlowTheme.of(context)
-                                              .alternate,
+                                              .secondaryBackground,
                                         ),
                                       ),
                                       child: Row(
@@ -1449,11 +1523,13 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 16.0, 0.0, 16.0),
                                             child: Container(
-                                              width: 40.0,
-                                              height: 40.0,
+                                              width: 50.0,
+                                              height: 50.0,
                                               decoration: BoxDecoration(
                                                 color: Color(0x154B39EF),
-                                                shape: BoxShape.circle,
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                                shape: BoxShape.rectangle,
                                               ),
                                               child: Icon(
                                                 FFIcons.kmessageQuestion,
@@ -1494,18 +1570,16 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                     MainAxisAlignment.end,
                                                 children: [
                                                   Container(
-                                                    width: 24.0,
-                                                    height: 24.0,
+                                                    width: 30.0,
+                                                    height: 30.0,
                                                     decoration: BoxDecoration(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .alternate,
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
                                                       border: Border.all(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .alternate,
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
                                                       ),
                                                     ),
                                                     child: Icon(
@@ -1514,7 +1588,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .secondaryText,
-                                                      size: 24.0,
+                                                      size: 30.0,
                                                     ),
                                                   ),
                                                 ],
@@ -1536,10 +1610,10 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                       height: 72.0,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
-                                            .alternate,
+                                            .secondaryBackground,
                                         border: Border.all(
                                           color: FlutterFlowTheme.of(context)
-                                              .alternate,
+                                              .secondaryBackground,
                                         ),
                                       ),
                                       child: Row(
@@ -1550,11 +1624,13 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 16.0, 0.0, 16.0),
                                             child: Container(
-                                              width: 40.0,
-                                              height: 40.0,
+                                              width: 50.0,
+                                              height: 50.0,
                                               decoration: BoxDecoration(
                                                 color: Color(0x154B39EF),
-                                                shape: BoxShape.circle,
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                                shape: BoxShape.rectangle,
                                               ),
                                               child: Icon(
                                                 FFIcons.kcall,
@@ -1595,18 +1671,16 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                     MainAxisAlignment.end,
                                                 children: [
                                                   Container(
-                                                    width: 24.0,
-                                                    height: 24.0,
+                                                    width: 30.0,
+                                                    height: 30.0,
                                                     decoration: BoxDecoration(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .alternate,
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
                                                       border: Border.all(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .alternate,
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
                                                       ),
                                                     ),
                                                     child: Icon(
@@ -1615,7 +1689,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .secondaryText,
-                                                      size: 24.0,
+                                                      size: 30.0,
                                                     ),
                                                   ),
                                                 ],
@@ -1633,6 +1707,17 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         ),
                       ),
                     ],
+                  ),
+                ),
+                Align(
+                  alignment: AlignmentDirectional(0.00, 1.00),
+                  child: wrapWithModel(
+                    model: _model.navBar1Model,
+                    updateCallback: () => setState(() {}),
+                    child: NavBar1Widget(
+                      selectedPageIndex: 4,
+                      hidden: false,
+                    ),
                   ),
                 ),
               ],

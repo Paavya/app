@@ -26,6 +26,8 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
     super.initState();
     _model = createModel(context, () => PrivacyPolicyModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'PrivacyPolicy'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -65,12 +67,14 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
             hoverColor: Colors.transparent,
             highlightColor: Colors.transparent,
             onTap: () async {
+              logFirebaseEvent('PRIVACY_POLICY_PAGE_Icon_4jngjtyu_ON_TAP');
+              logFirebaseEvent('Icon_navigate_back');
               context.safePop();
             },
             child: Icon(
               Icons.chevron_left,
               color: FlutterFlowTheme.of(context).secondaryText,
-              size: 24.0,
+              size: 30.0,
             ),
           ),
           title: Text(
@@ -124,6 +128,10 @@ class _PrivacyPolicyWidgetState extends State<PrivacyPolicyWidget> {
                                         24.0, 0.0, 24.0, 50.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
+                                        logFirebaseEvent(
+                                            'PRIVACY_POLICY_PAGE_EXIT_BTN_ON_TAP');
+                                        logFirebaseEvent(
+                                            'Button_navigate_back');
                                         context.safePop();
                                       },
                                       text: FFLocalizations.of(context).getText(

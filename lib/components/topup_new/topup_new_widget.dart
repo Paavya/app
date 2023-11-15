@@ -452,6 +452,8 @@ class _TopupNewWidgetState extends State<TopupNewWidget> {
                         EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 44.0),
                     child: FFButtonWidget(
                       onPressed: () async {
+                        logFirebaseEvent('TOPUP_NEW_COMP_TOP_UP_BTN_ON_TAP');
+                        logFirebaseEvent('Button_bottom_sheet');
                         await showModalBottomSheet(
                           isScrollControlled: true,
                           backgroundColor: Colors.transparent,

@@ -735,22 +735,22 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fr': '',
       'ko': '',
     },
-    '80vhhy7w': {
-      'en': 'Terms & Conditions ',
+    'rg8fljl9': {
+      'en': 'Privacy Policy',
       'ar': '',
       'es': '',
       'fr': '',
       'ko': '',
     },
     'ui2rbktv': {
-      'en': 'and ',
+      'en': ' and ',
       'ar': '',
       'es': '',
       'fr': '',
       'ko': '',
     },
-    'rg8fljl9': {
-      'en': 'Privacy Policy',
+    '80vhhy7w': {
+      'en': 'Terms of Service',
       'ar': '',
       'es': '',
       'fr': '',
@@ -915,6 +915,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'r5qnllxo': {
       'en': 'Enable finderprint scan and Face ID',
+      'ar': '',
+      'es': '',
+      'fr': '',
+      'ko': '',
+    },
+    'a3z7tnno': {
+      'en': 'Please authenticate to login',
       'ar': '',
       'es': '',
       'fr': '',
@@ -1105,14 +1112,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ko': '',
     },
     '560xbyi3': {
-      'en': 'First Name',
-      'ar': '',
-      'es': '',
-      'fr': '',
-      'ko': '',
-    },
-    'mwma82it': {
-      'en': 'Last Name',
+      'en': 'First & Last Name',
       'ar': '',
       'es': '',
       'fr': '',
@@ -1208,13 +1208,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fr': '',
       'ko': '',
     },
-    '58k9raqr': {
-      'en': 'Restaurant',
-      'ar': '',
-      'es': '',
-      'fr': '',
-      'ko': '',
-    },
     'op57dir0': {
       'en': 'Restaurant',
       'ar': '',
@@ -1271,20 +1264,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fr': '',
       'ko': '',
     },
-    'mz8287xf': {
-      'en': 'Weekly',
-      'ar': '',
-      'es': '',
-      'fr': '',
-      'ko': '',
-    },
-    'p2sxs7ky': {
-      'en': 'Bi-Weekly',
-      'ar': '',
-      'es': '',
-      'fr': '',
-      'ko': '',
-    },
     'pisi8rnn': {
       'en': 'Monthly',
       'ar': '',
@@ -1292,22 +1271,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fr': '',
       'ko': '',
     },
-    'dxqa3d3b': {
-      'en': 'Quarterly',
-      'ar': '',
-      'es': '',
-      'fr': '',
-      'ko': '',
-    },
-    'fhephto0': {
-      'en': 'Bi_Annually',
-      'ar': '',
-      'es': '',
-      'fr': '',
-      'ko': '',
-    },
     'ycxnvqa7': {
       'en': 'Annually',
+      'ar': '',
+      'es': '',
+      'fr': '',
+      'ko': '',
+    },
+    'ichkpid0': {
+      'en': 'One-Time',
       'ar': '',
       'es': '',
       'fr': '',
@@ -1334,8 +1306,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fr': '',
       'ko': '',
     },
-    'zto7mttc': {
-      'en': 'add any details to this budget item',
+    'nh6c3how': {
+      'en': 'enter details for your budget item',
       'ar': '',
       'es': '',
       'fr': '',
@@ -1722,6 +1694,20 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fr': '',
       'ko': '',
     },
+    'ce0yzidh': {
+      'en': 'It\'s,',
+      'ar': '',
+      'es': '',
+      'fr': '',
+      'ko': '',
+    },
+    '4hbef61u': {
+      'en': 'Nov 14',
+      'ar': '',
+      'es': '',
+      'fr': '',
+      'ko': '',
+    },
     '9ofxfya6': {
       'en': 'Trey Banks',
       'ar': '',
@@ -1736,15 +1722,71 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fr': '',
       'ko': '',
     },
+    'rv7uh2jv': {
+      'en': 'My Accounts',
+      'ar': '',
+      'es': '',
+      'fr': '',
+      'ko': '',
+    },
     'hx0tromy': {
+      'en': 'as of about',
+      'ar': '',
+      'es': '',
+      'fr': '',
+      'ko': '',
+    },
+    'jytgx1vf': {
+      'en': '2 hours ago ',
+      'ar': '',
+      'es': '',
+      'fr': '',
+      'ko': '',
+    },
+    'z86vdtog': {
       'en': 'sync',
       'ar': '',
       'es': '',
       'fr': '',
       'ko': '',
     },
-    'rjnvzgh6': {
-      'en': '\$12,765.00',
+    'nkz0dfi2': {
+      'en': 'Savings Plan',
+      'ar': '',
+      'es': '',
+      'fr': '',
+      'ko': '',
+    },
+    '2jriaeis': {
+      'en': '33%',
+      'ar': '',
+      'es': '',
+      'fr': '',
+      'ko': '',
+    },
+    'b295e3xx': {
+      'en': 'View More',
+      'ar': '',
+      'es': '',
+      'fr': '',
+      'ko': '',
+    },
+    'g6wx5xi4': {
+      'en': 'Spending',
+      'ar': '',
+      'es': '',
+      'fr': '',
+      'ko': '',
+    },
+    '8zbg315q': {
+      'en': '87%',
+      'ar': '',
+      'es': '',
+      'fr': '',
+      'ko': '',
+    },
+    '5iou3yy9': {
+      'en': '\$120 more spent than last month',
       'ar': '',
       'es': '',
       'fr': '',
@@ -1785,69 +1827,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fr': '',
       'ko': '',
     },
-    'nkz0dfi2': {
-      'en': 'My Accounts',
-      'ar': '',
-      'es': '',
-      'fr': '',
-      'ko': '',
-    },
-    'yi2p9iej': {
-      'en': 'Checking',
-      'ar': '',
-      'es': '',
-      'fr': '',
-      'ko': '',
-    },
-    '1s38meb9': {
-      'en': 'Add new checking account',
-      'ar': '',
-      'es': '',
-      'fr': '',
-      'ko': '',
-    },
-    'ylkdtnrh': {
-      'en': 'Savings',
-      'ar': '',
-      'es': '',
-      'fr': '',
-      'ko': '',
-    },
-    'x71bi090': {
-      'en': 'Add new savings account',
-      'ar': '',
-      'es': '',
-      'fr': '',
-      'ko': '',
-    },
-    'ac7p9k9k': {
-      'en': 'Investments',
-      'ar': '',
-      'es': '',
-      'fr': '',
-      'ko': '',
-    },
-    'vi5jmo7i': {
-      'en': 'Add new investment account',
-      'ar': '',
-      'es': '',
-      'fr': '',
-      'ko': '',
-    },
-    'w941mag2': {
-      'en': 'Cards',
-      'ar': '',
-      'es': '',
-      'fr': '',
-      'ko': '',
-    },
-    'fnhb1fgq': {
-      'en': 'Add new card',
-      'ar': '',
-      'es': '',
-      'fr': '',
-      'ko': '',
-    },
     'uruc9i0e': {
       'en': 'Recent Transactions',
       'ar': '',
@@ -1883,22 +1862,43 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fr': '',
       'ko': '',
     },
-    'jckll8q8': {
-      'en': 'JoeMoe Coffee',
+    'pa46jw30': {
+      'en': 'My Spending',
       'ar': '',
       'es': '',
       'fr': '',
       'ko': '',
     },
-    'ysjx4zy6': {
-      'en': 'Paid ending: **** 2192',
+    '4zp9sm6x': {
+      'en': '\$ 1,747.00',
       'ar': '',
       'es': '',
       'fr': '',
       'ko': '',
     },
-    'zs3pr0h5': {
-      'en': '\$50.21',
+    'ziykaoq4': {
+      'en': '-11.8%',
+      'ar': '',
+      'es': '',
+      'fr': '',
+      'ko': '',
+    },
+    '8on4mj96': {
+      'en': 'from last week',
+      'ar': '',
+      'es': '',
+      'fr': '',
+      'ko': '',
+    },
+    'mn92pyhl': {
+      'en': 'See more',
+      'ar': '',
+      'es': '',
+      'fr': '',
+      'ko': '',
+    },
+    'uiyz9jin': {
+      'en': 'In thousands',
       'ar': '',
       'es': '',
       'fr': '',
@@ -1911,7 +1911,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fr': '',
       'ko': '',
     },
-    'mn92pyhl': {
+    'g6au2l9e': {
       'en': 'View all',
       'ar': '',
       'es': '',
@@ -2019,6 +2019,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // allTransactions
   {
+    'ydw972y1': {
+      'en': 'search transactions',
+      'ar': '',
+      'es': '',
+      'fr': '',
+      'ko': '',
+    },
     'k78a7s93': {
       'en': 'Jun',
       'ar': '',
@@ -2124,13 +2131,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fr': '',
       'ko': '',
     },
-    'qjqagdo1': {
-      'en': '\$8,220.00',
-      'ar': '',
-      'es': '',
-      'fr': '',
-      'ko': '',
-    },
     'qmiv1akr': {
       'en': 'Total Spending',
       'ar': '',
@@ -2139,21 +2139,28 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ko': '',
     },
     'ukh92d0b': {
-      'en': 'Latest',
+      'en': 'Latest Transactions',
       'ar': '',
       'es': '',
       'fr': '',
       'ko': '',
     },
-    'paoie7zu': {
-      'en': 'Categories',
+    '47jvy4wd': {
+      'en': 'JoeMoe Coffee',
       'ar': '',
       'es': '',
       'fr': '',
       'ko': '',
     },
-    'mwl6hxbl': {
-      'en': 'Merchants',
+    '718i29v8': {
+      'en': 'Paid ending: **** 2192',
+      'ar': '',
+      'es': '',
+      'fr': '',
+      'ko': '',
+    },
+    '6njpx0xz': {
+      'en': '\$50.21',
       'ar': '',
       'es': '',
       'fr': '',
@@ -2687,6 +2694,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fr': '',
       'ko': '',
     },
+    'ghdbipig': {
+      'en':
+          'Please use your biometrics to login for security to protect your data.',
+      'ar': '',
+      'es': '',
+      'fr': '',
+      'ko': '',
+    },
     'wo2sjrki': {
       'en': 'Don\'t have an account?',
       'ar': '',
@@ -2867,6 +2882,76 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // monthlyBudgets
   {
+    '975y9jah': {
+      'en': 'Monthly Budgets',
+      'ar': '',
+      'es': '',
+      'fr': '',
+      'ko': '',
+    },
+    'w5cig2xk': {
+      'en': 'paavya',
+      'ar': '',
+      'es': '',
+      'fr': '',
+      'ko': '',
+    },
+    'yg2ex6bn': {
+      'en': 'Search',
+      'ar': '',
+      'es': '',
+      'fr': '',
+      'ko': '',
+    },
+    'x2gpjwhn': {
+      'en': 'Dashboard',
+      'ar': '',
+      'es': '',
+      'fr': '',
+      'ko': '',
+    },
+    'hjsbxfvt': {
+      'en': 'Transactions',
+      'ar': '',
+      'es': '',
+      'fr': '',
+      'ko': '',
+    },
+    'idk9xzka': {
+      'en': 'My Accounts',
+      'ar': '',
+      'es': '',
+      'fr': '',
+      'ko': '',
+    },
+    'mctxar0r': {
+      'en': 'Insights',
+      'ar': '',
+      'es': '',
+      'fr': '',
+      'ko': '',
+    },
+    'vd869vx4': {
+      'en': 'Budgets',
+      'ar': '',
+      'es': '',
+      'fr': '',
+      'ko': '',
+    },
+    '126wbytl': {
+      'en': 'Ayva AI',
+      'ar': '',
+      'es': '',
+      'fr': '',
+      'ko': '',
+    },
+    '26dqk2dl': {
+      'en': 'View Profile',
+      'ar': '',
+      'es': '',
+      'fr': '',
+      'ko': '',
+    },
     '1rgp4df2': {
       'en': 'Fast Food',
       'ar': '',
@@ -3161,71 +3246,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fr': '',
       'ko': '',
     },
-    '975y9jah': {
-      'en': 'Monthly Budgets',
-      'ar': '',
-      'es': '',
-      'fr': '',
-      'ko': '',
-    },
-    'w5cig2xk': {
-      'en': 'paavya',
-      'ar': '',
-      'es': '',
-      'fr': '',
-      'ko': '',
-    },
-    'yg2ex6bn': {
-      'en': 'Search',
-      'ar': '',
-      'es': '',
-      'fr': '',
-      'ko': '',
-    },
-    'x2gpjwhn': {
-      'en': 'Dashboard',
-      'ar': '',
-      'es': '',
-      'fr': '',
-      'ko': '',
-    },
-    'hjsbxfvt': {
-      'en': 'Transactions',
-      'ar': '',
-      'es': '',
-      'fr': '',
-      'ko': '',
-    },
-    'idk9xzka': {
-      'en': 'My Accounts',
-      'ar': '',
-      'es': '',
-      'fr': '',
-      'ko': '',
-    },
-    'mctxar0r': {
-      'en': 'Insights',
-      'ar': '',
-      'es': '',
-      'fr': '',
-      'ko': '',
-    },
-    'vd869vx4': {
-      'en': 'Budgets',
-      'ar': '',
-      'es': '',
-      'fr': '',
-      'ko': '',
-    },
-    '126wbytl': {
-      'en': 'Ayva AI',
-      'ar': '',
-      'es': '',
-      'fr': '',
-      'ko': '',
-    },
-    '26dqk2dl': {
-      'en': 'View Profile',
+    'dg9hl7yl': {
+      'en': 'Add New Budget Item',
       'ar': '',
       'es': '',
       'fr': '',
@@ -3263,63 +3285,63 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fr': '',
       'ko': '',
     },
-    'mzau6dps': {
+    'm2pl57y9': {
       'en': 'paavya',
       'ar': '',
       'es': '',
       'fr': '',
       'ko': '',
     },
-    'r6w4gmtp': {
+    'zj0k2n52': {
       'en': 'Search',
       'ar': '',
       'es': '',
       'fr': '',
       'ko': '',
     },
-    'kytzlqiu': {
+    'rq4lr6nc': {
       'en': 'Dashboard',
       'ar': '',
       'es': '',
       'fr': '',
       'ko': '',
     },
-    'ppn7ry1b': {
+    '9mu5bc0t': {
       'en': 'Transactions',
       'ar': '',
       'es': '',
       'fr': '',
       'ko': '',
     },
-    'ittk15or': {
+    '7izdxnph': {
       'en': 'My Accounts',
       'ar': '',
       'es': '',
       'fr': '',
       'ko': '',
     },
-    'txk02n0u': {
+    '6z4t4kgl': {
       'en': 'Insights',
       'ar': '',
       'es': '',
       'fr': '',
       'ko': '',
     },
-    '8e36pspr': {
+    'cx66tirw': {
       'en': 'Budgets',
       'ar': '',
       'es': '',
       'fr': '',
       'ko': '',
     },
-    '22r3uwla': {
+    '9vlgh2e4': {
       'en': 'Ayva AI',
       'ar': '',
       'es': '',
       'fr': '',
       'ko': '',
     },
-    'jdlg7gu0': {
+    'vsghwi0w': {
       'en': 'View Profile',
       'ar': '',
       'es': '',
@@ -3328,6 +3350,44 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '5ooq156l': {
       'en': 'Home',
+      'ar': '',
+      'es': '',
+      'fr': '',
+      'ko': '',
+    },
+  },
+  // NavBar1
+  {
+    'sejvqdtg': {
+      'en': 'Dashboard',
+      'ar': '',
+      'es': '',
+      'fr': '',
+      'ko': '',
+    },
+    'pi2ztlh5': {
+      'en': 'Budgets',
+      'ar': '',
+      'es': '',
+      'fr': '',
+      'ko': '',
+    },
+    '02itrjia': {
+      'en': 'Transactions',
+      'ar': '',
+      'es': '',
+      'fr': '',
+      'ko': '',
+    },
+    'wy1zeavb': {
+      'en': 'My Accounts',
+      'ar': '',
+      'es': '',
+      'fr': '',
+      'ko': '',
+    },
+    'akntj55l': {
+      'en': 'Profile',
       'ar': '',
       'es': '',
       'fr': '',

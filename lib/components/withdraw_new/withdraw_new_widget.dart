@@ -465,6 +465,9 @@ class _WithdrawNewWidgetState extends State<WithdrawNewWidget> {
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 44.0),
                     child: FFButtonWidget(
                       onPressed: () async {
+                        logFirebaseEvent(
+                            'WITHDRAW_NEW_COMP_WITHDRAW_BTN_ON_TAP');
+                        logFirebaseEvent('Button_bottom_sheet');
                         await showModalBottomSheet(
                           isScrollControlled: true,
                           backgroundColor: Colors.transparent,

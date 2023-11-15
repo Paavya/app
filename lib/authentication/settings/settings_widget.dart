@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:local_auth/local_auth.dart';
 import 'package:provider/provider.dart';
 import 'settings_model.dart';
 export 'settings_model.dart';
@@ -27,6 +28,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
     super.initState();
     _model = createModel(context, () => SettingsModel());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'Settings'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -66,11 +68,13 @@ class _SettingsWidgetState extends State<SettingsWidget> {
             borderWidth: 1.0,
             buttonSize: 60.0,
             icon: Icon(
-              Icons.arrow_back_rounded,
+              Icons.chevron_left,
               color: FlutterFlowTheme.of(context).secondaryText,
               size: 30.0,
             ),
             onPressed: () async {
+              logFirebaseEvent('SETTINGS_PAGE_chevron_left_ICN_ON_TAP');
+              logFirebaseEvent('IconButton_navigate_back');
               context.safePop();
             },
           ),
@@ -147,6 +151,10 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
+                                            logFirebaseEvent(
+                                                'SETTINGS_PAGE_Container_0zb810fk_ON_TAP');
+                                            logFirebaseEvent(
+                                                'Container_set_app_language');
                                             setAppLanguage(context, 'en');
                                           },
                                           child: Container(
@@ -319,6 +327,11 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
+                                            logFirebaseEvent(
+                                                'SETTINGS_PAGE_Container_47oxr2iy_ON_TAP');
+                                            logFirebaseEvent(
+                                                'Container_navigate_to');
+
                                             context.pushNamed('notifications');
                                           },
                                           child: Container(
@@ -387,50 +400,77 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                             _model.switchListTileValue != null,
                                             true,
                                           ),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    8.0, 0.0, 0.0, 0.0),
-                                            child: SwitchListTile.adaptive(
-                                              value: _model
-                                                  .switchListTileValue ??= true,
-                                              onChanged: (newValue) async {
-                                                setState(() =>
-                                                    _model.switchListTileValue =
-                                                        newValue!);
-                                              },
-                                              title: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  '4eak0bff' /* Biometric */,
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelLarge,
+                                          child: SwitchListTile.adaptive(
+                                            value: _model
+                                                .switchListTileValue ??= true,
+                                            onChanged: (newValue) async {
+                                              setState(() =>
+                                                  _model.switchListTileValue =
+                                                      newValue!);
+                                              if (newValue!) {
+                                                logFirebaseEvent(
+                                                    'SETTINGS_SwitchListTile_bq9ihlb4_ON_TOGG');
+                                                logFirebaseEvent(
+                                                    'SwitchListTile_biometric_verification');
+                                                final _localAuth =
+                                                    LocalAuthentication();
+                                                bool _isBiometricSupported =
+                                                    await _localAuth
+                                                        .isDeviceSupported();
+                                                bool canCheckBiometrics =
+                                                    await _localAuth
+                                                        .canCheckBiometrics;
+                                                if (_isBiometricSupported &&
+                                                    canCheckBiometrics) {
+                                                  _model.biometriclogin = await _localAuth
+                                                      .authenticate(
+                                                          localizedReason:
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .getText(
+                                                            'a3z7tnno' /* Please authenticate to login */,
+                                                          ),
+                                                          options:
+                                                              const AuthenticationOptions(
+                                                                  biometricOnly:
+                                                                      true));
+                                                  setState(() {});
+                                                }
+
+                                                setState(() {});
+                                              }
+                                            },
+                                            title: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '4eak0bff' /* Biometric */,
                                               ),
-                                              subtitle: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'r5qnllxo' /* Enable finderprint scan and Fa... */,
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelMedium,
-                                              ),
-                                              tileColor:
+                                              style:
                                                   FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              activeColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                              activeTrackColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                              dense: true,
-                                              controlAffinity:
-                                                  ListTileControlAffinity
-                                                      .trailing,
+                                                      .labelLarge,
                                             ),
+                                            subtitle: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'r5qnllxo' /* Enable finderprint scan and Fa... */,
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMedium,
+                                            ),
+                                            tileColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondaryBackground,
+                                            activeColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                            activeTrackColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                            dense: true,
+                                            controlAffinity:
+                                                ListTileControlAffinity
+                                                    .trailing,
                                           ),
                                         ),
                                       ),
@@ -469,56 +509,53 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
                                       ),
-                                      child: Visibility(
-                                        visible: valueOrDefault<bool>(
-                                          _model.darkmodetilerValue != null,
-                                          true,
-                                        ),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  8.0, 0.0, 0.0, 0.0),
-                                          child: SwitchListTile.adaptive(
-                                            value: _model.darkmodetilerValue ??=
-                                                false,
-                                            onChanged: (newValue) async {
-                                              setState(() =>
-                                                  _model.darkmodetilerValue =
-                                                      newValue!);
-                                            },
-                                            title: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'p5lwokcz' /* Dark Mode */,
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelLarge,
-                                            ),
-                                            subtitle: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'blu2rw4e' /* Switch between light & dark mo... */,
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMedium,
-                                            ),
-                                            tileColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .secondaryBackground,
-                                            activeColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .primary,
-                                            activeTrackColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .primary,
-                                            dense: true,
-                                            controlAffinity:
-                                                ListTileControlAffinity
-                                                    .trailing,
+                                      child: SwitchListTile.adaptive(
+                                        value: _model.darkmodetilerValue ??=
+                                            false,
+                                        onChanged: (newValue) async {
+                                          setState(() => _model
+                                              .darkmodetilerValue = newValue!);
+                                          if (newValue!) {
+                                            logFirebaseEvent(
+                                                'SETTINGS_PAGE_darkmodetiler_ON_TOGGLE_ON');
+                                            logFirebaseEvent(
+                                                'darkmodetiler_set_dark_mode_settings');
+                                            setDarkModeSetting(
+                                                context, ThemeMode.dark);
+                                          } else {
+                                            logFirebaseEvent(
+                                                'SETTINGS_darkmodetiler_ON_TOGGLE_OFF');
+                                            logFirebaseEvent(
+                                                'darkmodetiler_set_dark_mode_settings');
+                                            setDarkModeSetting(
+                                                context, ThemeMode.light);
+                                          }
+                                        },
+                                        title: Text(
+                                          FFLocalizations.of(context).getText(
+                                            'p5lwokcz' /* Dark Mode */,
                                           ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .labelLarge,
                                         ),
+                                        subtitle: Text(
+                                          FFLocalizations.of(context).getText(
+                                            'blu2rw4e' /* Switch between light & dark mo... */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .labelMedium,
+                                        ),
+                                        tileColor: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        activeColor:
+                                            FlutterFlowTheme.of(context)
+                                                .primary,
+                                        activeTrackColor:
+                                            FlutterFlowTheme.of(context)
+                                                .primary,
+                                        dense: true,
+                                        controlAffinity:
+                                            ListTileControlAffinity.trailing,
                                       ),
                                     ),
                                   ),
@@ -534,6 +571,11 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                       hoverColor: Colors.transparent,
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
+                                        logFirebaseEvent(
+                                            'SETTINGS_PAGE_Container_jbdjn8r5_ON_TAP');
+                                        logFirebaseEvent(
+                                            'Container_navigate_to');
+
                                         context.pushNamed('PrivacyPolicy');
                                       },
                                       child: Container(

@@ -27,6 +27,8 @@ class _TermsandconditionsWidgetState extends State<TermsandconditionsWidget> {
     super.initState();
     _model = createModel(context, () => TermsandconditionsModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'Termsandconditions'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -66,12 +68,14 @@ class _TermsandconditionsWidgetState extends State<TermsandconditionsWidget> {
             hoverColor: Colors.transparent,
             highlightColor: Colors.transparent,
             onTap: () async {
+              logFirebaseEvent('TERMSANDCONDITIONS_Icon_0ksxgpb7_ON_TAP');
+              logFirebaseEvent('Icon_navigate_back');
               context.safePop();
             },
             child: Icon(
               Icons.chevron_left,
               color: FlutterFlowTheme.of(context).secondaryText,
-              size: 24.0,
+              size: 30.0,
             ),
           ),
           title: Text(
@@ -125,6 +129,10 @@ class _TermsandconditionsWidgetState extends State<TermsandconditionsWidget> {
                                         24.0, 0.0, 24.0, 50.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
+                                        logFirebaseEvent(
+                                            'TERMSANDCONDITIONS_PAGE_EXIT_BTN_ON_TAP');
+                                        logFirebaseEvent(
+                                            'Button_navigate_back');
                                         context.safePop();
                                       },
                                       text: FFLocalizations.of(context).getText(

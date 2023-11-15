@@ -28,6 +28,8 @@ class _TransferFailedWidgetState extends State<TransferFailedWidget> {
     super.initState();
     _model = createModel(context, () => TransferFailedModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'transfer_failed'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -247,6 +249,9 @@ class _TransferFailedWidgetState extends State<TransferFailedWidget> {
                           EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 25.0, 0.0),
                       child: FFButtonWidget(
                         onPressed: () async {
+                          logFirebaseEvent(
+                              'TRANSFER_FAILED_GO_BACK_TO_TRY_AGAIN_BTN');
+                          logFirebaseEvent('Button_navigate_back');
                           context.safePop();
                         },
                         text: FFLocalizations.of(context).getText(

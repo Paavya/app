@@ -56,7 +56,7 @@ class FFAppState extends ChangeNotifier {
     _speechToTextResponse = _value;
   }
 
-  String _apiKey = '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';
+  String _apiKey = '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';
   String get apiKey => _apiKey;
   set apiKey(String _value) {
     _apiKey = _value;

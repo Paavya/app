@@ -81,6 +81,11 @@ class UsersRecord extends FirestoreRecord {
   LatLng? get zipCode => _zipCode;
   bool hasZipCode() => _zipCode != null;
 
+  // "dateofbirth" field.
+  DateTime? _dateofbirth;
+  DateTime? get dateofbirth => _dateofbirth;
+  bool hasDateofbirth() => _dateofbirth != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -95,6 +100,7 @@ class UsersRecord extends FirestoreRecord {
     _city = snapshotData['city'] as LatLng?;
     _state = snapshotData['state'] as LatLng?;
     _zipCode = snapshotData['zip_code'] as LatLng?;
+    _dateofbirth = snapshotData['dateofbirth'] as DateTime?;
   }
 
   static CollectionReference get collection =>
@@ -144,6 +150,7 @@ Map<String, dynamic> createUsersRecordData({
   LatLng? city,
   LatLng? state,
   LatLng? zipCode,
+  DateTime? dateofbirth,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -160,6 +167,7 @@ Map<String, dynamic> createUsersRecordData({
       'city': city,
       'state': state,
       'zip_code': zipCode,
+      'dateofbirth': dateofbirth,
     }.withoutNulls,
   );
 
@@ -183,7 +191,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.addressLine2 == e2?.addressLine2 &&
         e1?.city == e2?.city &&
         e1?.state == e2?.state &&
-        e1?.zipCode == e2?.zipCode;
+        e1?.zipCode == e2?.zipCode &&
+        e1?.dateofbirth == e2?.dateofbirth;
   }
 
   @override
@@ -200,7 +209,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.addressLine2,
         e?.city,
         e?.state,
-        e?.zipCode
+        e?.zipCode,
+        e?.dateofbirth
       ]);
 
   @override

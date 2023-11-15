@@ -1,5 +1,8 @@
 import 'dart:async';
 
+import 'package:from_css_color/from_css_color.dart';
+import '/backend/algolia/serialization_util.dart';
+import '/backend/algolia/algolia_manager.dart';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
@@ -41,10 +44,25 @@ class TransactionsRecord extends FirestoreRecord {
   bool get expense => _expense ?? false;
   bool hasExpense() => _expense != null;
 
-  // "logo_url" field.
-  String? _logoUrl;
-  String get logoUrl => _logoUrl ?? '';
-  bool hasLogoUrl() => _logoUrl != null;
+  // "date" field.
+  DateTime? _date;
+  DateTime? get date => _date;
+  bool hasDate() => _date != null;
+
+  // "time" field.
+  DateTime? _time;
+  DateTime? get time => _time;
+  bool hasTime() => _time != null;
+
+  // "category" field.
+  String? _category;
+  String get category => _category ?? '';
+  bool hasCategory() => _category != null;
+
+  // "merchant_logo" field.
+  String? _merchantLogo;
+  String get merchantLogo => _merchantLogo ?? '';
+  bool hasMerchantLogo() => _merchantLogo != null;
 
   void _initializeFields() {
     _name = snapshotData['name'] as String?;
@@ -52,7 +70,10 @@ class TransactionsRecord extends FirestoreRecord {
     _isoCurrencyCode = snapshotData['iso_currency_code'] as String?;
     _amount = castToType<double>(snapshotData['amount']);
     _expense = snapshotData['expense'] as bool?;
-    _logoUrl = snapshotData['logo_url'] as String?;
+    _date = snapshotData['date'] as DateTime?;
+    _time = snapshotData['time'] as DateTime?;
+    _category = snapshotData['category'] as String?;
+    _merchantLogo = snapshotData['merchant_logo'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -76,6 +97,52 @@ class TransactionsRecord extends FirestoreRecord {
   ) =>
       TransactionsRecord._(reference, mapFromFirestore(data));
 
+  static TransactionsRecord fromAlgolia(AlgoliaObjectSnapshot snapshot) =>
+      TransactionsRecord.getDocumentFromData(
+        {
+          'name': snapshot.data['name'],
+          'merchant_name': snapshot.data['merchant_name'],
+          'iso_currency_code': snapshot.data['iso_currency_code'],
+          'amount': convertAlgoliaParam(
+            snapshot.data['amount'],
+            ParamType.double,
+            false,
+          ),
+          'expense': snapshot.data['expense'],
+          'date': convertAlgoliaParam(
+            snapshot.data['date'],
+            ParamType.DateTime,
+            false,
+          ),
+          'time': convertAlgoliaParam(
+            snapshot.data['time'],
+            ParamType.DateTime,
+            false,
+          ),
+          'category': snapshot.data['category'],
+          'merchant_logo': snapshot.data['merchant_logo'],
+        },
+        TransactionsRecord.collection.doc(snapshot.objectID),
+      );
+
+  static Future<List<TransactionsRecord>> search({
+    String? term,
+    FutureOr<LatLng>? location,
+    int? maxResults,
+    double? searchRadiusMeters,
+    bool useCache = false,
+  }) =>
+      FFAlgoliaManager.instance
+          .algoliaQuery(
+            index: 'transactions',
+            term: term,
+            maxResults: maxResults,
+            location: location,
+            searchRadiusMeters: searchRadiusMeters,
+            useCache: useCache,
+          )
+          .then((r) => r.map(fromAlgolia).toList());
+
   @override
   String toString() =>
       'TransactionsRecord(reference: ${reference.path}, data: $snapshotData)';
@@ -95,7 +162,10 @@ Map<String, dynamic> createTransactionsRecordData({
   String? isoCurrencyCode,
   double? amount,
   bool? expense,
-  String? logoUrl,
+  DateTime? date,
+  DateTime? time,
+  String? category,
+  String? merchantLogo,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -104,7 +174,10 @@ Map<String, dynamic> createTransactionsRecordData({
       'iso_currency_code': isoCurrencyCode,
       'amount': amount,
       'expense': expense,
-      'logo_url': logoUrl,
+      'date': date,
+      'time': time,
+      'category': category,
+      'merchant_logo': merchantLogo,
     }.withoutNulls,
   );
 
@@ -122,7 +195,10 @@ class TransactionsRecordDocumentEquality
         e1?.isoCurrencyCode == e2?.isoCurrencyCode &&
         e1?.amount == e2?.amount &&
         e1?.expense == e2?.expense &&
-        e1?.logoUrl == e2?.logoUrl;
+        e1?.date == e2?.date &&
+        e1?.time == e2?.time &&
+        e1?.category == e2?.category &&
+        e1?.merchantLogo == e2?.merchantLogo;
   }
 
   @override
@@ -132,7 +208,10 @@ class TransactionsRecordDocumentEquality
         e?.isoCurrencyCode,
         e?.amount,
         e?.expense,
-        e?.logoUrl
+        e?.date,
+        e?.time,
+        e?.category,
+        e?.merchantLogo
       ]);
 
   @override

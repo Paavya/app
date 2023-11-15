@@ -28,6 +28,8 @@ class _WithdrawFailedWidgetState extends State<WithdrawFailedWidget> {
     super.initState();
     _model = createModel(context, () => WithdrawFailedModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'withdraw_failed'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -247,6 +249,9 @@ class _WithdrawFailedWidgetState extends State<WithdrawFailedWidget> {
                           EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 25.0, 0.0),
                       child: FFButtonWidget(
                         onPressed: () async {
+                          logFirebaseEvent(
+                              'WITHDRAW_FAILED_GO_BACK_TO_TRY_AGAIN_BTN');
+                          logFirebaseEvent('Button_navigate_back');
                           context.safePop();
                         },
                         text: FFLocalizations.of(context).getText(

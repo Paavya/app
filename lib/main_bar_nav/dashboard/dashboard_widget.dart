@@ -1,20 +1,24 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
+import '/components/nav_bar1/nav_bar1_widget.dart';
 import '/components/topup_new/topup_new_widget.dart';
 import '/components/withdraw_new/withdraw_new_widget.dart';
+import '/flutter_flow/flutter_flow_ad_banner.dart';
+import '/flutter_flow/flutter_flow_charts.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
 import 'dashboard_model.dart';
 export 'dashboard_model.dart';
@@ -36,10 +40,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
     super.initState();
     _model = createModel(context, () => DashboardModel());
 
-    _model.expandableController1 = ExpandableController(initialExpanded: false);
-    _model.expandableController2 = ExpandableController(initialExpanded: false);
-    _model.expandableController3 = ExpandableController(initialExpanded: false);
-    _model.expandableController4 = ExpandableController(initialExpanded: false);
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'dashboard'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -69,7 +70,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         drawer: Drawer(
           elevation: 16.0,
           child: Padding(
@@ -132,8 +133,11 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                       child: Container(
                         width: double.infinity,
                         decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).primaryBackground,
+                          color: FlutterFlowTheme.of(context).info,
                           borderRadius: BorderRadius.circular(8.0),
+                          border: Border.all(
+                            color: FlutterFlowTheme.of(context).alternate,
+                          ),
                         ),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -173,6 +177,9 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
+                          logFirebaseEvent('DASHBOARD_PAGE_bg_color_ON_TAP');
+                          logFirebaseEvent(
+                              'bg_color_close_dialog,_drawer,_etc');
                           Navigator.pop(context);
                         },
                         child: Container(
@@ -200,8 +207,13 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                     FFLocalizations.of(context).getText(
                                       'b3dc6edt' /* Dashboard */,
                                     ),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyLarge,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyLarge
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                        ),
                                   ),
                                 ),
                               ],
@@ -219,8 +231,13 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
+                          logFirebaseEvent('DASHBOARD_PAGE_bg_color_ON_TAP');
+                          logFirebaseEvent('bg_color_navigate_to');
+
                           context.goNamed('allTransactions');
 
+                          logFirebaseEvent(
+                              'bg_color_close_dialog,_drawer,_etc');
                           Navigator.pop(context);
                         },
                         child: Container(
@@ -269,8 +286,13 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
+                          logFirebaseEvent('DASHBOARD_PAGE_bg_color_ON_TAP');
+                          logFirebaseEvent('bg_color_navigate_to');
+
                           context.goNamed('myAccounts');
 
+                          logFirebaseEvent(
+                              'bg_color_close_dialog,_drawer,_etc');
                           Navigator.pop(context);
                         },
                         child: Container(
@@ -319,8 +341,13 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
+                          logFirebaseEvent('DASHBOARD_PAGE_bg_color_ON_TAP');
+                          logFirebaseEvent('bg_color_navigate_to');
+
                           context.goNamed('insights');
 
+                          logFirebaseEvent(
+                              'bg_color_close_dialog,_drawer,_etc');
                           Navigator.pop(context);
                         },
                         child: Container(
@@ -369,8 +396,13 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
+                          logFirebaseEvent('DASHBOARD_PAGE_bg_color_ON_TAP');
+                          logFirebaseEvent('bg_color_navigate_to');
+
                           context.goNamed('monthlyBudgets');
 
+                          logFirebaseEvent(
+                              'bg_color_close_dialog,_drawer,_etc');
                           Navigator.pop(context);
                         },
                         child: Container(
@@ -419,8 +451,13 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
+                          logFirebaseEvent('DASHBOARD_PAGE_bg_color_ON_TAP');
+                          logFirebaseEvent('bg_color_navigate_to');
+
                           context.goNamed('aiiAyva');
 
+                          logFirebaseEvent(
+                              'bg_color_close_dialog,_drawer,_etc');
                           Navigator.pop(context);
                         },
                         child: Container(
@@ -557,6 +594,11 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
+                                                logFirebaseEvent(
+                                                    'DASHBOARD_PAGE_Text_g42dsma0_ON_TAP');
+                                                logFirebaseEvent(
+                                                    'Text_navigate_to');
+
                                                 context.goNamed(
                                                   'profile',
                                                   extra: <String, dynamic>{
@@ -633,8 +675,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                 width: 100.0,
                                 height: 220.0,
                                 decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .verifyscreens,
+                                  color: FlutterFlowTheme.of(context).primary,
                                   borderRadius: BorderRadius.circular(0.0),
                                   border: Border.all(
                                     color: FlutterFlowTheme.of(context)
@@ -667,7 +708,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .verifyscreens,
+                                                              .primary,
                                                     ),
                                                     child: Column(
                                                       mainAxisSize:
@@ -718,6 +759,61 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                       .warning,
                                                                   size: 16.0,
                                                                 ),
+                                                              ),
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            8.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child: Text(
+                                                                      FFLocalizations.of(
+                                                                              context)
+                                                                          .getText(
+                                                                        'ce0yzidh' /* It's, */,
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Readex Pro',
+                                                                            color:
+                                                                                Color(0xFFC9BEFF),
+                                                                          ),
+                                                                    ),
+                                                                  ),
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            1.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child: Text(
+                                                                      FFLocalizations.of(
+                                                                              context)
+                                                                          .getText(
+                                                                        '4hbef61u' /* Nov 14 */,
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Readex Pro',
+                                                                            color:
+                                                                                Color(0xFFC9BEFF),
+                                                                          ),
+                                                                    ),
+                                                                  ),
+                                                                ],
                                                               ),
                                                             ],
                                                           ),
@@ -774,6 +870,10 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                               size: 24.0,
                                             ),
                                             onPressed: () async {
+                                              logFirebaseEvent(
+                                                  'DASHBOARD_PAGE_menu_sharp_ICN_ON_TAP');
+                                              logFirebaseEvent(
+                                                  'IconButton_drawer');
                                               scaffoldKey.currentState!
                                                   .openDrawer();
                                             },
@@ -809,14 +909,14 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                   borderColor:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .verifyscreens,
+                                                          .primary,
                                                   borderRadius: 20.0,
                                                   borderWidth: 1.0,
                                                   buttonSize: 30.0,
                                                   fillColor:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .verifyscreens,
+                                                          .primary,
                                                   icon: Icon(
                                                     Icons
                                                         .remove_red_eye_outlined,
@@ -831,50 +931,6 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                               ),
                                             ],
                                           ),
-                                          Align(
-                                            alignment: AlignmentDirectional(
-                                                1.00, 0.00),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          1.00, 0.00),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(16.0, 0.0,
-                                                                0.0, 0.0),
-                                                    child: Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'hx0tromy' /* sync */,
-                                                      ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Readex Pro',
-                                                                color: Color(
-                                                                    0xFFC9BEFF),
-                                                                fontSize: 12.0,
-                                                                decoration:
-                                                                    TextDecoration
-                                                                        .underline,
-                                                              ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
                                         ],
                                       ),
                                     ),
@@ -884,18 +940,65 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
-                                          Text(
-                                            FFLocalizations.of(context).getText(
-                                              'rjnvzgh6' /* $12,765.00 */,
+                                          StreamBuilder<List<BalanceRecord>>(
+                                            stream: queryBalanceRecord(
+                                              singleRecord: true,
                                             ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Readex Pro',
-                                                  color: Color(0xFFF3F3F3),
-                                                  fontSize: 36.0,
-                                                  fontWeight: FontWeight.w600,
+                                            builder: (context, snapshot) {
+                                              // Customize what your widget looks like when it's loading.
+                                              if (!snapshot.hasData) {
+                                                return Center(
+                                                  child: SizedBox(
+                                                    width: 50.0,
+                                                    height: 50.0,
+                                                    child: SpinKitRipple(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                      size: 50.0,
+                                                    ),
+                                                  ),
+                                                );
+                                              }
+                                              List<BalanceRecord>
+                                                  textBalanceRecordList =
+                                                  snapshot.data!;
+                                              // Return an empty Container when the item does not exist.
+                                              if (snapshot.data!.isEmpty) {
+                                                return Container();
+                                              }
+                                              final textBalanceRecord =
+                                                  textBalanceRecordList
+                                                          .isNotEmpty
+                                                      ? textBalanceRecordList
+                                                          .first
+                                                      : null;
+                                              return Text(
+                                                valueOrDefault<String>(
+                                                  formatNumber(
+                                                    textBalanceRecord
+                                                        ?.available,
+                                                    formatType:
+                                                        FormatType.decimal,
+                                                    decimalType:
+                                                        DecimalType.automatic,
+                                                    currency: '',
+                                                  ),
+                                                  '\$1,234.56',
                                                 ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily: 'Readex Pro',
+                                                      color: Color(0xFFF3F3F3),
+                                                      fontSize: 36.0,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                    ),
+                                              );
+                                            },
                                           ),
                                         ],
                                       ),
@@ -907,9 +1010,401 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                           ),
                         ],
                       ),
+                      Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                16.0, 16.0, 16.0, 0.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  FFLocalizations.of(context).getText(
+                                    'rv7uh2jv' /* My Accounts */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        fontSize: 16.0,
+                                        fontWeight: FontWeight.normal,
+                                      ),
+                                ),
+                                Align(
+                                  alignment: AlignmentDirectional(1.00, 0.00),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(1.00, 0.00),
+                                        child: Text(
+                                          FFLocalizations.of(context).getText(
+                                            'hx0tromy' /* as of about */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Readex Pro',
+                                                color: Color(0xFFC9BEFF),
+                                                fontSize: 12.0,
+                                                fontWeight: FontWeight.w300,
+                                              ),
+                                        ),
+                                      ),
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(1.00, 0.00),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  2.0, 0.0, 0.0, 0.0),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              'jytgx1vf' /* 2 hours ago  */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Readex Pro',
+                                                  color: Color(0xFFC9BEFF),
+                                                  fontSize: 12.0,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 12.0,
+                                        child: VerticalDivider(
+                                          thickness: 1.0,
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                        ),
+                                      ),
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(1.00, 0.00),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  1.0, 0.0, 0.0, 0.0),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              'z86vdtog' /* sync */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Readex Pro',
+                                                  color: Color(0xFFC9BEFF),
+                                                  fontSize: 12.0,
+                                                  decoration:
+                                                      TextDecoration.underline,
+                                                ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            24.0, 16.0, 24.0, 0.0),
+                            16.0, 16.0, 16.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Flexible(
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 8.0, 0.0),
+                                child: Container(
+                                  width: 180.0,
+                                  height: 236.0,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xFFFFC37A),
+                                    borderRadius: BorderRadius.circular(16.0),
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 16.0, 16.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'nkz0dfi2' /* Savings Plan */,
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Readex Pro',
+                                                        fontSize: 16.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Divider(
+                                        thickness: 1.0,
+                                        indent: 16.0,
+                                        endIndent: 16.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primebg2,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 8.0, 0.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Expanded(
+                                              child: ListView(
+                                                padding: EdgeInsets.zero,
+                                                shrinkWrap: true,
+                                                scrollDirection: Axis.vertical,
+                                                children: [
+                                                  CircularPercentIndicator(
+                                                    percent: 0.33,
+                                                    radius: 60.0,
+                                                    lineWidth: 12.0,
+                                                    animation: true,
+                                                    animateFromLastPercent:
+                                                        true,
+                                                    progressColor:
+                                                        Color(0xFFB0D0FF),
+                                                    backgroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .accent4,
+                                                    center: Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        '2jriaeis' /* 33% */,
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .headlineSmall,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Divider(
+                                        height: 24.0,
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .accent4,
+                                      ),
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0.00, 0.00),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'b295e3xx' /* View More */,
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Flexible(
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 0.0, 0.0, 0.0),
+                                child: Container(
+                                  width: 180.0,
+                                  height: 236.0,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xFF9BC6FF),
+                                    borderRadius: BorderRadius.circular(16.0),
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 16.0, 16.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'g6wx5xi4' /* Spending */,
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Readex Pro',
+                                                        fontSize: 16.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Divider(
+                                        thickness: 1.0,
+                                        indent: 16.0,
+                                        endIndent: 16.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primebg2,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 8.0, 0.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Expanded(
+                                              child: ListView(
+                                                padding: EdgeInsets.zero,
+                                                shrinkWrap: true,
+                                                scrollDirection: Axis.vertical,
+                                                children: [
+                                                  CircularPercentIndicator(
+                                                    percent: 0.87,
+                                                    radius: 60.0,
+                                                    lineWidth: 12.0,
+                                                    animation: true,
+                                                    animateFromLastPercent:
+                                                        true,
+                                                    progressColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .accent2,
+                                                    backgroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .accent4,
+                                                    center: Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        '8zbg315q' /* 87% */,
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .headlineSmall,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Divider(
+                                        height: 24.0,
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .accent4,
+                                      ),
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0.00, 0.00),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                              child: Container(
+                                                width: 20.0,
+                                                height: 20.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .error,
+                                                  shape: BoxShape.circle,
+                                                ),
+                                                child: Icon(
+                                                  Icons.arrow_upward,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryBackground,
+                                                  size: 14.0,
+                                                ),
+                                              ),
+                                            ),
+                                            Flexible(
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        8.0, 0.0, 8.0, 0.0),
+                                                child: Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '5iou3yy9' /* $120 more spent than last mont... */,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Readex Pro',
+                                                        fontSize: 10.0,
+                                                      ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            16.0, 16.0, 16.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -920,15 +1415,6 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                 decoration: BoxDecoration(
                                   color:
                                       FlutterFlowTheme.of(context).cardbgcolor,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      blurRadius: 20.0,
-                                      color: FlutterFlowTheme.of(context)
-                                          .cardShadow,
-                                      offset: Offset(0.0, 2.0),
-                                      spreadRadius: 4.0,
-                                    )
-                                  ],
                                   borderRadius: BorderRadius.circular(16.0),
                                 ),
                                 child: Column(
@@ -959,8 +1445,8 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                       thickness: 1.0,
                                       indent: 16.0,
                                       endIndent: 16.0,
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
+                                      color: FlutterFlowTheme.of(context)
+                                          .verifyscreens,
                                     ),
                                     Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -1009,6 +1495,10 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                         size: 24.0,
                                                       ),
                                                       onPressed: () async {
+                                                        logFirebaseEvent(
+                                                            'DASHBOARD_PAGE_cardAdd_ICN_ON_TAP');
+                                                        logFirebaseEvent(
+                                                            'IconButton_bottom_sheet');
                                                         await showModalBottomSheet(
                                                           isScrollControlled:
                                                               true,
@@ -1070,8 +1560,9 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Readex Pro',
-                                                                color: Color(
-                                                                    0xFF7D7F88),
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
                                                                 fontSize: 16.0,
                                                               ),
                                                     ),
@@ -1153,8 +1644,9 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Readex Pro',
-                                                                color: Color(
-                                                                    0xFF7D7F88),
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
                                                                 fontSize: 16.0,
                                                               ),
                                                     ),
@@ -1207,6 +1699,10 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                         size: 24.0,
                                                       ),
                                                       onPressed: () async {
+                                                        logFirebaseEvent(
+                                                            'DASHBOARD_cloud_download_outlined_ICN_ON');
+                                                        logFirebaseEvent(
+                                                            'IconButton_bottom_sheet');
                                                         await showModalBottomSheet(
                                                           isScrollControlled:
                                                               true,
@@ -1267,8 +1763,9 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Readex Pro',
-                                                                color: Color(
-                                                                    0xFF7D7F88),
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
                                                                 fontSize: 16.0,
                                                               ),
                                                     ),
@@ -1312,7 +1809,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                       borderWidth: 1.0,
                                                       buttonSize: 48.0,
                                                       fillColor:
-                                                          Color(0x721820D1),
+                                                          Color(0x624B4FFF),
                                                       icon: Icon(
                                                         FFIcons.kbill,
                                                         color:
@@ -1350,8 +1847,9 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Readex Pro',
-                                                                color: Color(
-                                                                    0xFF7D7F88),
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
                                                                 fontSize: 16.0,
                                                               ),
                                                     ),
@@ -1372,812 +1870,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            24.0, 16.0, 24.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Expanded(
-                              child: Container(
-                                width: 100.0,
-                                height: 260.0,
-                                decoration: BoxDecoration(
-                                  color:
-                                      FlutterFlowTheme.of(context).cardbgcolor,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      blurRadius: 20.0,
-                                      color: FlutterFlowTheme.of(context)
-                                          .cardShadow,
-                                      offset: Offset(0.0, 2.0),
-                                      spreadRadius: 4.0,
-                                    )
-                                  ],
-                                  borderRadius: BorderRadius.circular(16.0),
-                                ),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 16.0, 16.0, 0.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Text(
-                                            FFLocalizations.of(context).getText(
-                                              'nkz0dfi2' /* My Accounts */,
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Readex Pro',
-                                                  fontSize: 16.0,
-                                                  fontWeight: FontWeight.normal,
-                                                ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Divider(
-                                      thickness: 1.0,
-                                      indent: 16.0,
-                                      endIndent: 16.0,
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
-                                    ),
-                                    Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  8.0, 0.0, 8.0, 0.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Expanded(
-                                                child: Container(
-                                                  width: double.infinity,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .cardbgcolor,
-                                                  child: ExpandableNotifier(
-                                                    controller: _model
-                                                        .expandableController1,
-                                                    child: ExpandablePanel(
-                                                      header: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    8.0,
-                                                                    12.0,
-                                                                    8.0),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .spaceBetween,
-                                                          children: [
-                                                            Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                Icon(
-                                                                  FFIcons.kbank,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .tabBgs,
-                                                                  size: 20.0,
-                                                                ),
-                                                                Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          8.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                  child: Text(
-                                                                    FFLocalizations.of(
-                                                                            context)
-                                                                        .getText(
-                                                                      'yi2p9iej' /* Checking */,
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .labelSmall
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Readex Pro',
-                                                                          fontSize:
-                                                                              16.0,
-                                                                        ),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                      collapsed: Container(
-                                                        width: 100.0,
-                                                        height: 1.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryBackground,
-                                                        ),
-                                                      ),
-                                                      expanded: Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Container(
-                                                            width:
-                                                                double.infinity,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryBackground,
-                                                            ),
-                                                            child: Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          8.0,
-                                                                          0.0,
-                                                                          8.0),
-                                                              child: Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                children: [
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            12.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                    child: Icon(
-                                                                      FFIcons
-                                                                          .kadd,
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primaryText,
-                                                                      size:
-                                                                          20.0,
-                                                                    ),
-                                                                  ),
-                                                                  Expanded(
-                                                                    child:
-                                                                        Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          12.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          Text(
-                                                                        FFLocalizations.of(context)
-                                                                            .getText(
-                                                                          '1s38meb9' /* Add new checking account */,
-                                                                        ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium,
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ),
-                                                          ),
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        4.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Container(
-                                                              width: double
-                                                                  .infinity,
-                                                              decoration:
-                                                                  BoxDecoration(),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                      theme:
-                                                          ExpandableThemeData(
-                                                        tapHeaderToExpand: true,
-                                                        tapBodyToExpand: false,
-                                                        tapBodyToCollapse:
-                                                            false,
-                                                        headerAlignment:
-                                                            ExpandablePanelHeaderAlignment
-                                                                .center,
-                                                        hasIcon: true,
-                                                        expandIcon: Icons
-                                                            .chevron_right_rounded,
-                                                        collapseIcon: Icons
-                                                            .keyboard_arrow_down_rounded,
-                                                        iconSize: 24.0,
-                                                        iconColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondaryText,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  8.0, 0.0, 8.0, 0.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Expanded(
-                                                child: Container(
-                                                  width: double.infinity,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .cardbgcolor,
-                                                  child: ExpandableNotifier(
-                                                    controller: _model
-                                                        .expandableController2,
-                                                    child: ExpandablePanel(
-                                                      header: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    8.0,
-                                                                    12.0,
-                                                                    8.0),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .spaceBetween,
-                                                          children: [
-                                                            Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                FaIcon(
-                                                                  FontAwesomeIcons
-                                                                      .piggyBank,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .tabBgs,
-                                                                  size: 20.0,
-                                                                ),
-                                                                Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          8.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                  child: Text(
-                                                                    FFLocalizations.of(
-                                                                            context)
-                                                                        .getText(
-                                                                      'ylkdtnrh' /* Savings */,
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .labelSmall
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Readex Pro',
-                                                                          fontSize:
-                                                                              16.0,
-                                                                        ),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                      collapsed: Container(
-                                                        width: 100.0,
-                                                        height: 1.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryBackground,
-                                                        ),
-                                                      ),
-                                                      expanded: Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Container(
-                                                            width:
-                                                                double.infinity,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryBackground,
-                                                            ),
-                                                            child: Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          8.0,
-                                                                          0.0,
-                                                                          8.0),
-                                                              child: Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                children: [
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            12.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                    child: Icon(
-                                                                      FFIcons
-                                                                          .kadd,
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primaryText,
-                                                                      size:
-                                                                          20.0,
-                                                                    ),
-                                                                  ),
-                                                                  Expanded(
-                                                                    child:
-                                                                        Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          12.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          Text(
-                                                                        FFLocalizations.of(context)
-                                                                            .getText(
-                                                                          'x71bi090' /* Add new savings account */,
-                                                                        ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium,
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                      theme:
-                                                          ExpandableThemeData(
-                                                        tapHeaderToExpand: true,
-                                                        tapBodyToExpand: false,
-                                                        tapBodyToCollapse:
-                                                            false,
-                                                        headerAlignment:
-                                                            ExpandablePanelHeaderAlignment
-                                                                .center,
-                                                        hasIcon: true,
-                                                        expandIcon: Icons
-                                                            .chevron_right_rounded,
-                                                        collapseIcon: Icons
-                                                            .keyboard_arrow_down_rounded,
-                                                        iconColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondaryText,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  8.0, 0.0, 8.0, 0.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Expanded(
-                                                child: Container(
-                                                  width: double.infinity,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .cardbgcolor,
-                                                  child: ExpandableNotifier(
-                                                    controller: _model
-                                                        .expandableController3,
-                                                    child: ExpandablePanel(
-                                                      header: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    8.0,
-                                                                    12.0,
-                                                                    8.0),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .spaceBetween,
-                                                          children: [
-                                                            Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                Icon(
-                                                                  FFIcons
-                                                                      .kgraph,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .tabBgs,
-                                                                  size: 20.0,
-                                                                ),
-                                                                Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          8.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                  child: Text(
-                                                                    FFLocalizations.of(
-                                                                            context)
-                                                                        .getText(
-                                                                      'ac7p9k9k' /* Investments */,
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .labelSmall
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Readex Pro',
-                                                                          fontSize:
-                                                                              16.0,
-                                                                        ),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                      collapsed: Container(
-                                                        width: 100.0,
-                                                        height: 1.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryBackground,
-                                                        ),
-                                                      ),
-                                                      expanded: Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Container(
-                                                            width:
-                                                                double.infinity,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryBackground,
-                                                            ),
-                                                            child: Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          8.0,
-                                                                          0.0,
-                                                                          8.0),
-                                                              child: Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                children: [
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            12.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                    child: Icon(
-                                                                      Icons
-                                                                          .date_range_rounded,
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primaryText,
-                                                                      size:
-                                                                          20.0,
-                                                                    ),
-                                                                  ),
-                                                                  Expanded(
-                                                                    child:
-                                                                        Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          12.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          Text(
-                                                                        FFLocalizations.of(context)
-                                                                            .getText(
-                                                                          'vi5jmo7i' /* Add new investment account */,
-                                                                        ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium,
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ),
-                                                          ),
-                                                          Container(
-                                                            width:
-                                                                double.infinity,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryBackground,
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                      theme:
-                                                          ExpandableThemeData(
-                                                        tapHeaderToExpand: true,
-                                                        tapBodyToExpand: false,
-                                                        tapBodyToCollapse:
-                                                            false,
-                                                        headerAlignment:
-                                                            ExpandablePanelHeaderAlignment
-                                                                .center,
-                                                        hasIcon: true,
-                                                        expandIcon: Icons
-                                                            .chevron_right_rounded,
-                                                        collapseIcon: Icons
-                                                            .keyboard_arrow_down_rounded,
-                                                        iconSize: 24.0,
-                                                        iconColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondaryText,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  8.0, 0.0, 8.0, 0.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Expanded(
-                                                child: Container(
-                                                  width: double.infinity,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .cardbgcolor,
-                                                  child: ExpandableNotifier(
-                                                    controller: _model
-                                                        .expandableController4,
-                                                    child: ExpandablePanel(
-                                                      header: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    8.0,
-                                                                    12.0,
-                                                                    8.0),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .spaceBetween,
-                                                          children: [
-                                                            Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                Icon(
-                                                                  FFIcons.kcard,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .tabBgs,
-                                                                  size: 20.0,
-                                                                ),
-                                                                Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          8.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                  child: Text(
-                                                                    FFLocalizations.of(
-                                                                            context)
-                                                                        .getText(
-                                                                      'w941mag2' /* Cards */,
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .labelSmall
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Readex Pro',
-                                                                          fontSize:
-                                                                              16.0,
-                                                                        ),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                      collapsed: Container(
-                                                        width: 100.0,
-                                                        height: 1.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryBackground,
-                                                        ),
-                                                      ),
-                                                      expanded: Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Container(
-                                                            width:
-                                                                double.infinity,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryBackground,
-                                                            ),
-                                                            child: Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          8.0,
-                                                                          0.0,
-                                                                          8.0),
-                                                              child: Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                children: [
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            12.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                    child: Icon(
-                                                                      FFIcons
-                                                                          .kadd,
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primaryText,
-                                                                      size:
-                                                                          20.0,
-                                                                    ),
-                                                                  ),
-                                                                  Expanded(
-                                                                    child:
-                                                                        Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          12.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          Text(
-                                                                        FFLocalizations.of(context)
-                                                                            .getText(
-                                                                          'fnhb1fgq' /* Add new card */,
-                                                                        ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium,
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                      theme:
-                                                          ExpandableThemeData(
-                                                        tapHeaderToExpand: true,
-                                                        tapBodyToExpand: false,
-                                                        tapBodyToCollapse:
-                                                            false,
-                                                        headerAlignment:
-                                                            ExpandablePanelHeaderAlignment
-                                                                .center,
-                                                        hasIcon: true,
-                                                        expandIcon: Icons
-                                                            .chevron_right_rounded,
-                                                        collapseIcon: Icons
-                                                            .keyboard_arrow_down_rounded,
-                                                        iconSize: 24.0,
-                                                        iconColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondaryText,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            24.0, 16.0, 24.0, 0.0),
+                            16.0, 16.0, 16.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -2188,15 +1881,6 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                 decoration: BoxDecoration(
                                   color:
                                       FlutterFlowTheme.of(context).cardbgcolor,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      blurRadius: 20.0,
-                                      color: FlutterFlowTheme.of(context)
-                                          .cardShadow,
-                                      offset: Offset(0.0, 2.0),
-                                      spreadRadius: 4.0,
-                                    )
-                                  ],
                                   borderRadius: BorderRadius.circular(16.0),
                                 ),
                                 child: Column(
@@ -2230,6 +1914,11 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                             hoverColor: Colors.transparent,
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
+                                              logFirebaseEvent(
+                                                  'DASHBOARD_PAGE_Text_ksddhjh2_ON_TAP');
+                                              logFirebaseEvent(
+                                                  'Text_navigate_to');
+
                                               context.pushNamed(
                                                 'allTransactions',
                                                 extra: <String, dynamic>{
@@ -2374,165 +2063,203 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                           .alternate,
                                     ),
                                     Expanded(
-                                      child: ListView(
-                                        padding: EdgeInsets.fromLTRB(
-                                          0,
-                                          12.0,
-                                          0,
-                                          12.0,
-                                        ),
-                                        shrinkWrap: true,
-                                        scrollDirection: Axis.vertical,
-                                        children: [
-                                          Container(
-                                            width: 100.0,
-                                            height: 50.0,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .cardbgcolor,
+                                      child: StreamBuilder<
+                                          List<TransactionsRecord>>(
+                                        stream: queryTransactionsRecord(),
+                                        builder: (context, snapshot) {
+                                          // Customize what your widget looks like when it's loading.
+                                          if (!snapshot.hasData) {
+                                            return Center(
+                                              child: SizedBox(
+                                                width: 50.0,
+                                                height: 50.0,
+                                                child: SpinKitRipple(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                  size: 50.0,
+                                                ),
+                                              ),
+                                            );
+                                          }
+                                          List<TransactionsRecord>
+                                              listViewTransactionsRecordList =
+                                              snapshot.data!;
+                                          return ListView.separated(
+                                            padding: EdgeInsets.fromLTRB(
+                                              0,
+                                              12.0,
+                                              0,
+                                              12.0,
                                             ),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      12.0, 0.0, 12.0, 0.0),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  Align(
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                            0.00, 0.00),
-                                                    child: Container(
-                                                      width: 32.0,
-                                                      height: 32.0,
-                                                      decoration: BoxDecoration(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .primaryBackground,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
-                                                        border: Border.all(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .alternate,
-                                                        ),
-                                                      ),
-                                                      child: Align(
+                                            scrollDirection: Axis.vertical,
+                                            itemCount:
+                                                listViewTransactionsRecordList
+                                                    .length,
+                                            separatorBuilder: (_, __) =>
+                                                SizedBox(height: 1.0),
+                                            itemBuilder:
+                                                (context, listViewIndex) {
+                                              final listViewTransactionsRecord =
+                                                  listViewTransactionsRecordList[
+                                                      listViewIndex];
+                                              return Container(
+                                                width: 100.0,
+                                                height: 50.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .cardbgcolor,
+                                                ),
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          12.0, 0.0, 12.0, 0.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Align(
                                                         alignment:
                                                             AlignmentDirectional(
                                                                 0.00, 0.00),
-                                                        child: ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
-                                                          child: Image.network(
-                                                            getCORSProxyUrl(
-                                                              'https://picsum.photos/seed/476/600',
+                                                        child: Container(
+                                                          width: 32.0,
+                                                          height: 32.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryBackground,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                            border: Border.all(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .alternate,
                                                             ),
-                                                            width: 300.0,
-                                                            height: 200.0,
-                                                            fit: BoxFit.fill,
+                                                          ),
+                                                          child: Align(
                                                             alignment:
-                                                                Alignment(
+                                                                AlignmentDirectional(
                                                                     0.00, 0.00),
+                                                            child: ClipRRect(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          8.0),
+                                                              child:
+                                                                  Image.network(
+                                                                getCORSProxyUrl(
+                                                                  listViewTransactionsRecord
+                                                                      .merchantLogo,
+                                                                ),
+                                                                width: 300.0,
+                                                                height: 200.0,
+                                                                fit:
+                                                                    BoxFit.fill,
+                                                                alignment:
+                                                                    Alignment(
+                                                                        0.00,
+                                                                        0.00),
+                                                              ),
+                                                            ),
                                                           ),
                                                         ),
                                                       ),
-                                                    ),
-                                                  ),
-                                                  Expanded(
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  12.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .center,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          Text(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              'jckll8q8' /* JoeMoe Coffee */,
-                                                            ),
-                                                            textAlign:
-                                                                TextAlign.end,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Readex Pro',
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                ),
-                                                          ),
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        4.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Text(
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'ysjx4zy6' /* Paid ending: **** 2192 */,
+                                                      Expanded(
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      12.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .center,
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .start,
+                                                            children: [
+                                                              Text(
+                                                                listViewTransactionsRecord
+                                                                    .merchantName,
+                                                                textAlign:
+                                                                    TextAlign
+                                                                        .end,
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w500,
+                                                                    ),
                                                               ),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .labelMedium,
-                                                            ),
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            4.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                child: Text(
+                                                                  listViewTransactionsRecord
+                                                                      .category,
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelMedium,
+                                                                ),
+                                                              ),
+                                                            ],
                                                           ),
-                                                        ],
+                                                        ),
                                                       ),
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                8.0, 0.0),
-                                                    child: Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'zs3pr0h5' /* $50.21 */,
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    8.0,
+                                                                    0.0),
+                                                        child: Text(
+                                                          listViewTransactionsRecord
+                                                              .amount
+                                                              .toString(),
+                                                          textAlign:
+                                                              TextAlign.end,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .headlineSmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Outfit',
+                                                                fontSize: 16.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                              ),
+                                                        ),
                                                       ),
-                                                      textAlign: TextAlign.end,
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .headlineSmall
-                                                          .override(
-                                                            fontFamily:
-                                                                'Outfit',
-                                                            fontSize: 16.0,
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                          ),
-                                                    ),
+                                                    ],
                                                   ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ].divide(SizedBox(height: 1.0)),
+                                                ),
+                                              );
+                                            },
+                                          );
+                                        },
                                       ),
                                     ),
                                   ],
@@ -2542,9 +2269,308 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                           ],
                         ),
                       ),
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Expanded(
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 16.0, 16.0, 16.0),
+                              child: Container(
+                                width: 100.0,
+                                height: 392.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context).chartBg,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      blurRadius: 10.0,
+                                      color: FlutterFlowTheme.of(context)
+                                          .cardShadow,
+                                      offset: Offset(0.0, 2.0),
+                                      spreadRadius: 0.1,
+                                    )
+                                  ],
+                                  borderRadius: BorderRadius.circular(16.0),
+                                ),
+                                alignment: AlignmentDirectional(-1.00, 0.00),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          24.0, 24.0, 0.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Container(
+                                            width: 215.0,
+                                            height: 92.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .chartBg,
+                                            ),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'pa46jw30' /* My Spending */,
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium,
+                                                    ),
+                                                  ],
+                                                ),
+                                                Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0),
+                                                      child: Text(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          '4zp9sm6x' /* $ 1,747.00 */,
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .headlineSmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Container(
+                                                      width: 20.0,
+                                                      height: 20.0,
+                                                      decoration: BoxDecoration(
+                                                        shape: BoxShape.circle,
+                                                      ),
+                                                      child: Icon(
+                                                        FFIcons.ktrendUp,
+                                                        color:
+                                                            Color(0xFF5FD788),
+                                                        size: 20.0,
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  4.0,
+                                                                  4.0,
+                                                                  4.0,
+                                                                  4.0),
+                                                      child: Text(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'ziykaoq4' /* -11.8% */,
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  color: Color(
+                                                                      0xFF5FD788),
+                                                                ),
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        '8on4mj96' /* from last week */,
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodySmall,
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              logFirebaseEvent(
+                                                  'DASHBOARD_PAGE_Text_x7styk39_ON_TAP');
+                                              logFirebaseEvent(
+                                                  'Text_navigate_to');
+
+                                              context.pushNamed(
+                                                'insights',
+                                                extra: <String, dynamic>{
+                                                  kTransitionInfoKey:
+                                                      TransitionInfo(
+                                                    hasTransition: true,
+                                                    transitionType:
+                                                        PageTransitionType.fade,
+                                                    duration: Duration(
+                                                        milliseconds: 300),
+                                                  ),
+                                                },
+                                              );
+                                            },
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'mn92pyhl' /* See more */,
+                                              ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Readex Pro',
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primary,
+                                                    fontSize: 16.0,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Align(
+                                      alignment:
+                                          AlignmentDirectional(0.00, 0.00),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 32.0, 0.0, 0.0),
+                                        child: Container(
+                                          width: 370.0,
+                                          height: 216.0,
+                                          child: FlutterFlowBarChart(
+                                            barData: [
+                                              FFBarChartData(
+                                                yData: List.generate(
+                                                    random_data.randomInteger(
+                                                        0, 0),
+                                                    (index) => random_data
+                                                        .randomInteger(0, 10)),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                              )
+                                            ],
+                                            xLabels:
+                                                List.generate(
+                                                        random_data.randomInteger(
+                                                            0, 0),
+                                                        (index) => random_data
+                                                            .randomInteger(
+                                                                0, 10))
+                                                    .map((e) => e.toString())
+                                                    .toList(),
+                                            barWidth: 32.0,
+                                            barBorderRadius: BorderRadius.only(
+                                              bottomLeft: Radius.circular(0.0),
+                                              bottomRight: Radius.circular(0.0),
+                                              topLeft: Radius.circular(4.0),
+                                              topRight: Radius.circular(4.0),
+                                            ),
+                                            groupSpace: 24.0,
+                                            chartStylingInfo: ChartStylingInfo(
+                                              enableTooltip: true,
+                                              tooltipBackgroundColor:
+                                                  Color(0xFFF9FAFB),
+                                              backgroundColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .chartBg,
+                                              showGrid: true,
+                                              showBorder: false,
+                                            ),
+                                            axisBounds: AxisBounds(
+                                              maxY: 5.0,
+                                            ),
+                                            xAxisLabelInfo: AxisLabelInfo(
+                                              showLabels: true,
+                                              labelTextStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                              labelInterval: 10.0,
+                                            ),
+                                            yAxisLabelInfo: AxisLabelInfo(
+                                              title: FFLocalizations.of(context)
+                                                  .getText(
+                                                'uiyz9jin' /* In thousands */,
+                                              ),
+                                              titleTextStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelSmall,
+                                              showLabels: true,
+                                              labelTextStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                              labelInterval: 1.0,
+                                              labelFormatter: LabelFormatter(
+                                                numberFormat: (val) =>
+                                                    formatNumber(
+                                                  val,
+                                                  formatType:
+                                                      FormatType.compact,
+                                                  currency: '\$',
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      FlutterFlowAdBanner(
+                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        height: 50.0,
+                        showsTestAd: true,
+                        iOSAdUnitID: 'ca-app-pub-1459503173147423/8508897052',
+                      ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            24.0, 16.0, 24.0, 0.0),
+                            16.0, 16.0, 16.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -2555,15 +2581,6 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                 decoration: BoxDecoration(
                                   color:
                                       FlutterFlowTheme.of(context).cardbgcolor,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      blurRadius: 20.0,
-                                      color: FlutterFlowTheme.of(context)
-                                          .cardShadow,
-                                      offset: Offset(0.0, 2.0),
-                                      spreadRadius: 4.0,
-                                    )
-                                  ],
                                   borderRadius: BorderRadius.circular(16.0),
                                 ),
                                 child: Column(
@@ -2591,43 +2608,20 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                   fontWeight: FontWeight.normal,
                                                 ),
                                           ),
-                                          InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              context.pushNamed(
-                                                'create_budget',
-                                                extra: <String, dynamic>{
-                                                  kTransitionInfoKey:
-                                                      TransitionInfo(
-                                                    hasTransition: true,
-                                                    transitionType:
-                                                        PageTransitionType.fade,
-                                                    duration: Duration(
-                                                        milliseconds: 500),
-                                                  ),
-                                                },
-                                              );
-                                            },
-                                            child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'mn92pyhl' /* View all */,
-                                              ),
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily: 'Readex Pro',
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primary,
-                                                    fontSize: 16.0,
-                                                    fontWeight: FontWeight.w600,
-                                                  ),
+                                          Text(
+                                            FFLocalizations.of(context).getText(
+                                              'g6au2l9e' /* View all */,
                                             ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Readex Pro',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                  fontSize: 16.0,
+                                                  fontWeight: FontWeight.w600,
+                                                ),
                                           ),
                                         ],
                                       ),
@@ -2639,12 +2633,15 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                       color:
                                           FlutterFlowTheme.of(context).primary,
                                     ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 0.0, 16.0, 0.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [],
+                                    Expanded(
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 0.0, 0.0, 0.0),
+                                        child: ListView(
+                                          padding: EdgeInsets.zero,
+                                          scrollDirection: Axis.horizontal,
+                                          children: [],
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -2656,7 +2653,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            24.0, 16.0, 24.0, 0.0),
+                            16.0, 16.0, 16.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -2667,15 +2664,6 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                 decoration: BoxDecoration(
                                   color:
                                       FlutterFlowTheme.of(context).cardbgcolor,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      blurRadius: 20.0,
-                                      color: FlutterFlowTheme.of(context)
-                                          .cardShadow,
-                                      offset: Offset(0.0, 2.0),
-                                      spreadRadius: 4.0,
-                                    )
-                                  ],
                                   borderRadius: BorderRadius.circular(16.0),
                                 ),
                                 child: Column(
@@ -2709,6 +2697,11 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                             hoverColor: Colors.transparent,
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
+                                              logFirebaseEvent(
+                                                  'DASHBOARD_PAGE_Text_xs9t5yxv_ON_TAP');
+                                              logFirebaseEvent(
+                                                  'Text_navigate_to');
+
                                               context.pushNamed(
                                                 'monthlyBudgets',
                                                 extra: <String, dynamic>{
@@ -2751,12 +2744,15 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                       color:
                                           FlutterFlowTheme.of(context).primary,
                                     ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 0.0, 16.0, 0.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [],
+                                    Expanded(
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 0.0, 0.0, 0.0),
+                                        child: ListView(
+                                          padding: EdgeInsets.zero,
+                                          scrollDirection: Axis.horizontal,
+                                          children: [],
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -2768,121 +2764,109 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            24.0, 16.0, 24.0, 0.0),
+                            16.0, 16.0, 16.0, 100.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Expanded(
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 100.0),
-                                child: Container(
-                                  width: 100.0,
-                                  height: 220.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .cardbgcolor,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        blurRadius: 20.0,
-                                        color: FlutterFlowTheme.of(context)
-                                            .cardShadow,
-                                        offset: Offset(0.0, 2.0),
-                                        spreadRadius: 4.0,
-                                      )
-                                    ],
-                                    borderRadius: BorderRadius.circular(16.0),
-                                  ),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 16.0, 16.0, 0.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Text(
+                              child: Container(
+                                width: 100.0,
+                                height: 220.0,
+                                decoration: BoxDecoration(
+                                  color:
+                                      FlutterFlowTheme.of(context).cardbgcolor,
+                                  borderRadius: BorderRadius.circular(16.0),
+                                ),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          16.0, 16.0, 16.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            FFLocalizations.of(context).getText(
+                                              'unsah9xm' /* Saving Goals */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .labelLarge
+                                                .override(
+                                                  fontFamily: 'Readex Pro',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                  fontWeight: FontWeight.normal,
+                                                ),
+                                          ),
+                                          InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              logFirebaseEvent(
+                                                  'DASHBOARD_PAGE_Text_b11vwlih_ON_TAP');
+                                              logFirebaseEvent(
+                                                  'Text_navigate_to');
+
+                                              context.pushNamed(
+                                                'createGoal',
+                                                extra: <String, dynamic>{
+                                                  kTransitionInfoKey:
+                                                      TransitionInfo(
+                                                    hasTransition: true,
+                                                    transitionType:
+                                                        PageTransitionType.fade,
+                                                    duration: Duration(
+                                                        milliseconds: 500),
+                                                  ),
+                                                },
+                                              );
+                                            },
+                                            child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'unsah9xm' /* Saving Goals */,
+                                                '1ocv0r2r' /* Create new */,
                                               ),
                                               style: FlutterFlowTheme.of(
                                                       context)
-                                                  .labelLarge
+                                                  .bodyMedium
                                                   .override(
                                                     fontFamily: 'Readex Pro',
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .primaryText,
-                                                    fontWeight:
-                                                        FontWeight.normal,
+                                                        .primary,
+                                                    fontSize: 16.0,
+                                                    fontWeight: FontWeight.w600,
                                                   ),
                                             ),
-                                            InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                context.pushNamed(
-                                                  'create_budget',
-                                                  extra: <String, dynamic>{
-                                                    kTransitionInfoKey:
-                                                        TransitionInfo(
-                                                      hasTransition: true,
-                                                      transitionType:
-                                                          PageTransitionType
-                                                              .fade,
-                                                      duration: Duration(
-                                                          milliseconds: 500),
-                                                    ),
-                                                  },
-                                                );
-                                              },
-                                              child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  '1ocv0r2r' /* Create new */,
-                                                ),
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      fontFamily: 'Readex Pro',
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
-                                                      fontSize: 16.0,
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                    ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
+                                          ),
+                                        ],
                                       ),
-                                      Divider(
-                                        thickness: 1.0,
-                                        indent: 16.0,
-                                        endIndent: 16.0,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                      ),
-                                      Padding(
+                                    ),
+                                    Divider(
+                                      thickness: 1.0,
+                                      indent: 16.0,
+                                      endIndent: 16.0,
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                    ),
+                                    Expanded(
+                                      child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 0.0, 16.0, 0.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
+                                            16.0, 0.0, 0.0, 0.0),
+                                        child: ListView(
+                                          padding: EdgeInsets.zero,
+                                          scrollDirection: Axis.horizontal,
                                           children: [],
                                         ),
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
@@ -2895,56 +2879,12 @@ class _DashboardWidgetState extends State<DashboardWidget> {
               ),
             Align(
               alignment: AlignmentDirectional(0.00, 1.00),
-              child: Container(
-                width: double.infinity,
-                height: 30.0,
-                decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                ),
-              ),
-            ),
-            Align(
-              alignment: AlignmentDirectional(0.00, 1.00),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
-                child: Container(
-                  width: 80.0,
-                  height: 80.0,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).verifyscreens,
-                    boxShadow: [
-                      BoxShadow(
-                        blurRadius: 22.0,
-                        color: Color(0x33000000),
-                        offset: Offset(0.0, 2.0),
-                        spreadRadius: 12.0,
-                      )
-                    ],
-                    shape: BoxShape.circle,
-                  ),
-                  child: InkWell(
-                    splashColor: Colors.transparent,
-                    focusColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: () async {
-                      context.pushNamed(
-                        'aiiAyva',
-                        extra: <String, dynamic>{
-                          kTransitionInfoKey: TransitionInfo(
-                            hasTransition: true,
-                            transitionType: PageTransitionType.fade,
-                            duration: Duration(milliseconds: 300),
-                          ),
-                        },
-                      );
-                    },
-                    child: Icon(
-                      FFIcons.kmicrophone,
-                      color: FlutterFlowTheme.of(context).info,
-                      size: 40.0,
-                    ),
-                  ),
+              child: wrapWithModel(
+                model: _model.navBar1Model,
+                updateCallback: () => setState(() {}),
+                child: NavBar1Widget(
+                  selectedPageIndex: 1,
+                  hidden: false,
                 ),
               ),
             ),

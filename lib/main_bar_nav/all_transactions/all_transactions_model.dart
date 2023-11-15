@@ -1,4 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
+import '/components/nav_bar1/nav_bar1_widget.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -19,6 +21,10 @@ class AllTransactionsModel extends FlutterFlowModel<AllTransactionsWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode;
+  TextEditingController? textController;
+  String? Function(BuildContext, String?)? textControllerValidator;
   // State field(s) for DropDown widget.
   String? dropDownValue;
   FormFieldController<String>? dropDownValueController;
@@ -27,13 +33,22 @@ class AllTransactionsModel extends FlutterFlowModel<AllTransactionsWidget> {
   int get tabBarCurrentIndex =>
       tabBarController != null ? tabBarController!.index : 0;
 
+  // Model for NavBar1 component.
+  late NavBar1Model navBar1Model;
+
   /// Initialization and disposal methods.
 
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    navBar1Model = createModel(context, () => NavBar1Model());
+  }
 
   void dispose() {
     unfocusNode.dispose();
+    textFieldFocusNode?.dispose();
+    textController?.dispose();
+
     tabBarController?.dispose();
+    navBar1Model.dispose();
   }
 
   /// Action blocks are added here.

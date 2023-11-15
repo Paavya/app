@@ -29,6 +29,8 @@ class _OnboardingFlowWidgetState extends State<OnboardingFlowWidget> {
     super.initState();
     _model = createModel(context, () => OnboardingFlowModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'onboarding_flow'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -221,6 +223,10 @@ you'll need */
                                                                   0.0),
                                                       child: FFButtonWidget(
                                                         onPressed: () async {
+                                                          logFirebaseEvent(
+                                                              'ONBOARDING_FLOW_PAGE_NEXT_BTN_ON_TAP');
+                                                          logFirebaseEvent(
+                                                              'Button_page_view');
                                                           await _model
                                                               .pageViewController
                                                               ?.nextPage(
@@ -392,6 +398,10 @@ wisely */
                                                                   0.0),
                                                       child: FFButtonWidget(
                                                         onPressed: () async {
+                                                          logFirebaseEvent(
+                                                              'ONBOARDING_FLOW_PAGE_NEXT_BTN_ON_TAP');
+                                                          logFirebaseEvent(
+                                                              'Button_page_view');
                                                           await _model
                                                               .pageViewController
                                                               ?.nextPage(
@@ -563,6 +573,10 @@ no problem */
                                                                   0.0),
                                                       child: FFButtonWidget(
                                                         onPressed: () async {
+                                                          logFirebaseEvent(
+                                                              'ONBOARDING_FLOW_PAGE_NEXT_BTN_ON_TAP');
+                                                          logFirebaseEvent(
+                                                              'Button_page_view');
                                                           await _model
                                                               .pageViewController
                                                               ?.nextPage(
@@ -734,6 +748,11 @@ applicat... */
                                                                   0.0),
                                                       child: FFButtonWidget(
                                                         onPressed: () async {
+                                                          logFirebaseEvent(
+                                                              'ONBOARDING_FLOW_PAGE_NEXT_BTN_ON_TAP');
+                                                          logFirebaseEvent(
+                                                              'Button_navigate_to');
+
                                                           context.pushNamed(
                                                             'Onboarding2',
                                                             extra: <String,

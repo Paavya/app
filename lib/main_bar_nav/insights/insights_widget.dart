@@ -36,6 +36,7 @@ class _InsightsWidgetState extends State<InsightsWidget>
     super.initState();
     _model = createModel(context, () => InsightsModel());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'insights'});
     _model.tabBarController = TabController(
       vsync: this,
       length: 3,
@@ -133,8 +134,11 @@ class _InsightsWidgetState extends State<InsightsWidget>
                       child: Container(
                         width: double.infinity,
                         decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).primaryBackground,
+                          color: FlutterFlowTheme.of(context).info,
                           borderRadius: BorderRadius.circular(8.0),
+                          border: Border.all(
+                            color: FlutterFlowTheme.of(context).alternate,
+                          ),
                         ),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -174,8 +178,13 @@ class _InsightsWidgetState extends State<InsightsWidget>
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
+                          logFirebaseEvent('INSIGHTS_PAGE_bg_color_ON_TAP');
+                          logFirebaseEvent('bg_color_navigate_to');
+
                           context.goNamed('dashboard');
 
+                          logFirebaseEvent(
+                              'bg_color_close_dialog,_drawer,_etc');
                           Navigator.pop(context);
                         },
                         child: Container(
@@ -205,8 +214,13 @@ class _InsightsWidgetState extends State<InsightsWidget>
                                     FFLocalizations.of(context).getText(
                                       'qow31cgv' /* Dashboard */,
                                     ),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyLarge,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyLarge
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                        ),
                                   ),
                                 ),
                               ],
@@ -224,8 +238,13 @@ class _InsightsWidgetState extends State<InsightsWidget>
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
+                          logFirebaseEvent('INSIGHTS_PAGE_bg_color_ON_TAP');
+                          logFirebaseEvent('bg_color_navigate_to');
+
                           context.goNamed('dashboard');
 
+                          logFirebaseEvent(
+                              'bg_color_close_dialog,_drawer,_etc');
                           Navigator.pop(context);
                         },
                         child: Container(
@@ -274,8 +293,13 @@ class _InsightsWidgetState extends State<InsightsWidget>
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
+                          logFirebaseEvent('INSIGHTS_PAGE_bg_color_ON_TAP');
+                          logFirebaseEvent('bg_color_navigate_to');
+
                           context.goNamed('myAccounts');
 
+                          logFirebaseEvent(
+                              'bg_color_close_dialog,_drawer,_etc');
                           Navigator.pop(context);
                         },
                         child: Container(
@@ -324,6 +348,9 @@ class _InsightsWidgetState extends State<InsightsWidget>
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
+                          logFirebaseEvent('INSIGHTS_PAGE_bg_color_ON_TAP');
+                          logFirebaseEvent(
+                              'bg_color_close_dialog,_drawer,_etc');
                           Navigator.pop(context);
                         },
                         child: Container(
@@ -351,8 +378,13 @@ class _InsightsWidgetState extends State<InsightsWidget>
                                     FFLocalizations.of(context).getText(
                                       'kw4zqzxq' /* Insights */,
                                     ),
-                                    style:
-                                        FlutterFlowTheme.of(context).labelLarge,
+                                    style: FlutterFlowTheme.of(context)
+                                        .labelLarge
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                        ),
                                   ),
                                 ),
                               ],
@@ -370,8 +402,13 @@ class _InsightsWidgetState extends State<InsightsWidget>
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
+                          logFirebaseEvent('INSIGHTS_PAGE_bg_color_ON_TAP');
+                          logFirebaseEvent('bg_color_navigate_to');
+
                           context.goNamed('monthlyBudgets');
 
+                          logFirebaseEvent(
+                              'bg_color_close_dialog,_drawer,_etc');
                           Navigator.pop(context);
                         },
                         child: Container(
@@ -420,6 +457,9 @@ class _InsightsWidgetState extends State<InsightsWidget>
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
+                          logFirebaseEvent('INSIGHTS_PAGE_bg_color_ON_TAP');
+                          logFirebaseEvent('bg_color_navigate_to');
+
                           context.goNamed(
                             'aiiAyva',
                             extra: <String, dynamic>{
@@ -431,6 +471,8 @@ class _InsightsWidgetState extends State<InsightsWidget>
                             },
                           );
 
+                          logFirebaseEvent(
+                              'bg_color_close_dialog,_drawer,_etc');
                           Navigator.pop(context);
                         },
                         child: Container(
@@ -567,6 +609,11 @@ class _InsightsWidgetState extends State<InsightsWidget>
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
+                                                logFirebaseEvent(
+                                                    'INSIGHTS_PAGE_Text_3pf8zwfc_ON_TAP');
+                                                logFirebaseEvent(
+                                                    'Text_navigate_to');
+
                                                 context.goNamed(
                                                   'profile',
                                                   extra: <String, dynamic>{
@@ -622,6 +669,22 @@ class _InsightsWidgetState extends State<InsightsWidget>
           iconTheme:
               IconThemeData(color: FlutterFlowTheme.of(context).secondaryText),
           automaticallyImplyLeading: false,
+          leading: FlutterFlowIconButton(
+            borderColor: Colors.transparent,
+            borderRadius: 30.0,
+            borderWidth: 1.0,
+            buttonSize: 60.0,
+            icon: Icon(
+              Icons.chevron_left,
+              color: FlutterFlowTheme.of(context).secondaryText,
+              size: 30.0,
+            ),
+            onPressed: () async {
+              logFirebaseEvent('INSIGHTS_PAGE_chevron_left_ICN_ON_TAP');
+              logFirebaseEvent('IconButton_navigate_back');
+              context.pop();
+            },
+          ),
           title: Text(
             FFLocalizations.of(context).getText(
               'qpvxb5cb' /* Insights */,
@@ -629,6 +692,7 @@ class _InsightsWidgetState extends State<InsightsWidget>
             style: FlutterFlowTheme.of(context).titleLarge.override(
                   fontFamily: 'Outfit',
                   fontSize: 22.0,
+                  fontWeight: FontWeight.normal,
                 ),
           ),
           actions: [
@@ -650,10 +714,12 @@ class _InsightsWidgetState extends State<InsightsWidget>
                     fillColor: FlutterFlowTheme.of(context).accent1,
                     icon: Icon(
                       Icons.menu_sharp,
-                      color: Colors.white,
+                      color: FlutterFlowTheme.of(context).primaryText,
                       size: 24.0,
                     ),
                     onPressed: () async {
+                      logFirebaseEvent('INSIGHTS_PAGE_menu_sharp_ICN_ON_TAP');
+                      logFirebaseEvent('IconButton_drawer');
                       scaffoldKey.currentState!.openDrawer();
                     },
                   ),

@@ -28,6 +28,7 @@ class _CardDetailsWidgetState extends State<CardDetailsWidget> {
     super.initState();
     _model = createModel(context, () => CardDetailsModel());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'cardDetails'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -67,11 +68,13 @@ class _CardDetailsWidgetState extends State<CardDetailsWidget> {
             borderWidth: 1.0,
             buttonSize: 60.0,
             icon: Icon(
-              Icons.arrow_back_rounded,
+              Icons.chevron_left,
               color: FlutterFlowTheme.of(context).secondaryBackground,
               size: 30.0,
             ),
             onPressed: () async {
+              logFirebaseEvent('CARD_DETAILS_chevron_left_ICN_ON_TAP');
+              logFirebaseEvent('IconButton_navigate_back');
               context.pop();
             },
           ),

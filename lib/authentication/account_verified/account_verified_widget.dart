@@ -26,6 +26,8 @@ class _AccountVerifiedWidgetState extends State<AccountVerifiedWidget> {
     super.initState();
     _model = createModel(context, () => AccountVerifiedModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'AccountVerified'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -174,8 +176,21 @@ class _AccountVerifiedWidgetState extends State<AccountVerifiedWidget> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             FFButtonWidget(
-                              onPressed: () {
-                                print('Button pressed ...');
+                              onPressed: () async {
+                                logFirebaseEvent(
+                                    'ACCOUNT_VERIFIED_GET_STARTED_BTN_ON_TAP');
+                                logFirebaseEvent('Button_navigate_to');
+
+                                context.goNamed(
+                                  'dashboard_empty',
+                                  extra: <String, dynamic>{
+                                    kTransitionInfoKey: TransitionInfo(
+                                      hasTransition: true,
+                                      transitionType: PageTransitionType.fade,
+                                      duration: Duration(milliseconds: 300),
+                                    ),
+                                  },
+                                );
                               },
                               text: FFLocalizations.of(context).getText(
                                 '3c9s0d3v' /* Get Started */,

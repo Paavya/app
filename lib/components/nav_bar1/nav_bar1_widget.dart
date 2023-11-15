@@ -155,42 +155,29 @@ class _NavBar1WidgetState extends State<NavBar1Widget>
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Container(
-      width: double.infinity,
-      height: 90.0,
-      decoration: BoxDecoration(
-        color: Color(0x00EEEEEE),
+    return Visibility(
+      visible: responsiveVisibility(
+        context: context,
+        tablet: false,
+        tabletLandscape: false,
+        desktop: false,
       ),
-      child: Stack(
-        children: [
-          Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Material(
-                color: Colors.transparent,
-                elevation: 0.0,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(0.0),
-                    bottomRight: Radius.circular(0.0),
-                    topLeft: Radius.circular(20.0),
-                    topRight: Radius.circular(20.0),
-                  ),
-                ),
-                child: Container(
-                  width: double.infinity,
-                  height: 80.0,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                        blurRadius: 10.0,
-                        color: Color(0x1A57636C),
-                        offset: Offset(0.0, -10.0),
-                        spreadRadius: 0.1,
-                      )
-                    ],
+      child: Container(
+        width: double.infinity,
+        height: 110.0,
+        decoration: BoxDecoration(
+          color: Color(0x00EEEEEE),
+        ),
+        child: Stack(
+          children: [
+            Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Material(
+                  color: Colors.transparent,
+                  elevation: 0.0,
+                  shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(0.0),
                       bottomRight: Radius.circular(0.0),
@@ -198,143 +185,325 @@ class _NavBar1WidgetState extends State<NavBar1Widget>
                       topRight: Radius.circular(20.0),
                     ),
                   ),
-                ),
-              ),
-            ],
-          ),
-          Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Opacity(
-                opacity: widget.selectedPageIndex == 1 ? 1.0 : 0.2,
-                child: FlutterFlowIconButton(
-                  borderColor: Colors.transparent,
-                  borderRadius: 30.0,
-                  borderWidth: 1.0,
-                  buttonSize: 50.0,
-                  icon: Icon(
-                    Icons.dashboard_rounded,
-                    color: FlutterFlowTheme.of(context).secondaryText,
-                    size: 24.0,
-                  ),
-                  onPressed: () {
-                    print('Dashboard pressed ...');
-                  },
-                ).animateOnPageLoad(
-                    animationsMap['iconButtonOnPageLoadAnimation1']!),
-              ),
-              Opacity(
-                opacity: widget.selectedPageIndex == 2 ? 1.0 : 0.2,
-                child: FlutterFlowIconButton(
-                  borderColor: Colors.transparent,
-                  borderRadius: 30.0,
-                  borderWidth: 1.0,
-                  buttonSize: 50.0,
-                  icon: Icon(
-                    FFIcons.kgraph,
-                    color: FlutterFlowTheme.of(context).secondaryText,
-                    size: 24.0,
-                  ),
-                  onPressed: () async {
-                    context.goNamed(
-                      'insights',
-                      extra: <String, dynamic>{
-                        kTransitionInfoKey: TransitionInfo(
-                          hasTransition: true,
-                          transitionType: PageTransitionType.fade,
-                          duration: Duration(milliseconds: 0),
-                        ),
-                      },
-                    );
-                  },
-                ).animateOnPageLoad(
-                    animationsMap['iconButtonOnPageLoadAnimation2']!),
-              ),
-              Column(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
-                    child: FlutterFlowIconButton(
-                      borderColor: Colors.transparent,
-                      borderRadius: 40.0,
-                      borderWidth: 1.0,
-                      buttonSize: 60.0,
-                      fillColor: FlutterFlowTheme.of(context).primary,
-                      icon: Icon(
-                        FFIcons.kmoneySend,
-                        color: Colors.white,
-                        size: 30.0,
+                  child: Container(
+                    width: double.infinity,
+                    height: 80.0,
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 10.0,
+                          color: Color(0x1A57636C),
+                          offset: Offset(0.0, -10.0),
+                          spreadRadius: 0.1,
+                        )
+                      ],
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(0.0),
+                        bottomRight: Radius.circular(0.0),
+                        topLeft: Radius.circular(20.0),
+                        topRight: Radius.circular(20.0),
                       ),
-                      onPressed: () {
-                        print('Sendmoney pressed ...');
-                      },
-                    ).animateOnPageLoad(
-                        animationsMap['iconButtonOnPageLoadAnimation3']!),
+                    ),
                   ),
-                ],
-              ),
-              Opacity(
-                opacity: widget.selectedPageIndex == 3 ? 1.0 : 0.2,
-                child: FlutterFlowIconButton(
-                  borderColor: Colors.transparent,
-                  borderRadius: 30.0,
-                  borderWidth: 1.0,
-                  buttonSize: 50.0,
-                  icon: Icon(
-                    FFIcons.kcard,
-                    color: FlutterFlowTheme.of(context).secondaryText,
-                    size: 24.0,
-                  ),
-                  onPressed: () async {
-                    context.goNamed(
-                      'myAccounts',
-                      extra: <String, dynamic>{
-                        kTransitionInfoKey: TransitionInfo(
-                          hasTransition: true,
-                          transitionType: PageTransitionType.fade,
-                          duration: Duration(milliseconds: 0),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Align(
+                  alignment: AlignmentDirectional(0.00, 0.00),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Opacity(
+                          opacity: widget.selectedPageIndex == 1 ? 1.0 : 0.2,
+                          child: FlutterFlowIconButton(
+                            borderColor: Colors.transparent,
+                            borderRadius: 30.0,
+                            borderWidth: 1.0,
+                            buttonSize: 50.0,
+                            icon: Icon(
+                              Icons.dashboard_rounded,
+                              color: FlutterFlowTheme.of(context).secondaryText,
+                              size: 24.0,
+                            ),
+                            onPressed: () async {
+                              logFirebaseEvent(
+                                  'NAV_BAR1_COMP_Dashboard_ON_TAP');
+                              logFirebaseEvent('Dashboard_navigate_to');
+
+                              context.goNamed(
+                                'dashboard',
+                                extra: <String, dynamic>{
+                                  kTransitionInfoKey: TransitionInfo(
+                                    hasTransition: true,
+                                    transitionType: PageTransitionType.fade,
+                                    duration: Duration(milliseconds: 0),
+                                  ),
+                                },
+                              );
+                            },
+                          ).animateOnPageLoad(
+                              animationsMap['iconButtonOnPageLoadAnimation1']!),
                         ),
-                      },
-                    );
-                  },
-                ).animateOnPageLoad(
-                    animationsMap['iconButtonOnPageLoadAnimation4']!),
-              ),
-              Opacity(
-                opacity: widget.selectedPageIndex == 4 ? 1.0 : 0.2,
-                child: FlutterFlowIconButton(
-                  borderColor: Colors.transparent,
-                  borderRadius: 30.0,
-                  borderWidth: 1.0,
-                  buttonSize: 50.0,
-                  icon: Icon(
-                    Icons.person,
-                    color: FlutterFlowTheme.of(context).secondaryText,
-                    size: 24.0,
-                  ),
-                  onPressed: () async {
-                    context.pushNamed(
-                      'profile',
-                      extra: <String, dynamic>{
-                        kTransitionInfoKey: TransitionInfo(
-                          hasTransition: true,
-                          transitionType: PageTransitionType.fade,
-                          duration: Duration(milliseconds: 0),
+                        Text(
+                          FFLocalizations.of(context).getText(
+                            'sejvqdtg' /* Dashboard */,
+                          ),
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Readex Pro',
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                fontSize: 10.0,
+                              ),
                         ),
-                      },
-                    );
-                  },
-                ).animateOnPageLoad(
-                    animationsMap['iconButtonOnPageLoadAnimation5']!),
-              ),
-            ],
-          ),
-        ],
+                      ],
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: AlignmentDirectional(0.00, 0.00),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Opacity(
+                          opacity: widget.selectedPageIndex == 2 ? 1.0 : 0.2,
+                          child: FlutterFlowIconButton(
+                            borderColor: Colors.transparent,
+                            borderRadius: 30.0,
+                            borderWidth: 1.0,
+                            buttonSize: 50.0,
+                            icon: Icon(
+                              FFIcons.kwallet,
+                              color: FlutterFlowTheme.of(context).secondaryText,
+                              size: 24.0,
+                            ),
+                            onPressed: () async {
+                              logFirebaseEvent(
+                                  'NAV_BAR1_COMP_transactions_ON_TAP');
+                              logFirebaseEvent('transactions_navigate_to');
+
+                              context.goNamed(
+                                'monthlyBudgets',
+                                extra: <String, dynamic>{
+                                  kTransitionInfoKey: TransitionInfo(
+                                    hasTransition: true,
+                                    transitionType: PageTransitionType.fade,
+                                    duration: Duration(milliseconds: 0),
+                                  ),
+                                },
+                              );
+                            },
+                          ).animateOnPageLoad(
+                              animationsMap['iconButtonOnPageLoadAnimation2']!),
+                        ),
+                        Text(
+                          FFLocalizations.of(context).getText(
+                            'pi2ztlh5' /* Budgets */,
+                          ),
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Readex Pro',
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                fontSize: 10.0,
+                              ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: AlignmentDirectional(0.00, 1.00),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            FlutterFlowIconButton(
+                              borderColor: Colors.transparent,
+                              borderRadius: 40.0,
+                              borderWidth: 1.0,
+                              buttonSize: 60.0,
+                              fillColor: FlutterFlowTheme.of(context).primary,
+                              icon: Icon(
+                                Icons.list_alt_sharp,
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                size: 30.0,
+                              ),
+                              onPressed: () async {
+                                logFirebaseEvent('NAV_BAR1_COMP_ayva_ON_TAP');
+                                logFirebaseEvent('ayva_navigate_to');
+
+                                context.pushNamed(
+                                  'allTransactions',
+                                  extra: <String, dynamic>{
+                                    kTransitionInfoKey: TransitionInfo(
+                                      hasTransition: true,
+                                      transitionType: PageTransitionType.fade,
+                                      duration: Duration(milliseconds: 0),
+                                    ),
+                                  },
+                                );
+                              },
+                            ).animateOnPageLoad(animationsMap[
+                                'iconButtonOnPageLoadAnimation3']!),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 4.0, 0.0, 0.0),
+                              child: Text(
+                                FFLocalizations.of(context).getText(
+                                  '02itrjia' /* Transactions */,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      fontSize: 10.0,
+                                    ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Align(
+                  alignment: AlignmentDirectional(0.00, 0.00),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Opacity(
+                          opacity: widget.selectedPageIndex == 3 ? 1.0 : 0.2,
+                          child: FlutterFlowIconButton(
+                            borderColor: Colors.transparent,
+                            borderRadius: 30.0,
+                            borderWidth: 1.0,
+                            buttonSize: 50.0,
+                            icon: Icon(
+                              Icons.account_balance_rounded,
+                              color: FlutterFlowTheme.of(context).secondaryText,
+                              size: 24.0,
+                            ),
+                            onPressed: () async {
+                              logFirebaseEvent('NAV_BAR1_COMP_budget_ON_TAP');
+                              logFirebaseEvent('budget_navigate_to');
+
+                              context.goNamed(
+                                'myAccounts',
+                                extra: <String, dynamic>{
+                                  kTransitionInfoKey: TransitionInfo(
+                                    hasTransition: true,
+                                    transitionType: PageTransitionType.fade,
+                                    duration: Duration(milliseconds: 0),
+                                  ),
+                                },
+                              );
+                            },
+                          ).animateOnPageLoad(
+                              animationsMap['iconButtonOnPageLoadAnimation4']!),
+                        ),
+                        Text(
+                          FFLocalizations.of(context).getText(
+                            'wy1zeavb' /* My Accounts */,
+                          ),
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Readex Pro',
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                fontSize: 10.0,
+                              ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: AlignmentDirectional(0.00, 0.00),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Opacity(
+                          opacity: widget.selectedPageIndex == 4 ? 1.0 : 0.2,
+                          child: FlutterFlowIconButton(
+                            borderColor: Colors.transparent,
+                            borderRadius: 30.0,
+                            borderWidth: 1.0,
+                            buttonSize: 50.0,
+                            icon: Icon(
+                              FFIcons.kuser,
+                              color: FlutterFlowTheme.of(context).secondaryText,
+                              size: 24.0,
+                            ),
+                            onPressed: () async {
+                              logFirebaseEvent(
+                                  'NAV_BAR1_COMP_myaccounts_ON_TAP');
+                              logFirebaseEvent('myaccounts_navigate_to');
+
+                              context.goNamed(
+                                'profile',
+                                extra: <String, dynamic>{
+                                  kTransitionInfoKey: TransitionInfo(
+                                    hasTransition: true,
+                                    transitionType: PageTransitionType.fade,
+                                    duration: Duration(milliseconds: 0),
+                                  ),
+                                },
+                              );
+                            },
+                          ).animateOnPageLoad(
+                              animationsMap['iconButtonOnPageLoadAnimation5']!),
+                        ),
+                        Text(
+                          FFLocalizations.of(context).getText(
+                            'akntj55l' /* Profile */,
+                          ),
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Readex Pro',
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                fontSize: 10.0,
+                              ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

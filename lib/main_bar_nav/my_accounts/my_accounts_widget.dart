@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/components/nav_bar1/nav_bar1_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -30,6 +31,7 @@ class _MyAccountsWidgetState extends State<MyAccountsWidget> {
     super.initState();
     _model = createModel(context, () => MyAccountsModel());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'myAccounts'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -122,8 +124,11 @@ class _MyAccountsWidgetState extends State<MyAccountsWidget> {
                       child: Container(
                         width: double.infinity,
                         decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).primaryBackground,
+                          color: FlutterFlowTheme.of(context).info,
                           borderRadius: BorderRadius.circular(8.0),
+                          border: Border.all(
+                            color: FlutterFlowTheme.of(context).alternate,
+                          ),
                         ),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -163,8 +168,13 @@ class _MyAccountsWidgetState extends State<MyAccountsWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
+                          logFirebaseEvent('MY_ACCOUNTS_PAGE_bg_color_ON_TAP');
+                          logFirebaseEvent('bg_color_navigate_to');
+
                           context.goNamed('dashboard');
 
+                          logFirebaseEvent(
+                              'bg_color_close_dialog,_drawer,_etc');
                           Navigator.pop(context);
                         },
                         child: Container(
@@ -194,8 +204,13 @@ class _MyAccountsWidgetState extends State<MyAccountsWidget> {
                                     FFLocalizations.of(context).getText(
                                       'h52nye57' /* Dashboard */,
                                     ),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyLarge,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyLarge
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                        ),
                                   ),
                                 ),
                               ],
@@ -213,8 +228,13 @@ class _MyAccountsWidgetState extends State<MyAccountsWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
+                          logFirebaseEvent('MY_ACCOUNTS_PAGE_bg_color_ON_TAP');
+                          logFirebaseEvent('bg_color_navigate_to');
+
                           context.goNamed('allTransactions');
 
+                          logFirebaseEvent(
+                              'bg_color_close_dialog,_drawer,_etc');
                           Navigator.pop(context);
                         },
                         child: Container(
@@ -263,6 +283,9 @@ class _MyAccountsWidgetState extends State<MyAccountsWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
+                          logFirebaseEvent('MY_ACCOUNTS_PAGE_bg_color_ON_TAP');
+                          logFirebaseEvent(
+                              'bg_color_close_dialog,_drawer,_etc');
                           Navigator.pop(context);
                         },
                         child: Container(
@@ -290,8 +313,13 @@ class _MyAccountsWidgetState extends State<MyAccountsWidget> {
                                     FFLocalizations.of(context).getText(
                                       'kcy5cu0v' /* My Accounts */,
                                     ),
-                                    style:
-                                        FlutterFlowTheme.of(context).labelLarge,
+                                    style: FlutterFlowTheme.of(context)
+                                        .labelLarge
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                        ),
                                   ),
                                 ),
                               ],
@@ -309,8 +337,13 @@ class _MyAccountsWidgetState extends State<MyAccountsWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
+                          logFirebaseEvent('MY_ACCOUNTS_PAGE_bg_color_ON_TAP');
+                          logFirebaseEvent('bg_color_navigate_to');
+
                           context.goNamed('insights');
 
+                          logFirebaseEvent(
+                              'bg_color_close_dialog,_drawer,_etc');
                           Navigator.pop(context);
                         },
                         child: Container(
@@ -359,8 +392,13 @@ class _MyAccountsWidgetState extends State<MyAccountsWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
+                          logFirebaseEvent('MY_ACCOUNTS_PAGE_bg_color_ON_TAP');
+                          logFirebaseEvent('bg_color_navigate_to');
+
                           context.goNamed('monthlyBudgets');
 
+                          logFirebaseEvent(
+                              'bg_color_close_dialog,_drawer,_etc');
                           Navigator.pop(context);
                         },
                         child: Container(
@@ -409,6 +447,9 @@ class _MyAccountsWidgetState extends State<MyAccountsWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
+                          logFirebaseEvent('MY_ACCOUNTS_PAGE_bg_color_ON_TAP');
+                          logFirebaseEvent('bg_color_navigate_to');
+
                           context.goNamed(
                             'aiiAyva',
                             extra: <String, dynamic>{
@@ -420,6 +461,8 @@ class _MyAccountsWidgetState extends State<MyAccountsWidget> {
                             },
                           );
 
+                          logFirebaseEvent(
+                              'bg_color_close_dialog,_drawer,_etc');
                           Navigator.pop(context);
                         },
                         child: Container(
@@ -556,6 +599,11 @@ class _MyAccountsWidgetState extends State<MyAccountsWidget> {
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
+                                                logFirebaseEvent(
+                                                    'MY_ACCOUNTS_PAGE_Text_nzxu6r0b_ON_TAP');
+                                                logFirebaseEvent(
+                                                    'Text_navigate_to');
+
                                                 context.goNamed(
                                                   'profile',
                                                   extra: <String, dynamic>{
@@ -639,10 +687,13 @@ class _MyAccountsWidgetState extends State<MyAccountsWidget> {
                     fillColor: FlutterFlowTheme.of(context).accent1,
                     icon: Icon(
                       Icons.menu_sharp,
-                      color: Colors.white,
+                      color: FlutterFlowTheme.of(context).primaryText,
                       size: 24.0,
                     ),
                     onPressed: () async {
+                      logFirebaseEvent(
+                          'MY_ACCOUNTS_PAGE_menu_sharp_ICN_ON_TAP');
+                      logFirebaseEvent('IconButton_drawer');
                       scaffoldKey.currentState!.openDrawer();
                     },
                   ),
@@ -655,7 +706,34 @@ class _MyAccountsWidgetState extends State<MyAccountsWidget> {
         ),
         body: Column(
           mainAxisSize: MainAxisSize.max,
-          children: [],
+          children: [
+            Expanded(
+              child: Align(
+                alignment: AlignmentDirectional(0.00, 0.00),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Stack(
+              children: [
+                wrapWithModel(
+                  model: _model.navBar1Model,
+                  updateCallback: () => setState(() {}),
+                  child: NavBar1Widget(
+                    selectedPageIndex: 3,
+                    hidden: false,
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );

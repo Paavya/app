@@ -27,6 +27,8 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
     super.initState();
     _model = createModel(context, () => NotificationsModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'notifications'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -62,11 +64,13 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
           borderWidth: 1.0,
           buttonSize: 60.0,
           icon: Icon(
-            Icons.arrow_back_rounded,
+            Icons.chevron_left,
             color: FlutterFlowTheme.of(context).secondaryText,
             size: 30.0,
           ),
           onPressed: () async {
+            logFirebaseEvent('NOTIFICATIONS_chevron_left_ICN_ON_TAP');
+            logFirebaseEvent('IconButton_navigate_back');
             context.pop();
           },
         ),
@@ -262,6 +266,8 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 50.0),
               child: FFButtonWidget(
                 onPressed: () async {
+                  logFirebaseEvent('NOTIFICATIONS_PAGE_Button-Login_ON_TAP');
+                  logFirebaseEvent('Button-Login_navigate_back');
                   context.pop();
                 },
                 text: FFLocalizations.of(context).getText(

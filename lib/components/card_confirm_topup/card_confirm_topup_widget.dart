@@ -239,6 +239,9 @@ class _CardConfirmTopupWidgetState extends State<CardConfirmTopupWidget> {
                     children: [
                       FFButtonWidget(
                         onPressed: () async {
+                          logFirebaseEvent(
+                              'CARD_CONFIRM_TOPUP_GO_BACK_BTN_ON_TAP');
+                          logFirebaseEvent('Button_navigate_back');
                           context.safePop();
                         },
                         text: FFLocalizations.of(context).getText(
@@ -263,6 +266,10 @@ class _CardConfirmTopupWidgetState extends State<CardConfirmTopupWidget> {
                       ),
                       FFButtonWidget(
                         onPressed: () async {
+                          logFirebaseEvent(
+                              'CARD_CONFIRM_TOPUP_CONFIRM_TOP_UP_BTN_ON');
+                          logFirebaseEvent('Button_navigate_to');
+
                           context.goNamed(
                             'topup_success',
                             extra: <String, dynamic>{

@@ -28,6 +28,8 @@ class _TopupFailedWidgetState extends State<TopupFailedWidget> {
     super.initState();
     _model = createModel(context, () => TopupFailedModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'topup_failed'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -247,6 +249,9 @@ class _TopupFailedWidgetState extends State<TopupFailedWidget> {
                           EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 25.0, 0.0),
                       child: FFButtonWidget(
                         onPressed: () async {
+                          logFirebaseEvent(
+                              'TOPUP_FAILED_GO_BACK_TO_TRY_AGAIN_BTN_ON');
+                          logFirebaseEvent('Button_navigate_back');
                           context.safePop();
                         },
                         text: FFLocalizations.of(context).getText(

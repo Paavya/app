@@ -1,4 +1,4 @@
-import '/backend/backend.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -43,6 +43,8 @@ class _EditMyAccountWidgetState extends State<EditMyAccountWidget> {
     super.initState();
     _model = createModel(context, () => EditMyAccountModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'editMyAccount'});
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
 
@@ -94,11 +96,13 @@ class _EditMyAccountWidgetState extends State<EditMyAccountWidget> {
             borderWidth: 1.0,
             buttonSize: 60.0,
             icon: Icon(
-              Icons.arrow_back_rounded,
+              Icons.chevron_left,
               color: FlutterFlowTheme.of(context).secondaryText,
               size: 30.0,
             ),
             onPressed: () async {
+              logFirebaseEvent('EDIT_MY_ACCOUNT_chevron_left_ICN_ON_TAP');
+              logFirebaseEvent('IconButton_navigate_back');
               context.safePop();
             },
           ),
@@ -172,6 +176,10 @@ class _EditMyAccountWidgetState extends State<EditMyAccountWidget> {
                                             hoverColor: Colors.transparent,
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
+                                              logFirebaseEvent(
+                                                  'EDIT_MY_ACCOUNT_CircleImage_6uljya65_ON_');
+                                              logFirebaseEvent(
+                                                  'CircleImage_upload_media_to_firebase');
                                               final selectedMedia =
                                                   await selectMediaWithSourceBottomSheet(
                                                 context: context,
@@ -256,7 +264,7 @@ class _EditMyAccountWidgetState extends State<EditMyAccountWidget> {
                                               ),
                                               child: Image.network(
                                                 getCORSProxyUrl(
-                                                  widget.image!,
+                                                  FFAppState().profileimg,
                                                 ),
                                                 fit: BoxFit.cover,
                                               ),
@@ -341,7 +349,7 @@ class _EditMyAccountWidgetState extends State<EditMyAccountWidget> {
                                     Expanded(
                                       child: Container(
                                         width: 100.0,
-                                        height: 56.0,
+                                        height: 50.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .primaryBackground,
@@ -477,7 +485,7 @@ class _EditMyAccountWidgetState extends State<EditMyAccountWidget> {
                                     Expanded(
                                       child: Container(
                                         width: 100.0,
-                                        height: 56.0,
+                                        height: 50.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .primaryBackground,
@@ -607,7 +615,7 @@ class _EditMyAccountWidgetState extends State<EditMyAccountWidget> {
                                     Expanded(
                                       child: Container(
                                         width: 100.0,
-                                        height: 56.0,
+                                        height: 50.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .primaryBackground,
@@ -737,7 +745,7 @@ class _EditMyAccountWidgetState extends State<EditMyAccountWidget> {
                                     Expanded(
                                       child: Container(
                                         width: 100.0,
-                                        height: 56.0,
+                                        height: 50.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .primaryBackground,
@@ -827,95 +835,68 @@ class _EditMyAccountWidgetState extends State<EditMyAccountWidget> {
                   Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(24.0, 36.0, 24.0, 100.0),
-                    child: StreamBuilder<List<UsersRecord>>(
-                      stream: queryUsersRecord(
-                        singleRecord: true,
-                      ),
-                      builder: (context, snapshot) {
-                        // Customize what your widget looks like when it's loading.
-                        if (!snapshot.hasData) {
-                          return Center(
-                            child: SizedBox(
-                              width: 50.0,
-                              height: 50.0,
-                              child: SpinKitRipple(
-                                color: FlutterFlowTheme.of(context).primary,
-                                size: 50.0,
-                              ),
+                    child: FFButtonWidget(
+                      onPressed: () async {
+                        logFirebaseEvent(
+                            'EDIT_MY_ACCOUNT_CONFIRM_CHANGES_BTN_ON_T');
+                        logFirebaseEvent('Button_navigate_to');
+
+                        context.goNamed(
+                          'profileDetails',
+                          queryParameters: {
+                            'emailAddress': serializeParam(
+                              widget.emailAddress,
+                              ParamType.String,
                             ),
-                          );
-                        }
-                        List<UsersRecord> buttonUsersRecordList =
-                            snapshot.data!;
-                        // Return an empty Container when the item does not exist.
-                        if (snapshot.data!.isEmpty) {
-                          return Container();
-                        }
-                        final buttonUsersRecord =
-                            buttonUsersRecordList.isNotEmpty
-                                ? buttonUsersRecordList.first
-                                : null;
-                        return FFButtonWidget(
-                          onPressed: () async {
-                            context.goNamed(
-                              'profileDetails',
-                              queryParameters: {
-                                'emailAddress': serializeParam(
-                                  widget.emailAddress,
-                                  ParamType.String,
-                                ),
-                                'firstName': serializeParam(
-                                  widget.firstName,
-                                  ParamType.String,
-                                ),
-                                'lastName': serializeParam(
-                                  widget.lastName,
-                                  ParamType.String,
-                                ),
-                                'phoneNumber': serializeParam(
-                                  widget.phoneNumber,
-                                  ParamType.String,
-                                ),
-                                'proImage': serializeParam(
-                                  buttonUsersRecord?.photoUrl,
-                                  ParamType.String,
-                                ),
-                              }.withoutNulls,
-                              extra: <String, dynamic>{
-                                kTransitionInfoKey: TransitionInfo(
-                                  hasTransition: true,
-                                  transitionType: PageTransitionType.fade,
-                                  duration: Duration(milliseconds: 0),
-                                ),
-                              },
-                            );
+                            'firstName': serializeParam(
+                              widget.firstName,
+                              ParamType.String,
+                            ),
+                            'lastName': serializeParam(
+                              widget.lastName,
+                              ParamType.String,
+                            ),
+                            'phoneNumber': serializeParam(
+                              widget.phoneNumber,
+                              ParamType.String,
+                            ),
+                            'proImage': serializeParam(
+                              currentUserPhoto,
+                              ParamType.String,
+                            ),
+                          }.withoutNulls,
+                          extra: <String, dynamic>{
+                            kTransitionInfoKey: TransitionInfo(
+                              hasTransition: true,
+                              transitionType: PageTransitionType.fade,
+                              duration: Duration(milliseconds: 0),
+                            ),
                           },
-                          text: FFLocalizations.of(context).getText(
-                            'gafaelwz' /* Confirm Changes */,
-                          ),
-                          options: FFButtonOptions(
-                            width: 180.0,
-                            height: 56.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                24.0, 0.0, 24.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).primary,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
+                        );
+                      },
+                      text: FFLocalizations.of(context).getText(
+                        'gafaelwz' /* Confirm Changes */,
+                      ),
+                      options: FFButtonOptions(
+                        width: 180.0,
+                        height: 56.0,
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            24.0, 0.0, 24.0, 0.0),
+                        iconPadding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: FlutterFlowTheme.of(context).primary,
+                        textStyle:
+                            FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Readex Pro',
                                   color: Colors.white,
                                 ),
-                            elevation: 3.0,
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                        );
-                      },
+                        elevation: 3.0,
+                        borderSide: BorderSide(
+                          color: Colors.transparent,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
                     ),
                   ),
                 ],

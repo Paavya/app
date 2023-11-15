@@ -68,6 +68,8 @@ abstract class FlutterFlowTheme {
   late Color restaurants;
   late Color gasoline;
   late Color other;
+  late Color cardbg11;
+  late Color primebg2;
 
   @Deprecated('Use displaySmallFamily instead')
   String get title1Family => displaySmallFamily;
@@ -171,6 +173,8 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color restaurants = Color(0xFF569EFF);
   late Color gasoline = Color(0xFFC21BFF);
   late Color other = Color(0xFF07EB35);
+  late Color cardbg11 = Color(0xFFFFFFFF);
+  late Color primebg2 = Color(0xFFF1F4F8);
 }
 
 abstract class Typography {
@@ -357,6 +361,8 @@ class DarkModeTheme extends FlutterFlowTheme {
   late Color restaurants = Color(0xFF569EFF);
   late Color gasoline = Color(0xFFC21BFF);
   late Color other = Color(0xFF07EB35);
+  late Color cardbg11 = Color(0xFF2E2E2E);
+  late Color primebg2 = Color(0xFF14181B);
 }
 
 extension TextStyleHelper on TextStyle {

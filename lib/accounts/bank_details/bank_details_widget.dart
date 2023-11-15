@@ -1,3 +1,4 @@
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -26,6 +27,7 @@ class _BankDetailsWidgetState extends State<BankDetailsWidget> {
     super.initState();
     _model = createModel(context, () => BankDetailsModel());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'bankDetails'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -60,7 +62,28 @@ class _BankDetailsWidgetState extends State<BankDetailsWidget> {
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
           iconTheme:
               IconThemeData(color: FlutterFlowTheme.of(context).primaryText),
-          automaticallyImplyLeading: true,
+          automaticallyImplyLeading: false,
+          leading: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              FlutterFlowIconButton(
+                borderColor: Colors.transparent,
+                borderRadius: 30.0,
+                borderWidth: 1.0,
+                buttonSize: 60.0,
+                icon: Icon(
+                  Icons.chevron_left,
+                  color: FlutterFlowTheme.of(context).secondaryText,
+                  size: 30.0,
+                ),
+                onPressed: () async {
+                  logFirebaseEvent('BANK_DETAILS_chevron_left_ICN_ON_TAP');
+                  logFirebaseEvent('IconButton_navigate_back');
+                  context.pop();
+                },
+              ),
+            ],
+          ),
           title: Text(
             FFLocalizations.of(context).getText(
               'olk748ws' /* Bank Account */,
@@ -74,13 +97,6 @@ class _BankDetailsWidgetState extends State<BankDetailsWidget> {
           actions: [],
           centerTitle: true,
           elevation: 0.0,
-        ),
-        body: SafeArea(
-          top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [],
-          ),
         ),
       ),
     );

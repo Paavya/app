@@ -27,6 +27,8 @@ class _DashboardEmptyWidgetState extends State<DashboardEmptyWidget> {
     super.initState();
     _model = createModel(context, () => DashboardEmptyModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'dashboard_empty'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -163,6 +165,9 @@ class _DashboardEmptyWidgetState extends State<DashboardEmptyWidget> {
                                     0.0, 24.0, 0.0, 0.0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
+                                    logFirebaseEvent(
+                                        'DASHBOARD_EMPTY_ADD_YOUR_ACOUNT_BTN_ON_T');
+                                    logFirebaseEvent('Button_backend_call');
                                     _model.apiResultsup = await ThePlaidAPIGroup
                                         .authGetCall
                                         .call();
@@ -214,6 +219,10 @@ class _DashboardEmptyWidgetState extends State<DashboardEmptyWidget> {
                                       hoverColor: Colors.transparent,
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
+                                        logFirebaseEvent(
+                                            'DASHBOARD_EMPTY_Text_ebho3wdp_ON_TAP');
+                                        logFirebaseEvent('Text_navigate_to');
+
                                         context.goNamed(
                                           'dashboard',
                                           extra: <String, dynamic>{

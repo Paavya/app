@@ -27,6 +27,7 @@ class _AddNewcardWidgetState extends State<AddNewcardWidget> {
     super.initState();
     _model = createModel(context, () => AddNewcardModel());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'addNewcard'});
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
 
@@ -84,11 +85,13 @@ class _AddNewcardWidgetState extends State<AddNewcardWidget> {
             borderWidth: 1.0,
             buttonSize: 60.0,
             icon: Icon(
-              Icons.arrow_back_rounded,
+              Icons.chevron_left,
               color: FlutterFlowTheme.of(context).secondaryText,
               size: 30.0,
             ),
             onPressed: () async {
+              logFirebaseEvent('ADD_NEWCARD_PAGE_chevron_left_ICN_ON_TAP');
+              logFirebaseEvent('IconButton_navigate_back');
               context.pop();
             },
           ),
@@ -784,6 +787,9 @@ class _AddNewcardWidgetState extends State<AddNewcardWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(24.0, 100.0, 24.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
+                    logFirebaseEvent('ADD_NEWCARD_PAGE_ADD_CARD_BTN_ON_TAP');
+                    logFirebaseEvent('Button_navigate_to');
+
                     context.goNamed(
                       'myAccounts',
                       extra: <String, dynamic>{

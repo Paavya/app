@@ -30,6 +30,8 @@ class _Forgotpassword1WidgetState extends State<Forgotpassword1Widget> {
     super.initState();
     _model = createModel(context, () => Forgotpassword1Model());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'Forgotpassword1'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -69,11 +71,13 @@ class _Forgotpassword1WidgetState extends State<Forgotpassword1Widget> {
             borderWidth: 1.0,
             buttonSize: 60.0,
             icon: Icon(
-              Icons.arrow_back_rounded,
+              Icons.chevron_left,
               color: FlutterFlowTheme.of(context).secondaryText,
               size: 30.0,
             ),
             onPressed: () async {
+              logFirebaseEvent('FORGOTPASSWORD1_chevron_left_ICN_ON_TAP');
+              logFirebaseEvent('IconButton_navigate_back');
               context.pop();
             },
           ),

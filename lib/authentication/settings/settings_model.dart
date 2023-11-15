@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:local_auth/local_auth.dart';
 import 'package:provider/provider.dart';
 
 class SettingsModel extends FlutterFlowModel<SettingsWidget> {
@@ -15,6 +16,7 @@ class SettingsModel extends FlutterFlowModel<SettingsWidget> {
   final unfocusNode = FocusNode();
   // State field(s) for SwitchListTile widget.
   bool? switchListTileValue;
+  bool biometriclogin = false;
   // State field(s) for darkmodetiler widget.
   bool? darkmodetilerValue;
 

@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/components/nav_bar1/nav_bar1_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -17,13 +18,18 @@ class MonthlyBudgetsModel extends FlutterFlowModel<MonthlyBudgetsWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // Model for NavBar1 component.
+  late NavBar1Model navBar1Model;
 
   /// Initialization and disposal methods.
 
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    navBar1Model = createModel(context, () => NavBar1Model());
+  }
 
   void dispose() {
     unfocusNode.dispose();
+    navBar1Model.dispose();
   }
 
   /// Action blocks are added here.

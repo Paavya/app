@@ -28,6 +28,7 @@ class _AddressWidgetState extends State<AddressWidget> {
     super.initState();
     _model = createModel(context, () => AddressModel());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'Address'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -67,11 +68,13 @@ class _AddressWidgetState extends State<AddressWidget> {
             borderWidth: 1.0,
             buttonSize: 60.0,
             icon: Icon(
-              Icons.arrow_back_rounded,
+              Icons.chevron_left,
               color: FlutterFlowTheme.of(context).secondaryText,
               size: 30.0,
             ),
             onPressed: () async {
+              logFirebaseEvent('ADDRESS_PAGE_chevron_left_ICN_ON_TAP');
+              logFirebaseEvent('IconButton_navigate_back');
               context.safePop();
             },
           ),
@@ -99,9 +102,9 @@ class _AddressWidgetState extends State<AddressWidget> {
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Expanded(
+                    Flexible(
                       child: Container(
-                        width: 100.0,
+                        width: double.infinity,
                         height: 148.0,
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).primaryBackground,

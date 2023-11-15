@@ -28,6 +28,7 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
     super.initState();
     _model = createModel(context, () => Onboarding2Model());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'Onboarding2'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -67,11 +68,14 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget> {
             borderWidth: 1.0,
             buttonSize: 60.0,
             icon: Icon(
-              Icons.arrow_back_rounded,
+              Icons.chevron_left,
               color: FlutterFlowTheme.of(context).secondaryText,
               size: 30.0,
             ),
             onPressed: () async {
+              logFirebaseEvent('ONBOARDING2_PAGE_chevron_left_ICN_ON_TAP');
+              logFirebaseEvent('IconButton_navigate_to');
+
               context.pushNamed(
                 'onboarding_flow',
                 extra: <String, dynamic>{
@@ -827,6 +831,11 @@ ID... */
                                           0.0, 20.0, 0.0, 0.0),
                                       child: FFButtonWidget(
                                         onPressed: () async {
+                                          logFirebaseEvent(
+                                              'ONBOARDING2_PAGE_GET_STARTED_BTN_ON_TAP');
+                                          logFirebaseEvent(
+                                              'Button_navigate_to');
+
                                           context.pushNamed(
                                             'dashboard_empty',
                                             extra: <String, dynamic>{
