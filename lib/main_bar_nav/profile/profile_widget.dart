@@ -1049,6 +1049,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                   transitionType:
                                                       PageTransitionType
                                                           .rightToLeft,
+                                                  duration: Duration(
+                                                      milliseconds: 300),
                                                 ),
                                               },
                                             );

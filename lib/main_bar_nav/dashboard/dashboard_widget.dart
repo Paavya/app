@@ -1132,8 +1132,14 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                   width: 180.0,
                                   height: 236.0,
                                   decoration: BoxDecoration(
-                                    color: Color(0xFFFFC37A),
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
                                     borderRadius: BorderRadius.circular(16.0),
+                                    border: Border.all(
+                                      color: FlutterFlowTheme.of(context)
+                                          .alternate,
+                                      width: 3.0,
+                                    ),
                                   ),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -1194,7 +1200,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                     backgroundColor:
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .accent4,
+                                                            .primaryBackground,
                                                     center: Text(
                                                       FFLocalizations.of(
                                                               context)
@@ -1252,8 +1258,14 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                   width: 180.0,
                                   height: 236.0,
                                   decoration: BoxDecoration(
-                                    color: Color(0xFF9BC6FF),
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
                                     borderRadius: BorderRadius.circular(16.0),
+                                    border: Border.all(
+                                      color: FlutterFlowTheme.of(context)
+                                          .alternate,
+                                      width: 3.0,
+                                    ),
                                   ),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -1316,7 +1328,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                     backgroundColor:
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .accent4,
+                                                            .primaryBackground,
                                                     center: Text(
                                                       FFLocalizations.of(
                                                               context)
